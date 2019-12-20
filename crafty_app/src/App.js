@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 import Main from './components/Main.js'
 import Aside from './components/Aside.js'
@@ -66,12 +67,14 @@ class App extends React.Component {
 
 render () {
     return (
+        <Router>
         <div>
         <Aside handleView={this.handleView} className = 'nav-bar'/>
         <Main
         view={this.state.view}
         handleView = {this.handleView}/>
         </div>
+        </Router>
     )
 }
 }

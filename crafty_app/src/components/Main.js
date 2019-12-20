@@ -16,7 +16,11 @@ class Main extends React.Component {
     }
     render() {
         return(
+            <div>
+            <main>
             <h1>{this.props.view.pageTitle}</h1>
+            </main>
+            </div>
         )
     }
 }
