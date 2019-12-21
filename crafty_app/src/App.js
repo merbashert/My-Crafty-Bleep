@@ -1,5 +1,4 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
 import Main from './components/Main.js'
 import Aside from './components/Aside.js'
@@ -10,73 +9,89 @@ class App extends React.Component {
         super(props)
         this.state = {
             view: {
-                page: 'home',
-                pageTitle: 'Home'
+                page: 'allRandom',
+                pageTitle: 'Random'
+            },
+            formInputs: {
+                name: null,
+                details: null,
+                box_number: null,
+                id: null
             }
         }
     }
-    handleView = (view) => {
-        let pageTitle = ''
 
-    switch(view) {
-        case 'home':
-        pageTitle = 'Home'
-        break
-        case 'addFabric':
-        pageTitle = 'Add Fabric'
-        break
-        case 'editFabric':
-        pageTitle = "Edit Fabric"
-        break
-        case 'allFabric':
-        pageTitle = 'All Fabric'
-        break
-        case 'addRandom':
-        pageTitle = 'Add Random'
-        break
-        case 'editRandom':
-        pageTitle = "Edit Random"
-        break
-        case 'allRandom':
-        pageTitle = 'All Random'
-        break
-        case 'addNeedle':
-        pageTitle = 'Add Needle'
-        break
-        case 'editNeedle':
-        pageTitle = "Edit Needle"
-        break
-        case 'allNeedle':
-        pageTitle = 'All Needle'
-        break
-        default:
-        break
+    handleView = (view, randomData) => {
+        let pageTitle = ''
+        let formInputs = {
+            name: '',
+            details: '',
+            box_number: '',
+            id: null
+        }
+        switch(view) {
+            case 'home':
+            pageTitle = 'Home'
+            break
+            case 'addFabric':
+            pageTitle = 'Add Fabric'
+            break
+            case 'editFabric':
+            pageTitle = "Edit Fabric"
+            break
+            case 'allFabric':
+            pageTitle = 'All Fabric'
+            break
+            case 'addRandom':
+            pageTitle = 'Add Random'
+            break
+            case 'editRandom':
+            pageTitle = "Edit Random"
+            formInputs = {
+                name: randomData.name,
+                details: randomData.details,
+                box_number: randomData.box_number,
+                id: randomData.id
+            }
+            break
+            case 'allRandom':
+            pageTitle = 'All Random'
+            break
+            case 'addNeedle':
+            pageTitle = 'Add Needle'
+            break
+            case 'editNeedle':
+            pageTitle = "Edit Needle"
+            break
+            case 'allNeedle':
+            pageTitle = 'All Needle'
+            break
+            default:
+            break
+
+        }
+        this.setState({
+            view: {
+                page: view,
+                pageTitle: pageTitle
+            },
+            formInputs: formInputs
+        })
 
     }
-    this.setState({
-        view: {
-            page: view,
-            pageTitle: pageTitle
-        }
-    })
 
-}
-
-
-
-
-render () {
-    return (
-        <Router>
-        <div>
-        <Aside handleView={this.handleView} className = 'nav-bar'/>
-        <Main
-        view={this.state.view}
-        handleView = {this.handleView}/>
-        </div>
-        </Router>
-    )
-}
+    render () {
+        return (
+            <div>
+            <Aside handleView={this.handleView}/>
+            <Main
+            view={this.state.view}
+            handleView = {this.handleView}
+            formInputs={this.state.formInputs}
+            />
+            </div>
+        )
+    }
 }
 
 
