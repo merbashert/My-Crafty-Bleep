@@ -88,6 +88,7 @@ class App extends React.Component {
             view={this.state.view}
             handleView = {this.handleView}
             formInputs={this.state.formInputs}
+            randomData={this.state.randomData}
             />
             </div>
         )
