@@ -16,18 +16,25 @@ class App extends React.Component {
                 name: null,
                 details: null,
                 box_number: null,
-                id: null
+                id: null,
+                length: null,
+                tags: null,
+                main_color: null
             }
         }
     }
 
-    handleView = (view, randomData) => {
+    handleView = (view, fabricData, randomData) => {
         let pageTitle = ''
         let formInputs = {
             name: '',
             details: '',
             box_number: '',
-            id: null
+            id: null,
+            length: '',
+            tags: '',
+            main_color: '',
+            picture:''
         }
         switch(view) {
             case 'home':
@@ -38,6 +45,13 @@ class App extends React.Component {
             break
             case 'editFabric':
             pageTitle = "Edit Fabric"
+            formInputs = {
+                length: fabricData.length,
+                tags: fabricData.tags,
+                main_color: fabricData.main_color,
+                picture: fabricData.picture,
+                id: fabricData.id
+            }
             break
             case 'allFabric':
             pageTitle = 'All Fabric'
@@ -89,6 +103,7 @@ class App extends React.Component {
             handleView = {this.handleView}
             formInputs={this.state.formInputs}
             randomData={this.state.randomData}
+            fabricData={this.state.fabricData}
             />
             </div>
         )

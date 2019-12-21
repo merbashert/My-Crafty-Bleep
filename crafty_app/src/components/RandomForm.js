@@ -21,15 +21,10 @@ class RandomForm extends React.Component {
         }
     }
 
-    // ==============
-    // HANDLERS
-    // ==============
-    // handles form change
     handleChangeRandom = (e) => {
         this.setState({[e.target.id] : e.target.value})
     }
 
-    // handles submit
     handleSubmit = (e) => {
         e.preventDefault()
         if(this.props.view.page === 'addRandom') {
