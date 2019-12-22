@@ -27,9 +27,9 @@ class RandomForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        if(this.props.view.page === 'addRandom') {
+        if(this.props.action === 'create') {
             this.props.handleCreateRandom(this.state)
-        } else if (this.props.view.page === 'editRandom') {
+        } else if (this.props.action === 'edit') {
             this.props.handleUpdateRandom(this.state)
         }
 

@@ -25,7 +25,7 @@ class Random extends React.Component {
         <div>
         <ul>
         <li onClick={() => {
-            {this.props.handleView('editRandom', this.props.randomData)}
+            this.props.handleUpdateRandom(this.props.randomData)
         }}>edit random</li>
         <li onClick={() => {
             this.props.handleDeleteRandom(this.props.randomData.id)

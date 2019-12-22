@@ -38,9 +38,9 @@ class RandomPage extends React.Component {
             return createdRandom.json()
         })
         .then(json => {
-            this.props.handleView('allRandom')
             this.setState({
-                randoms: json
+                randoms: json,
+                action: 'create'
             })
         })
         .catch(err=>console.log(err))
@@ -55,7 +55,9 @@ class RandomPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedRandom => {
-            this.props.handleView('allRandom')
+            this.setState({
+                action: 'edit'
+            })
             this.fetchRandom()
         }).catch(err=>console.log(err))
     }
@@ -84,14 +86,14 @@ render() {
         <RandomForm
         handleCreateRandom={this.handleCreateRandom}
         formInputs={this.props.formInputs}
-        handleUpdateRandom={this.handleUpdateRandom}
-        view={this.props.view}
+
         />
         {this.state.randoms.map((randomData) => (
             <Random
             key={randomData.id}
             randomData={randomData}
             handleDeleteRandom={this.handleDeleteRandom}
+            handleUpdateRandom={this.handleUpdateRandom}
             />
     ))}
 
