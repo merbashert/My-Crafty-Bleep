@@ -1,7 +1,7 @@
 import React from 'react'
 
 import NeedleForm from './NeedleForm'
-import Needles from './Needles'
+import Needle from './Needles'
 
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -38,9 +38,9 @@ class NeedlePage extends React.Component {
             return createdNeedle.json()
         })
         .then(json => {
-            this.props.handleView('allNeedle')
             this.setState({
-                needles: json
+                needles: json,
+                action: 'create'
             })
         })
         .catch(err=>console.log(err))
@@ -55,7 +55,9 @@ class NeedlePage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedNeedle => {
-            this.props.handleView('allNeedle')
+            this.setState({
+                action: 'edit'
+            })
             this.fetchNeedle()
         }).catch(err=>console.log(err))
     }
@@ -69,7 +71,7 @@ class NeedlePage extends React.Component {
             }
         }).then(json => {
             this.setState({
-                needles: this.state.needles.filter(random => random.id !== id)
+                needles: this.state.needles.filter(needle => needle.id !== id)
 
             })
         }).catch(err=>console.log(err))
@@ -84,14 +86,14 @@ render() {
         <NeedleForm
         handleCreateNeedle={this.handleCreateNeedle}
         formInputs={this.props.formInputs}
-        handleUpdateNeedle={this.handleUpdateNeedle}
-        view={this.props.view}
+
         />
         {this.state.needles.map((needleData) => (
-            <Needles
+            <Needle
             key={needleData.id}
             needleData={needleData}
             handleDeleteNeedle={this.handleDeleteNeedle}
+            handleUpdateNeedle={this.handleUpdateNeedle}
             />
     ))}
 

@@ -1,7 +1,3 @@
-// =============================
-// DEPENDENCIES
-// =============================
-// packages
 import React from 'react'
 
 let baseUrl = '';
@@ -11,13 +7,7 @@ if (process.env.NODE_ENV === 'development') {
     console.log('this is for heroku');
 }
 
-// =============================
-// COMPONENT CLASS
-// =============================
 class RandomForm extends React.Component {
-    // ==============
-    // STATE
-    // ==============
     constructor() {
         super()
         this.state = {
@@ -39,9 +29,6 @@ class RandomForm extends React.Component {
 
 
 
-    // ==============
-    // RENDER
-    // ==============
     render () {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -63,7 +50,5 @@ class RandomForm extends React.Component {
     }
 }
 
-// =============================
-// EXPORT
-// =============================
+
 export default RandomForm

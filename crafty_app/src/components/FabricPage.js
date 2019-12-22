@@ -1,7 +1,7 @@
 import React from 'react'
 
 import FabricForm from './FabricForm'
-import Fabrics from './Fabrics'
+import Fabric from './Fabrics'
 
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -38,9 +38,9 @@ class FabricPage extends React.Component {
             return createdFabric.json()
         })
         .then(json => {
-            this.props.handleView('allFabric')
             this.setState({
-                fabrics: json
+                fabrics: json,
+                action: 'create'
             })
         })
         .catch(err=>console.log(err))
@@ -55,7 +55,9 @@ class FabricPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedFabric => {
-            this.props.handleView('allFabric')
+            this.setState({
+                action: 'edit'
+            })
             this.fetchFabric()
         }).catch(err=>console.log(err))
     }
@@ -69,7 +71,7 @@ class FabricPage extends React.Component {
             }
         }).then(json => {
             this.setState({
-                fabrics: this.state.fabrics.filter(random => random.id !== id)
+                fabrics: this.state.fabrics.filter(fabric => fabric.id !== id)
 
             })
         }).catch(err=>console.log(err))
@@ -84,14 +86,14 @@ render() {
         <FabricForm
         handleCreateFabric={this.handleCreateFabric}
         formInputs={this.props.formInputs}
-        handleUpdateFabric={this.handleUpdateFabric}
-        view={this.props.view}
+
         />
         {this.state.fabrics.map((fabricData) => (
-            <Fabrics
+            <Fabric
             key={fabricData.id}
             fabricData={fabricData}
             handleDeleteFabric={this.handleDeleteFabric}
+            handleUpdateFabric={this.handleUpdateFabric}
             />
     ))}
 

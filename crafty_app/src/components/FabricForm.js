@@ -1,16 +1,13 @@
-// =============================
-// DEPENDENCIES
-// =============================
-// packages
 import React from 'react'
 
-// =============================
-// COMPONENT CLASS
-// =============================
+let baseUrl = '';
+if (process.env.NODE_ENV === 'development') {
+    baseUrl = 'http://localhost:8888'
+} else {
+    console.log('this is for heroku');
+}
+
 class FabricForm extends React.Component {
-    // ==============
-    // STATE
-    // ==============
     constructor() {
         super()
         this.state = {
@@ -22,29 +19,16 @@ class FabricForm extends React.Component {
         }
     }
 
-    // ==============
-    // HANDLERS
-    // ==============
-    // handles form change
     handleChangeFabric = (e) => {
         this.setState({[e.target.id] : e.target.value})
     }
 
-    // handles submit
     handleSubmit = (e) => {
         e.preventDefault()
-        if(this.props.view.page === 'addFabric') {
-            this.props.handleCreateFabric(this.state)
-        } else if (this.props.view.page === 'editFabric') {
-            this.props.handleUpdateFabric(this.state)
-        }
-
+        this.props.handleCreateFabric(this.state)
     }
 
 
-    // ==============
-    // RENDER
-    // ==============
     render () {
         return (
             <form onSubmit={this.handleSubmit}>
@@ -70,7 +54,4 @@ class FabricForm extends React.Component {
     }
 }
 
-// =============================
-// EXPORT
-// =============================
 export default FabricForm

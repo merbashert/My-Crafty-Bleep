@@ -14,14 +14,10 @@ class Needles extends React.Component {
         {this.props.needleData.body}
         </div>
         <div>
-        <ul>
-        <li onClick={() => {
-            {this.props.handleView('editNeedle', this.props.needleData)}
-        }}>edit post</li>
-        <li onClick={() => {
+        <p onClick={() => {
             this.props.handleDeleteNeedle(this.props.needleData.id)
-        }}>delete post</li>
-        </ul>
+        }}>delete</p>
+
         </div>
       </React.Fragment>
     )

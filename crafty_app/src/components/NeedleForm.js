@@ -1,16 +1,14 @@
-// =============================
-// DEPENDENCIES
-// =============================
-// packages
 import React from 'react'
 
-// =============================
-// COMPONENT CLASS
-// =============================
+let baseUrl = '';
+if (process.env.NODE_ENV === 'development') {
+    baseUrl = 'http://localhost:8888'
+} else {
+    console.log('this is for heroku');
+}
+
 class NeedleForm extends React.Component {
-    // ==============
-    // STATE
-    // ==============
+
     constructor() {
         super()
         this.state = {
@@ -22,23 +20,13 @@ class NeedleForm extends React.Component {
         }
     }
 
-    // ==============
-    // HANDLERS
-    // ==============
-    // handles form change
     handleChangeNeedle = (e) => {
         this.setState({[e.target.id] : e.target.value})
     }
 
-    // handles submit
     handleSubmit = (e) => {
         e.preventDefault()
-        if(this.props.view.page === 'addNeedle') {
-            this.props.handleCreateNeedle(this.state)
-        } else if (this.props.view.page === 'editNeedle') {
-            this.props.handleUpdateNeedle(this.state)
-        }
-
+        this.props.handleCreateNeedle(this.state)
     }
 
 

@@ -11,13 +11,8 @@ class Fabrics extends React.Component {
         <img src={this.props.fabricData.picture} className="fabric-pic"/>
         </div>
         <div>
-        {this.props.fabricData.body}
-        </div>
-        <div>
         <ul>
-        <li onClick={() => {
-            {this.props.handleView('editFabric', this.props.fabricData)}
-        }}>edit post</li>
+
         <li onClick={() => {
             this.props.handleDeleteFabric(this.props.fabricData.id)
         }}>delete post</li>
