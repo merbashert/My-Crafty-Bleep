@@ -35,14 +35,7 @@ class RandomForm extends React.Component {
 
     }
 
-    componentDidMount(){
-        this.setState({
-            name: this.props.formInputs.name,
-            details: this.props.formInputs.details,
-            box_number: this.props.formInputs.box_number,
-            id: this.props.formInputs.id
-        })
-    }
+
 
     // ==============
     // RENDER
