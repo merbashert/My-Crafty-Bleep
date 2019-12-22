@@ -4,6 +4,13 @@
 // packages
 import React from 'react'
 
+let baseUrl = '';
+if (process.env.NODE_ENV === 'development') {
+    baseUrl = 'http://localhost:8888'
+} else {
+    console.log('this is for heroku');
+}
+
 // =============================
 // COMPONENT CLASS
 // =============================
@@ -25,15 +32,7 @@ class RandomForm extends React.Component {
         this.setState({[e.target.id] : e.target.value})
     }
 
-    handleSubmit = (e) => {
-        e.preventDefault()
-        if(this.props.action === 'create') {
-            this.props.handleCreateRandom(this.state)
-        } else if (this.props.action === 'edit') {
-            this.props.handleUpdateRandom(this.state)
-        }
 
-    }
 
 
 
@@ -42,7 +41,7 @@ class RandomForm extends React.Component {
     // ==============
     render () {
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={this.handleCreateRandom}>
             <label>
             Item:
             <input type="text" placeholder="Item" id="name" value={this.state.name} onChange={this.handleChangeRandom}/>

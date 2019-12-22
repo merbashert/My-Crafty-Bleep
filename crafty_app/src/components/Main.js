@@ -8,6 +8,7 @@ import {
 
 // components
 import RandomPage from './RandomPage.js'
+import RandomForm from './RandomForm.js'
 import FabricPage from './FabricPage.js'
 import NeedlePage from './NeedlePage.js'
 
@@ -42,7 +43,7 @@ class Main extends React.Component {
               <Link to="/fabric">Fabric</Link>
             </li>
             <li>
-              <Link to="/random">Random</Link>
+              <Link to="/random-form">Random</Link>
             </li>
             <li>
               <Link to="/needles">Needles</Link>
@@ -56,8 +57,8 @@ class Main extends React.Component {
           <Route path="/fabric">
             <FabricPage />
           </Route>
-          <Route path="/random">
-            <RandomPage />
+          <Route path="/random-form">
+            <RandomForm />
           </Route>
           <Route path="/needles">
             <NeedlePage />
