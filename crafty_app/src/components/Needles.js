@@ -4,21 +4,32 @@ class Needles extends React.Component {
   render () {
     return (
       <React.Fragment>
-        <div>
-        <h5>Size: {this.props.needleData.size}</h5>
-        <h5>Straight: {this.props.needleData.straight}</h5>
-        <h5>Circular: {this.props.needleData.circular}</h5>
-        <h5>Double-point: {this.props.needleData.doublepoint}</h5>
-        </div>
-        <div>
-        {this.props.needleData.body}
-        </div>
-        <div>
+        <div className = "needle-box">
+        {this.props.needleData.size}
+        <table>
+        <thead></thead>
+        <tbody>
+        <tr>
+        <td>Straight</td>
+        <td>{this.props.needleData.straight}</td>
+        </tr>
+        <tr>
+        <td>Circular</td>
+        <td>{this.props.needleData.circular}</td>
+        </tr>
+        <tr>
+        <td>Double-point</td>
+        <td>{this.props.needleData.doublepoint}</td>
+    </tr>
+    </tbody>
+    </table>
+
         <p onClick={() => {
             this.props.handleDeleteNeedle(this.props.needleData.id)
         }}>delete</p>
 
         </div>
+        <br/>
       </React.Fragment>
     )
   }

@@ -80,26 +80,27 @@ class NeedlePage extends React.Component {
         this.fetchNeedle()
     }
 
-render() {
-    return (
-        <div>
-        <NeedleForm
-        handleCreateNeedle={this.handleCreateNeedle}
-        formInputs={this.props.formInputs}
+    render() {
+        return (
+            <div>
+            <NeedleForm
+            handleCreateNeedle={this.handleCreateNeedle}
+            formInputs={this.props.formInputs}
 
-        />
-        {this.state.needles.map((needleData) => (
-            <Needle
-            key={needleData.id}
-            needleData={needleData}
-            handleDeleteNeedle={this.handleDeleteNeedle}
-            handleUpdateNeedle={this.handleUpdateNeedle}
             />
-    ))}
 
-        </div>
-    )
-}
+            {this.state.needles.map((needleData) => (
+                <Needle
+                key={needleData.id}
+                needleData={needleData}
+                handleDeleteNeedle={this.handleDeleteNeedle}
+                handleUpdateNeedle={this.handleUpdateNeedle}
+                />
+            ))}
+
+            </div>
+        )
+    }
 
 
 }
