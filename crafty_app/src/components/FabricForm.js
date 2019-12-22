@@ -41,15 +41,6 @@ class FabricForm extends React.Component {
 
     }
 
-    componentDidMount(){
-        this.setState({
-            length: this.props.formInputs.length,
-            tags: this.props.formInputs.tags,
-            main_color: this.props.formInputs.main_color,
-            picture: this.props.formInputs.picture,
-            id: this.props.formInputs.id
-        })
-    }
 
     // ==============
     // RENDER
