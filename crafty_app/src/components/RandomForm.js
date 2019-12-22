@@ -32,7 +32,10 @@ class RandomForm extends React.Component {
         this.setState({[e.target.id] : e.target.value})
     }
 
-
+    handleSubmit = (e) => {
+        e.preventDefault()
+        this.props.handleCreateRandom(this.state)
+    }
 
 
 
@@ -41,7 +44,7 @@ class RandomForm extends React.Component {
     // ==============
     render () {
         return (
-            <form onSubmit={this.handleCreateRandom}>
+            <form onSubmit={this.handleSubmit}>
             <label>
             Item:
             <input type="text" placeholder="Item" id="name" value={this.state.name} onChange={this.handleChangeRandom}/>

@@ -43,7 +43,7 @@ class Main extends React.Component {
               <Link to="/fabric">Fabric</Link>
             </li>
             <li>
-              <Link to="/random-form">Random</Link>
+              <Link to="/random">Random</Link>
             </li>
             <li>
               <Link to="/needles">Needles</Link>
@@ -57,8 +57,8 @@ class Main extends React.Component {
           <Route path="/fabric">
             <FabricPage />
           </Route>
-          <Route path="/random-form">
-            <RandomForm />
+          <Route path="/random">
+            <RandomPage />
           </Route>
           <Route path="/needles">
             <NeedlePage />
