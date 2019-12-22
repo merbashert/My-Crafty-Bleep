@@ -9,6 +9,7 @@ import {
 // components
 import RandomPage from './RandomPage.js'
 import FabricPage from './FabricPage.js'
+import NeedlePage from './NeedlePage.js'
 
 let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
@@ -43,6 +44,9 @@ class Main extends React.Component {
             <li>
               <Link to="/random">Random</Link>
             </li>
+            <li>
+              <Link to="/needles">Needles</Link>
+            </li>
           </ul>
         </nav>
 
@@ -54,6 +58,9 @@ class Main extends React.Component {
           </Route>
           <Route path="/random">
             <RandomPage />
+          </Route>
+          <Route path="/needles">
+            <NeedlePage />
           </Route>
         </Switch>
       </div>
