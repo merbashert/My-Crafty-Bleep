@@ -1,7 +1,6 @@
 import React from 'react';
 
 import Main from './components/Main.js'
-import Aside from './components/Aside.js'
 
 
 class App extends React.Component {

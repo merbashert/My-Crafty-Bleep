@@ -22,7 +22,9 @@ class RandomPage extends React.Component {
         fetch(`${baseUrl}/randoms`)
         .then(data => data.json())
         .then(jData => {
-            this.setState({randoms:jData})
+            this.setState({
+                randoms:jData
+            })
         }).catch(err=>console.log(err))
     }
 
@@ -39,8 +41,7 @@ class RandomPage extends React.Component {
         })
         .then(json => {
             this.setState({
-                randoms: json,
-                action: 'create'
+                randoms: json
             })
         })
         .catch(err=>console.log(err))
@@ -55,9 +56,6 @@ class RandomPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedRandom => {
-            this.setState({
-                action: 'edit'
-            })
             this.fetchRandom()
         }).catch(err=>console.log(err))
     }

@@ -1,11 +1,11 @@
 import React from 'react'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
+// let baseUrl = '';
+// if (process.env.NODE_ENV === 'development') {
+//     baseUrl = 'http://localhost:8888'
+// } else {
+//     console.log('this is for heroku');
+// }
 
 class RandomForm extends React.Component {
     constructor() {

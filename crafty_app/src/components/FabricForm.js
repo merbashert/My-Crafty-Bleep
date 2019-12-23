@@ -1,11 +1,11 @@
 import React from 'react'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
+// let baseUrl = '';
+// if (process.env.NODE_ENV === 'development') {
+//     baseUrl = 'http://localhost:8888'
+// } else {
+//     console.log('this is for heroku');
+// }
 
 class FabricForm extends React.Component {
     constructor() {
@@ -19,7 +19,7 @@ class FabricForm extends React.Component {
         }
     }
 
-    handleChangeFabric = (e) => {
+    handleChange = (e) => {
         this.setState({[e.target.id] : e.target.value})
     }
 
@@ -34,19 +34,19 @@ class FabricForm extends React.Component {
             <form onSubmit={this.handleSubmit}>
             <label>
             Length:
-            <input type="text" placeholder="Length" id="length" value={this.state.length} onChange={this.handleChangeFabric}/>
+            <input type="text" placeholder="Length" id="length" value={this.state.length} onChange={this.handleChange}/>
             </label>
             <label>
             Tags:
-            <input type="text" placeholder="Tags" id="tags" value={this.state.tags} onChange={this.handleChangeFabric}/>
+            <input type="text" placeholder="Tags" id="tags" value={this.state.tags} onChange={this.handleChange}/>
             </label>
             <label id="main_color">
             Main Color:
-            <input type="text" placeholder="Main Color" id="main_color" value={this.state.main_color} onChange={this.handleChangeFabric}></input>
+            <input type="text" placeholder="Main Color" id="main_color" value={this.state.main_color} onChange={this.handleChange}></input>
             </label>
             <label id="picture">
             Picture:
-            <input type="text" id="picture" value={this.state.picture} onChange={this.handleChangeFabric}></input>
+            <input type="text" id="picture" value={this.state.picture} onChange={this.handleChange}></input>
             </label>
             <input type="submit" value="Put in the Box"/>
             </form>

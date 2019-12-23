@@ -8,7 +8,7 @@ class Fabrics extends React.Component {
         <h5>Length:{this.props.fabricData.length}</h5>
         <h5>Tags: {this.props.fabricData.tags}</h5>
         <h5>Main Color: {this.props.fabricData.main_color}</h5>
-        <img src={this.props.fabricData.picture} className="fabric-pic"/>
+        <img src={this.props.fabricData.picture} className="fabric-pic" alt="fabric"/>
         </div>
         <div>
         <ul>

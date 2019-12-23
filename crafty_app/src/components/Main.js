@@ -8,28 +8,19 @@ import {
 
 // components
 import RandomPage from './RandomPage.js'
-import RandomForm from './RandomForm.js'
+// import RandomForm from './RandomForm.js'
 import FabricPage from './FabricPage.js'
 import NeedlePage from './NeedlePage.js'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
+// let baseUrl = '';
+// if (process.env.NODE_ENV === 'development') {
+//     baseUrl = 'http://localhost:8888'
+// } else {
+//     console.log('this is for heroku');
+// }
 
 class Main extends React.Component {
-    constructor(props) {
-        super(props)
 
-    }
-
-
-
-    // ==============
-    // RENDER
-    // ==============
     render () {
         return (
             <Router>
