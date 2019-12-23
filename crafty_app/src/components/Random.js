@@ -3,7 +3,7 @@
 // =============================
 // packages
 import React from 'react'
-import RandomForm from './RandomForm'
+import RandomEdit from './RandomEdit'
 import {
     BrowserRouter as Router,
     Switch,
@@ -15,20 +15,19 @@ import {
 // COMPONENT CLASS
 // =============================
 class Random extends React.Component {
-    // ==============
-    // RENDER
-    // ==============
+
     render () {
 
         return (
             <article>
             <div className="random-box">
-            <p>{this.props.randomData.name} ({this.props.randomData.details})</p>
+            <p>{this.props.randomData.name}<br/>
+            {(this.props.randomData.details)}</p>
             <Router>
-            <Link to="/random-form">Edit</Link>
+            <Link to="/random-edit">Edit</Link>
             <Switch>
-            <Route path="/random-form">
-              <RandomForm randomData={this.props.randomData}/>
+            <Route path="/random-edit">
+              <RandomEdit randomData={this.props.randomData} handleUpdateRandom={this.props.handleUpdateRandom}/>
             </Route>
             </Switch>
             </Router>
