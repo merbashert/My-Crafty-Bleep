@@ -9,4 +9,12 @@
 .needle-box {
     border: 1px solid black;
     display: inline-block;
+    margin: 5px;
+}
+
+.needles {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    flex-wrap: wrap;
 }

@@ -82,13 +82,13 @@ class NeedlePage extends React.Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
+
             <NeedleForm
             handleCreateNeedle={this.handleCreateNeedle}
             formInputs={this.props.formInputs}
-
             />
-
+            <div className = "needles">
             {this.state.needles.map((needleData) => (
                 <Needle
                 key={needleData.id}
@@ -96,9 +96,11 @@ class NeedlePage extends React.Component {
                 handleDeleteNeedle={this.handleDeleteNeedle}
                 handleUpdateNeedle={this.handleUpdateNeedle}
                 />
-            ))}
 
+            ))}
             </div>
+
+            </React.Fragment>
         )
     }
 

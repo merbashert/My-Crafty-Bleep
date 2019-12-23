@@ -83,7 +83,9 @@ render() {
         <div>
         <RandomForm
         handleCreateRandom={this.handleCreateRandom}
+        handleUpdateRandom={this.handleUpdateRandom}
         formInputs={this.props.formInputs}
+
 
         />
         {this.state.randoms.map((randomData) => (
