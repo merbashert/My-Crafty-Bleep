@@ -10,14 +10,16 @@ import RandomPage from './components/RandomPage.js'
 import FabricPage from './components/FabricPage.js'
 import NeedlePage from './components/NeedlePage.js'
 
-// let baseUrl = '';
-// if (process.env.NODE_ENV === 'development') {
-//     baseUrl = 'http://localhost:8888'
-// } else {
-//     console.log('this is for heroku');
-// }
+let baseUrl = '';
+if (process.env.NODE_ENV === 'development') {
+    baseUrl = 'http://localhost:8888'
+} else {
+    console.log('this is for heroku');
+}
 
 const App = props => {
+    //define state in constructor add url if statement
+    console.log(baseUrl);
     let content = (
         <Router>
         <div>
@@ -40,13 +42,14 @@ const App = props => {
 
         <Switch>
         <Route path="/fabric">
-        <FabricPage />
+        <FabricPage
+        baseUrl={baseUrl} />
         </Route>
         <Route path="/random">
-        <RandomPage />
+        <RandomPage baseUrl={baseUrl}/>
         </Route>
         <Route path="/needles">
-        <NeedlePage />
+        <NeedlePage baseUrl={baseUrl} />
         </Route>
         </Switch>
         </div>
