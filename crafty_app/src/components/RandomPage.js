@@ -3,13 +3,6 @@ import React from 'react'
 import RandomForm from './RandomForm'
 import Random from './Random'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
-
 class RandomPage extends React.Component {
     constructor(props) {
         super(props)
@@ -83,7 +76,6 @@ class RandomPage extends React.Component {
     }
     componentDidMount(){//loads right after the page does
         this.fetchRandom()
-        console.log("from componentdidmount " + baseUrl);
     }
 
 

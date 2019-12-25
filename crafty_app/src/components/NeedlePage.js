@@ -3,12 +3,7 @@ import React from 'react'
 import NeedleForm from './NeedleForm'
 import Needle from './Needles'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
+
 
 class NeedlePage extends React.Component {
     constructor(props) {
@@ -19,7 +14,7 @@ class NeedlePage extends React.Component {
     }
 
     fetchNeedle = () => {
-        fetch(`${baseUrl}/needles`)
+        fetch(`${this.props.baseUrl}/needles`)
         .then(data => data.json())
         .then(jData => {
             this.setState({needles:jData})
@@ -27,7 +22,7 @@ class NeedlePage extends React.Component {
     }
 
     handleCreateNeedle = (createData) => {
-        fetch(`${baseUrl}/needles`, {
+        fetch(`${this.props.baseUrl}/needles`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -47,7 +42,7 @@ class NeedlePage extends React.Component {
     }
 
     handleUpdateNeedle = (updateData) => {
-        fetch(`${baseUrl}/needles/${updateData.id}`, {
+        fetch(`${this.props.baseUrl}/needles/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -63,7 +58,7 @@ class NeedlePage extends React.Component {
     }
 
     handleDeleteNeedle = (id) => {
-        fetch(`${baseUrl}/needles/${id}`, {
+        fetch(`${this.props.baseUrl}/needles/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',

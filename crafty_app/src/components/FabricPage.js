@@ -3,12 +3,7 @@ import React from 'react'
 import FabricForm from './FabricForm'
 import Fabric from './Fabrics'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
+
 
 class FabricPage extends React.Component {
     constructor(props) {
@@ -19,7 +14,7 @@ class FabricPage extends React.Component {
     }
 
     fetchFabric = () => {
-        fetch(`${baseUrl}/fabrics`)
+        fetch(`${this.props.baseUrl}/fabrics`)
         .then(data => data.json())
         .then(jData => {
             this.setState({fabrics:jData})
@@ -27,7 +22,7 @@ class FabricPage extends React.Component {
     }
 
     handleCreateFabric = (createData) => {
-        fetch(`${baseUrl}/fabrics`, {
+        fetch(`${this.props.baseUrl}/fabrics`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -47,7 +42,7 @@ class FabricPage extends React.Component {
     }
 
     handleUpdateFabric = (updateData) => {
-        fetch(`${baseUrl}/fabrics/${updateData.id}`, {
+        fetch(`${this.props.baseUrl}/fabrics/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -63,7 +58,7 @@ class FabricPage extends React.Component {
     }
 
     handleDeleteFabric = (id) => {
-        fetch(`${baseUrl}/fabrics/${id}`, {
+        fetch(`${this.props.baseUrl}/fabrics/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
