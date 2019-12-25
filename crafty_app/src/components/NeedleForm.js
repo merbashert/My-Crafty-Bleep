@@ -1,11 +1,4 @@
 import React from 'react'
-// 
-// let baseUrl = '';
-// if (process.env.NODE_ENV === 'development') {
-//     baseUrl = 'http://localhost:8888'
-// } else {
-//     console.log('this is for heroku');
-// }
 
 class NeedleForm extends React.Component {
 
@@ -42,7 +35,7 @@ class NeedleForm extends React.Component {
             </label>
             <label>
             Straight
-            <input type="text" placeholder="Straight" id="straight" value={this.state.straight} onChange={this.handleChangeNeedle}/>
+            <input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedle}/>
             </label>
             <label id="circular">
             Circular

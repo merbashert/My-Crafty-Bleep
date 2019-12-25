@@ -14,12 +14,18 @@ class RandomPage extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            randoms: []
+            randoms: [],
+            formInputs: {
+                name: null,
+                details: null,
+                box_number:null,
+                id:null
+            }
         }
     }
 
     fetchRandom = () => {
-        fetch(`${baseUrl}/randoms`)
+        fetch(`${this.props.baseUrl}/randoms`)
         .then(data => data.json())
         .then(jData => {
             this.setState({
@@ -29,7 +35,7 @@ class RandomPage extends React.Component {
     }
 
     handleCreateRandom = (createData) => {
-        fetch(`${baseUrl}/randoms`, {
+        fetch(`${this.props.baseUrl}/randoms`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -48,7 +54,7 @@ class RandomPage extends React.Component {
     }
 
     handleUpdateRandom = (updateData) => {
-        fetch(`${baseUrl}/randoms/${updateData.id}`, {
+        fetch(`${this.props.baseUrl}/randoms/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -56,12 +62,13 @@ class RandomPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedRandom => {
+            console.log(updateData);
             this.fetchRandom()
         }).catch(err=>console.log(err))
     }
 
     handleDeleteRandom = (id) => {
-        fetch(`${baseUrl}/randoms/${id}`, {
+        fetch(`${this.props.baseUrl}/randoms/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -76,9 +83,12 @@ class RandomPage extends React.Component {
     }
     componentDidMount(){//loads right after the page does
         this.fetchRandom()
+        console.log("from componentdidmount " + baseUrl);
     }
 
+
 render() {
+    console.log(this.props);
     return (
         <div>
         <RandomForm
@@ -94,6 +104,7 @@ render() {
             randomData={randomData}
             handleDeleteRandom={this.handleDeleteRandom}
             handleUpdateRandom={this.handleUpdateRandom}
+            formInputs={this.props.formInputs}
             />
     ))}
 
