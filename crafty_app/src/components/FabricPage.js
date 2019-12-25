@@ -34,8 +34,7 @@ class FabricPage extends React.Component {
         })
         .then(json => {
             this.setState({
-                fabrics: json,
-                action: 'create'
+                fabrics: json
             })
         })
         .catch(err=>console.log(err))
@@ -50,9 +49,6 @@ class FabricPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedFabric => {
-            this.setState({
-                action: 'edit'
-            })
             this.fetchFabric()
         }).catch(err=>console.log(err))
     }

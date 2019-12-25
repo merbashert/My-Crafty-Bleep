@@ -1,40 +1,38 @@
 import React from 'react'
 
-class Needles extends React.Component {
-    render () {
+const Needles = props => {
         return (
             <React.Fragment>
             <div className = "needle-box">
-            {this.props.needleData.size}
+            {props.needleData.size}
             <table>
             <thead></thead>
             <tbody>
             <tr>
             <td>Straight</td>
-            <td>{(this.props.needleData.straight==='1')? 'X' : null}</td>
+            <td>{(props.needleData.straight==='1')? 'X' : null}</td>
             </tr>
             <tr>
             <td>Circular</td>
-            <td>{(this.props.needleData.circular==='1')? 'X' : null}</td>
+            <td>{(props.needleData.circular==='1')? 'X' : null}</td>
             </tr>
             <tr>
             <td>Double-point</td>
-            <td>{(this.props.needleData.doublepoint==='1')? 'X' : null}</td>    </tr>
+            <td>{(props.needleData.doublepoint==='1')? 'X' : null}</td>    </tr>
             </tbody>
             </table>
             <p onClick={() => {
-                this.props.handleUpdateNeedle(this.props.needleData)
+                props.handleUpdateNeedle(props.needleData)
             }}>edit</p>
 
             <p onClick={() => {
-                this.props.handleDeleteNeedle(this.props.needleData.id)
+                props.handleDeleteNeedle(props.needleData.id)
             }}>delete</p>
 
             </div>
             <br/>
             </React.Fragment>
         )
-    }
 }
 
 export default Needles
