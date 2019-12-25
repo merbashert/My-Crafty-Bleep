@@ -1,46 +1,43 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-class RandomForm extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            name: '',
-            details: '',
-            box_number: '',
-            id: null
-        }
-    }
+const RandomForm = props =>  {
+        const [name, setName] = useState('')
+        const [details, setDetails] = useState('')
+        const [box_number, setBox_Number] = useState('')
+        const [id, setId] = useState(null)
 
-    handleChange = (e) => {
-        this.setState({[e.target.id] : e.target.value})
-    }
 
-    handleSubmit = (e) => {
+
+    // const handleChange = (e) => {
+    //     setState({[e.target.id] : e.target.value})
+    // }
+
+    const handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleCreateRandom(this.state)
+        props.handleCreateRandom(props.state)
     }
 
 
 
-    render () {
+
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <label>
             Item:
-            <input type="text" placeholder="Item" id="name" value={this.state.name} onChange={this.handleChange}/>
+            <input type="text" placeholder="Item" id="name" value={name} onChange={e => setName(e.target.value)}/>
             </label>
             <label>
             Details(if any):
-            <input type="text" placeholder="Details(if any)" id="details" value={this.state.details} onChange={this.handleChange}/>
+            <input type="text" placeholder="Details(if any)" id="details" value={details} onChange={e => setDetails(e.target.value)}/>
             </label>
             <label id="random-form">
             Box #:
-            <input type="number" placeholder="Box #" id="box_number" value={this.state.box_number} onChange={this.handleChange}></input>
+            <input type="number" placeholder="Box #" id="box_number" value={box_number} onChange={e => setBox_Number(e.target.value)}></input>
             </label>
             <input type="submit" value="Put in the Box"/>
             </form>
         )
-    }
+
 }
 
 

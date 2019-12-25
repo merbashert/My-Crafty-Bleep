@@ -55,7 +55,7 @@ class RandomPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedRandom => {
-            console.log("update data: " + updateData.name);
+            console.log("update data: " + updateData);
             this.fetchRandom()
         }).catch(err=>console.log(err))
     }

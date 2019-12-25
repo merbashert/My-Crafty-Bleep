@@ -63,7 +63,6 @@ let content = (
     </Route>
     </Switch>
     </div>
-
     </Router>
 
 );

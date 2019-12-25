@@ -9,7 +9,7 @@ const RandomEdit = props => {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.handleUpdateRandom(props.randomData)
+        props.handleUpdateRandom(name)
     }
 
             return (
