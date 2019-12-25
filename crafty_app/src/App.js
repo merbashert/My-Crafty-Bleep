@@ -9,6 +9,7 @@ import {
 import RandomPage from './components/RandomPage.js'
 import FabricPage from './components/FabricPage.js'
 import NeedlePage from './components/NeedlePage.js'
+import Home from './components/Home.js'
 
 let baseUrl = '';
 
@@ -26,7 +27,6 @@ const App = props => {
 //     }
 
 
-console.log('from app ' + baseUrl);
 let content = (
     <Router>
     <div>
@@ -48,6 +48,9 @@ let content = (
     </nav>
 
     <Switch>
+    <Route exact path="/">
+      <Home />
+    </Route>
     <Route path="/fabric">
     <FabricPage
     baseUrl={baseUrl} />
@@ -60,7 +63,9 @@ let content = (
     </Route>
     </Switch>
     </div>
+
     </Router>
+
 );
 return content;
 }
