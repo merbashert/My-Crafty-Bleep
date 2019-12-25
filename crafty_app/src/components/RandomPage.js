@@ -55,7 +55,7 @@ class RandomPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedRandom => {
-            console.log(updateData);
+            console.log("update data: " + updateData.name);
             this.fetchRandom()
         }).catch(err=>console.log(err))
     }
@@ -80,7 +80,6 @@ class RandomPage extends React.Component {
 
 
 render() {
-    console.log(this.props);
     return (
         <div>
         <RandomForm

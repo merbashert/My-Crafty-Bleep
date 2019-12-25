@@ -22,6 +22,9 @@ class Needles extends React.Component {
             <td>{(this.props.needleData.doublepoint==='1')? 'X' : null}</td>    </tr>
             </tbody>
             </table>
+            <p onClick={() => {
+                this.props.handleUpdateNeedle(this.props.needleData)
+            }}>edit</p>
 
             <p onClick={() => {
                 this.props.handleDeleteNeedle(this.props.needleData.id)

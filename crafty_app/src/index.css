@@ -1,11 +1,27 @@
+/********************HOME********************/
+
+
+/********************FABRIC********************/
 .fabric-pic {
     width: 20%;
 }
 
+.fabric-box {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 5px;
+}
+
+
+
+/********************RANDOM********************/
 .random-box {
     border: 1px solid black;
 }
 
+
+
+/********************NEEDLES********************/
 .needle-box {
     border: 1px solid black;
     display: inline-block;
