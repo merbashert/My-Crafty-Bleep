@@ -15,8 +15,10 @@ class NeedleForm extends React.Component {
 
     handleChangeNeedle = (e) => {
         this.setState({[e.target.id] : e.target.value})
-        this.setState({ straight: e.target.checked })
-        this.setState({ circular: e.target.checked })
+    }
+
+    handleChangeNeedleCheck = (e) => {
+        this.setState({ [e.target.id]: e.target.checked })
     }
 
     handleSubmit = (e) => {
@@ -38,15 +40,15 @@ class NeedleForm extends React.Component {
             </label>
             <label>
             Straight
-            <input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedle}/>
+            <input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedleCheck}/>
             </label>
             <label id="circular">
             Circular
-            <input type="checkbox" id="circular" value={this.state.circular} onChange={this.handleChangeNeedle}></input>
+            <input type="checkbox" id="circular" value={this.state.circular} onChange={this.handleChangeNeedleCheck}></input>
             </label>
             <label id="doublepoint">
             Double-point
-            <input type="checkbox" id="doublepoint" value={this.state.doublepoint} onChange={this.handleChangeNeedle}></input>
+            <input type="checkbox" id="doublepoint" value={this.state.doublepoint} onChange={this.handleChangeNeedleCheck}></input>
             </label>
             <input type="submit" value="Put in the Box"/>
             </form>
