@@ -95,7 +95,6 @@ render() {
             randomData={randomData}
             handleDeleteRandom={this.handleDeleteRandom}
             handleUpdateRandom={this.handleUpdateRandom}
-            formInputs={this.props.formInputs}
             />
     ))}
 

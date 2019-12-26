@@ -14,7 +14,7 @@ const RandomForm = props =>  {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        props.handleCreateRandom(props.state)
+        props.handleCreateRandom(name)
     }
 
 
