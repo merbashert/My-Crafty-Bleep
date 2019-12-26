@@ -18,6 +18,12 @@ class RandomEdit extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleUpdateRandom(this.state)
+        this.setState = ({
+            name: '',
+            details: '',
+            box_number: '',
+            id: ''
+        })
     }
 
 

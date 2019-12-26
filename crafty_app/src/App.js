@@ -11,7 +11,7 @@ import FabricPage from './components/FabricPage.js'
 import NeedlePage from './components/NeedlePage.js'
 import Home from './components/Home.js'
 
-let baseUrl = '';
+
 
 
 const App = props => {

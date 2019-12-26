@@ -1,5 +1,6 @@
 import React from 'react'
 
+import FilterForm from './FilterForm'
 import RandomForm from './RandomForm'
 import Random from './Random'
 
@@ -79,28 +80,78 @@ class RandomPage extends React.Component {
     }
 
 
-render() {
-    return (
-        <div>
-        <RandomForm
-        handleCreateRandom={this.handleCreateRandom}
-        handleUpdateRandom={this.handleUpdateRandom}
-        formInputs={this.props.formInputs}
+    render() {
+        return (
+
+            <div>
 
 
-        />
-        {this.state.randoms.map((randomData) => (
-            <Random
-            key={randomData.id}
-            randomData={randomData}
-            handleDeleteRandom={this.handleDeleteRandom}
+            <RandomForm
+            handleCreateRandom={this.handleCreateRandom}
             handleUpdateRandom={this.handleUpdateRandom}
-            />
-    ))}
+            formInputs={this.props.formInputs}
 
-        </div>
-    )
-}
+
+            />
+
+            <FilterForm/>
+
+            Search
+            {this.state.randoms.filter(random=>{
+                return random.name === 'apron'
+            }).map((randomData) => (
+                <Random
+                key={randomData.id}
+                randomData={randomData}
+                handleDeleteRandom={this.handleDeleteRandom}
+                handleUpdateRandom={this.handleUpdateRandom}
+                />
+
+        ))}
+
+            Box 1
+            {this.state.randoms.filter(random=>{
+                return random.box_number === '1'
+            }).map((randomData) => (
+                <Random
+                key={randomData.id}
+                randomData={randomData}
+                handleDeleteRandom={this.handleDeleteRandom}
+                handleUpdateRandom={this.handleUpdateRandom}
+                />
+
+            ))}
+            <hr/>
+            Box 2
+            {this.state.randoms.filter(random=>{
+                return random.box_number === '2'
+            }).map((randomData) => (
+                <Random
+                key={randomData.id}
+                randomData={randomData}
+                handleDeleteRandom={this.handleDeleteRandom}
+                handleUpdateRandom={this.handleUpdateRandom}
+                />
+
+            ))}
+
+            <hr/>
+            Box 3
+            {this.state.randoms.filter(random=>{
+                return random.box_number === '3'
+            }).map((randomData) => (
+                <Random
+                key={randomData.id}
+                randomData={randomData}
+                handleDeleteRandom={this.handleDeleteRandom}
+                handleUpdateRandom={this.handleUpdateRandom}
+                />
+
+            ))}
+
+            </div>
+        )
+    }
 
 
 }
