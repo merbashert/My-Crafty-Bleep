@@ -29,10 +29,7 @@ class FabricForm extends React.Component {
             Length:
             <input type="text" placeholder="Length" id="length" value={this.state.length} onChange={this.handleChange}/>
             </label>
-            <label>
-            Tags:
-            <input type="text" placeholder="Tags" id="tags" value={this.state.tags} onChange={this.handleChange}/>
-            </label>
+
             <label id="main_color">
             Main Color:
             <select value={this.state.main_color} onChange={this.handleChange} id="main_color">
@@ -47,6 +44,10 @@ class FabricForm extends React.Component {
             <option main_color="black">black</option>
             <option main_color="white">white</option>
             </select>
+            </label>
+            <label>
+            Tags:
+            <input type="text" placeholder="Tags" id="tags" value={this.state.tags} onChange={this.handleChange}/>
             </label>
             <label id="picture">
             Picture:
