@@ -1,6 +1,6 @@
 import React from 'react'
 
-import FilterForm from './FilterForm'
+import RandomFind from './RandomFind'
 import RandomForm from './RandomForm'
 import Random from './Random'
 
@@ -14,8 +14,15 @@ class RandomPage extends React.Component {
                 details: null,
                 box_number:null,
                 id:null
-            }
+            },
+            randomFilter:''
         }
+    }
+
+    handleChange = (e) => {
+        this.setState({
+            randomFilter: e.target.value
+        })
     }
 
     fetchRandom = () => {
@@ -90,24 +97,29 @@ class RandomPage extends React.Component {
             handleCreateRandom={this.handleCreateRandom}
             handleUpdateRandom={this.handleUpdateRandom}
             formInputs={this.props.formInputs}
-
-
             />
 
-            <FilterForm/>
 
-            Search
+            <label htmlFor="filter">Search for item </label>
+            <input type="text" id="filter"
+            value={this.state.randomFilter}
+            onChange={this.handleChange}/>
+
+
+
             {this.state.randoms.filter(random=>{
-                return random.name === 'apron'
+                return random.name === this.state.randomFilter
             }).map((randomData) => (
-                <Random
+                <RandomFind
                 key={randomData.id}
                 randomData={randomData}
                 handleDeleteRandom={this.handleDeleteRandom}
                 handleUpdateRandom={this.handleUpdateRandom}
                 />
 
+
         ))}
+        <br/>
 
             Box 1
             {this.state.randoms.filter(random=>{
