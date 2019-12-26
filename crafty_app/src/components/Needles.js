@@ -18,7 +18,8 @@ const Needles = props => {
             </tr>
             <tr>
             <td>Double-point</td>
-            <td>{(props.needleData.doublepoint==='1')? 'X' : null}</td>    </tr>
+            <td>{(props.needleData.doublepoint==='1')? 'X' : null}</td>
+            </tr>
             </tbody>
             </table>
             <p onClick={() => {
