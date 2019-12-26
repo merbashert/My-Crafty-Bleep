@@ -8,8 +8,7 @@ class FabricForm extends React.Component {
             tags: '',
             main_color: '',
             picture: '',
-            id: null,
-            value: ''
+            id: null
         }
     }
 

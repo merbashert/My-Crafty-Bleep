@@ -3,13 +3,14 @@
 
 /********************FABRIC********************/
 .fabric-pic {
-    width: 20%;
+    width: 100%;
 }
 
 .fabric-box {
     border: 1px solid black;
     display: inline-block;
     margin: 5px;
+    width: 300px;
 }
 
 

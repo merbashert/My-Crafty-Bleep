@@ -59,7 +59,7 @@ let content = (
     <RandomPage baseUrl={baseUrl}/>
     </Route>
     <Route path="/needles">
-    <NeedlePage baseUrl={baseUrl} />
+    <NeedlePage baseUrl={baseUrl}/>
     </Route>
     </Switch>
     </div>
