@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {
     BrowserRouter as Router,
@@ -12,21 +12,15 @@ import FabricPage from './components/FabricPage.js'
 import NeedlePage from './components/NeedlePage.js'
 import Home from './components/Home.js'
 
-
+let baseUrl = '';
+if (process.env.NODE_ENV === 'development') {
+    baseUrl = 'http://localhost:8888'
+} else {
+    console.log('this is for herkoku');
+}
 
 
 const App = props => {
-    const [baseUrl, setBaseUrl] = useState('http://localhost:8888')
-
-    //define state in constructor add url if statement
-
-
-//     if (process.env.NODE_ENV === 'development') {
-//         baseUrl: 'http://localhost:8888'
-//     } else {
-//         console.log('this is for heroku');
-//     }
-
 
 let content = (
     <Router>
