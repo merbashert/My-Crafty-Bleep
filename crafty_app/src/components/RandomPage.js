@@ -15,7 +15,8 @@ class RandomPage extends React.Component {
                 box_number:null,
                 id:null
             },
-            randomFilter:''
+            randomFilter:'',
+            boxNumberFilter:''
         }
     }
 
@@ -24,6 +25,13 @@ class RandomPage extends React.Component {
             randomFilter: e.target.value
         })
     }
+
+    handleBox = (e) => {
+        this.setState({
+            boxNumberFilter:e.target.value
+        })
+    }
+
 
     fetchRandom = () => {
         fetch(`${this.props.baseUrl}/randoms`)
@@ -82,6 +90,23 @@ class RandomPage extends React.Component {
             })
         }).catch(err=>console.log(err))
     }
+
+    setBox1 = () => {
+        this.setState({
+            boxNumberFilter:'1'
+        })
+    }
+    setBox2 = () => {
+        this.setState({
+            boxNumberFilter:'2'
+        })
+    }
+    setBox3 = () => {
+        this.setState({
+            boxNumberFilter:'3'
+        })
+    }
+
     componentDidMount(){//loads right after the page does
         this.fetchRandom()
     }
@@ -121,9 +146,13 @@ class RandomPage extends React.Component {
             </div>
             <div className="random-box">
 
+            <button className="btn btn-primary" onClick={this.setBox1}> Box 1 </button>
+            <button className="btn btn-primary" onClick={this.setBox2}> Box 2 </button>
+            <button className="btn btn-primary" onClick={this.setBox3}> Box 3 </button>
+
             Box 1
             {this.state.randoms.filter(random=>{
-                return random.box_number === '1'
+                return random.box_number === this.state.boxNumberFilter
             }).map((randomData) => (
                 <Random
                 key={randomData.id}
@@ -135,36 +164,7 @@ class RandomPage extends React.Component {
             ))}
             </div>
 
-            <div className="random-box">
-            Box 2
-            {this.state.randoms.filter(random=>{
-                return random.box_number === '2'
-            }).map((randomData) => (
-                <Random
-                key={randomData.id}
-                randomData={randomData}
-                handleDeleteRandom={this.handleDeleteRandom}
-                handleUpdateRandom={this.handleUpdateRandom}
-                />
 
-            ))}
-            </div>
-
-            <div className="random-box">
-            Box 3
-            {this.state.randoms.filter(random=>{
-                return random.box_number === '3'
-            }).map((randomData) => (
-                <Random
-                key={randomData.id}
-                randomData={randomData}
-                handleDeleteRandom={this.handleDeleteRandom}
-                handleUpdateRandom={this.handleUpdateRandom}
-                />
-
-            ))}
-
-            </div>
             </div>
         )
     }

@@ -17,7 +17,7 @@ class FabricPage extends React.Component {
     handleChange = (e) => {
         this.setState({
             fabricTagFilter: e.target.value,
-            main_colorFilter: e.target.value
+            mainColorFilter: e.target.value
         })
     }
 
@@ -29,7 +29,7 @@ class FabricPage extends React.Component {
     //
     // handleChangeColor = (e) => {
     //     this.setState({
-    //         main_colorFilter: e.target.value
+    //         mainColorFilter: e.target.value
     //     })
     // }
 
@@ -108,7 +108,7 @@ class FabricPage extends React.Component {
 
             <label id="main_color">
             Main Color:
-            <select value={this.state.main_colorFilter} onChange={this.handleChange} id="main_color">
+            <select value={this.state.mainColorFilter} onChange={this.handleChange} id="main_color">
             <option main_color="all">all</option>
             <option main_color="red">red</option>
             <option main_color="orange">orange</option>
@@ -141,7 +141,7 @@ class FabricPage extends React.Component {
                 :
                 <div>
                 {this.state.fabrics.filter(fabric=>{
-                    return fabric.tags === this.state.fabricTagFilter || fabric.main_color === this.state.main_colorFilter
+                    return fabric.tags === this.state.fabricTagFilter || fabric.main_color === this.state.mainColorFilter
                 }).map((fabricData) => (
                     <Fabric
                     key={fabricData.id}

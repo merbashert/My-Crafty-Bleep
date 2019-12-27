@@ -24,11 +24,11 @@ const [show, setShow] = useState(false);
             <td className='random-name'>{props.randomData.name}</td>
             <td className='random-details'>{props.randomData.details}</td>
             <td>
-
+            <p className="btn btn-sm btn-primary" onClick={handleShow}>
+              Edit
+            </p>
             <>
-      <p className="btn btn-sm btn-primary" onClick={handleShow}>
-        Edit
-      </p>
+
 
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
