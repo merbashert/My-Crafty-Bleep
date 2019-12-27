@@ -45,7 +45,7 @@ class RandomEdit extends React.Component {
             <input type="number" placeholder="Box #" id="box_number" value={this.state.box_number} onChange={this.handleChange}></input>
             </label>
             <br/>
-            <input type="submit" className="btn btn-primary" value="Put in the Box"/>
+            <input type="submit" className="btn btn-primary" value="Apply changes" onClick={this.props.handleClose}/>
             <Button className="btn btn-primary" onClick={this.props.handleClose}>
               Close
             </Button>
