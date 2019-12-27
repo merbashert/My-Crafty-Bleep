@@ -1,14 +1,9 @@
 import React from 'react'
 
 import NeedleForm from './NeedleForm'
-import Needles from './Needles'
+import Needle from './Needles'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
+
 
 class NeedlePage extends React.Component {
     constructor(props) {
@@ -19,7 +14,7 @@ class NeedlePage extends React.Component {
     }
 
     fetchNeedle = () => {
-        fetch(`${baseUrl}/needles`)
+        fetch(`${this.props.baseUrl}/needles`)
         .then(data => data.json())
         .then(jData => {
             this.setState({needles:jData})
@@ -27,7 +22,7 @@ class NeedlePage extends React.Component {
     }
 
     handleCreateNeedle = (createData) => {
-        fetch(`${baseUrl}/needles`, {
+        fetch(`${this.props.baseUrl}/needles`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -38,16 +33,16 @@ class NeedlePage extends React.Component {
             return createdNeedle.json()
         })
         .then(json => {
-            this.props.handleView('allNeedle')
             this.setState({
-                needles: json
+                needles: json,
+                action: 'create'
             })
         })
         .catch(err=>console.log(err))
     }
 
     handleUpdateNeedle = (updateData) => {
-        fetch(`${baseUrl}/needles/${updateData.id}`, {
+        fetch(`${this.props.baseUrl}/needles/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -55,13 +50,15 @@ class NeedlePage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedNeedle => {
-            this.props.handleView('allNeedle')
+            this.setState({
+                action: 'edit'
+            })
             this.fetchNeedle()
         }).catch(err=>console.log(err))
     }
 
     handleDeleteNeedle = (id) => {
-        fetch(`${baseUrl}/needles/${id}`, {
+        fetch(`${this.props.baseUrl}/needles/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -69,7 +66,7 @@ class NeedlePage extends React.Component {
             }
         }).then(json => {
             this.setState({
-                needles: this.state.needles.filter(random => random.id !== id)
+                needles: this.state.needles.filter(needle => needle.id !== id)
 
             })
         }).catch(err=>console.log(err))
@@ -78,26 +75,29 @@ class NeedlePage extends React.Component {
         this.fetchNeedle()
     }
 
-render() {
-    return (
-        <div>
-        <NeedleForm
-        handleCreateNeedle={this.handleCreateNeedle}
-        formInputs={this.props.formInputs}
-        handleUpdateNeedle={this.handleUpdateNeedle}
-        view={this.props.view}
-        />
-        {this.state.needles.map((needleData) => (
-            <Needles
-            key={needleData.id}
-            needleData={needleData}
-            handleDeleteNeedle={this.handleDeleteNeedle}
-            />
-    ))}
+    render() {
+        return (
+            <React.Fragment>
 
-        </div>
-    )
-}
+            <NeedleForm
+            handleCreateNeedle={this.handleCreateNeedle}
+            formInputs={this.props.formInputs}
+            />
+            <div className = "needles">
+            {this.state.needles.map((needleData) => (
+                <Needle
+                key={needleData.id}
+                needleData={needleData}
+                handleDeleteNeedle={this.handleDeleteNeedle}
+                handleUpdateNeedle={this.handleUpdateNeedle}
+                />
+
+            ))}
+            </div>
+
+            </React.Fragment>
+        )
+    }
 
 
 }

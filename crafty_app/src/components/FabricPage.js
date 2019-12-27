@@ -1,14 +1,9 @@
 import React from 'react'
 
 import FabricForm from './FabricForm'
-import Fabrics from './Fabrics'
+import Fabric from './Fabrics'
 
-let baseUrl = '';
-if (process.env.NODE_ENV === 'development') {
-    baseUrl = 'http://localhost:8888'
-} else {
-    console.log('this is for heroku');
-}
+
 
 class FabricPage extends React.Component {
     constructor(props) {
@@ -19,7 +14,7 @@ class FabricPage extends React.Component {
     }
 
     fetchFabric = () => {
-        fetch(`${baseUrl}/fabrics`)
+        fetch(`${this.props.baseUrl}/fabrics`)
         .then(data => data.json())
         .then(jData => {
             this.setState({fabrics:jData})
@@ -27,7 +22,7 @@ class FabricPage extends React.Component {
     }
 
     handleCreateFabric = (createData) => {
-        fetch(`${baseUrl}/fabrics`, {
+        fetch(`${this.props.baseUrl}/fabrics`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -38,7 +33,6 @@ class FabricPage extends React.Component {
             return createdFabric.json()
         })
         .then(json => {
-            this.props.handleView('allFabric')
             this.setState({
                 fabrics: json
             })
@@ -47,7 +41,7 @@ class FabricPage extends React.Component {
     }
 
     handleUpdateFabric = (updateData) => {
-        fetch(`${baseUrl}/fabrics/${updateData.id}`, {
+        fetch(`${this.props.baseUrl}/fabrics/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -55,13 +49,12 @@ class FabricPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedFabric => {
-            this.props.handleView('allFabric')
             this.fetchFabric()
         }).catch(err=>console.log(err))
     }
 
     handleDeleteFabric = (id) => {
-        fetch(`${baseUrl}/fabrics/${id}`, {
+        fetch(`${this.props.baseUrl}/fabrics/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -69,7 +62,7 @@ class FabricPage extends React.Component {
             }
         }).then(json => {
             this.setState({
-                fabrics: this.state.fabrics.filter(random => random.id !== id)
+                fabrics: this.state.fabrics.filter(fabric => fabric.id !== id)
 
             })
         }).catch(err=>console.log(err))
@@ -84,14 +77,14 @@ render() {
         <FabricForm
         handleCreateFabric={this.handleCreateFabric}
         formInputs={this.props.formInputs}
-        handleUpdateFabric={this.handleUpdateFabric}
-        view={this.props.view}
+
         />
         {this.state.fabrics.map((fabricData) => (
-            <Fabrics
+            <Fabric
             key={fabricData.id}
             fabricData={fabricData}
             handleDeleteFabric={this.handleDeleteFabric}
+            handleUpdateFabric={this.handleUpdateFabric}
             />
     ))}
 

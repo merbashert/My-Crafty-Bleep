@@ -1,7 +1,51 @@
+/********************HOME********************/
+
+
+/********************FABRIC********************/
 .fabric-pic {
-    width: 20%;
+    width: 100%;
 }
 
+.fabric-box {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 5px;
+    width: 16%;
+}
+
+
+
+/********************RANDOM********************/
 .random-box {
     border: 1px solid black;
+}
+
+.search-box {
+    border: 1px solid black;
+    display: inline-block;
+}
+
+.random-table p {
+    margin: 3px;
+}
+
+.random-name {
+    font-weight: bold;
+}
+
+.random-details {
+    padding: 0px 6px;
+}
+/********************NEEDLES********************/
+.needle-box {
+    border: 1px solid black;
+    display: inline-block;
+    margin: 5px;
+}
+
+.needles {
+    display: flex;
+    justify-content: flex-start;
+    width: 50%;
+    flex-wrap: wrap;
 }

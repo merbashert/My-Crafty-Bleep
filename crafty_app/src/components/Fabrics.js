@@ -1,31 +1,21 @@
 import React from 'react'
 
-class Fabrics extends React.Component {
-  render () {
+const Fabrics = props => {
     return (
       <React.Fragment>
-        <div>
-        <h5>Length:{this.props.fabricData.length}</h5>
-        <h5>Tags: {this.props.fabricData.tags}</h5>
-        <h5>Main Color: {this.props.fabricData.main_color}</h5>
-        <img src={this.props.fabricData.picture} className="fabric-pic"/>
-        </div>
-        <div>
-        {this.props.fabricData.body}
-        </div>
-        <div>
-        <ul>
-        <li onClick={() => {
-            {this.props.handleView('editFabric', this.props.fabricData)}
-        }}>edit post</li>
-        <li onClick={() => {
-            this.props.handleDeleteFabric(this.props.fabricData.id)
-        }}>delete post</li>
-        </ul>
+        <div className="fabric-box">
+        <img src={props.fabricData.picture} className="fabric-pic" alt="fabric"/>
+        <h5>Length:{props.fabricData.length}</h5>
+        <h5>Main Color: {props.fabricData.main_color}</h5>
+        <h5>Tags: {props.fabricData.tags}</h5>
+
+
+        <p onClick={() => {
+            props.handleDeleteFabric(props.fabricData.id)
+        }}>delete post</p>
         </div>
       </React.Fragment>
     )
   }
-}
 
 export default Fabrics

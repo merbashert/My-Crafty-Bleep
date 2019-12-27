@@ -1,13 +1,14 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 
-class RandomForm extends React.Component {
-    constructor() {
-        super()
+class RandomEdit extends React.Component {
+    constructor(props) {
+        super(props)
         this.state = {
-            name: '',
-            details: '',
-            box_number: '',
-            id: null
+            name: props.randomData.name,
+            details: props.randomData.details,
+            box_number: props.randomData.box_number,
+            id: props.randomData.id
         }
     }
 
@@ -17,7 +18,13 @@ class RandomForm extends React.Component {
 
     handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleCreateRandom(this.state)
+        this.props.handleUpdateRandom(this.state)
+        this.setState = ({
+            name: '',
+            details: '',
+            box_number: '',
+            id: ''
+        })
     }
 
 
@@ -37,11 +44,15 @@ class RandomForm extends React.Component {
             Box #:
             <input type="number" placeholder="Box #" id="box_number" value={this.state.box_number} onChange={this.handleChange}></input>
             </label>
-            <input type="submit" value="Put in the Box"/>
+            <br/>
+            <input type="submit" className="btn btn-primary" value="Put in the Box"/>
+            <Button className="btn btn-primary" onClick={this.props.handleClose}>
+              Close
+            </Button>
             </form>
         )
     }
 }
 
 
-export default RandomForm
+export default RandomEdit

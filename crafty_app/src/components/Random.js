@@ -1,36 +1,55 @@
-// =============================
-// DEPENDENCIES
-// =============================
-// packages
-import React from 'react'
 
-// =============================
-// COMPONENT CLASS
-// =============================
-class Random extends React.Component {
-  // ==============
-  // RENDER
-  // ==============
-  render () {
-    return (
-      <article>
-        <div className="random-box">
-        <h5>Name:{this.props.randomData.name}</h5>
-        <h5>Details: {this.props.randomData.details}</h5>
-        <h5>Box #: {this.props.randomData.box_number}</h5>
+import React, { useState } from 'react'
+import Modal from 'react-bootstrap/Modal';
+import RandomEdit from './RandomEdit'
 
 
+const Random = props => {
 
-        <p onClick={() => {
-            this.props.handleDeleteRandom(this.props.randomData.id)
-        }}>delete</p>
+const [show, setShow] = useState(false);
 
-        </div>
-      </article>
-    )
-  }
+    const handleClose = (e) => {
+        setShow(false)
+    }
+
+    const handleShow = (e) => {
+        setShow(true)
+    }
+
+        return (
+            <table className="random-table">
+            <thead></thead>
+            <tbody>
+            <tr>
+            <td className='random-name'>{props.randomData.name}</td>
+            <td className='random-details'>{props.randomData.details}</td>
+            <td>
+
+            <>
+      <p className="btn btn-sm btn-primary" onClick={handleShow}>
+        Edit
+      </p>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <RandomEdit randomData={props.randomData} handleUpdateRandom={props.handleUpdateRandom} handleClose={handleClose}/>
+         </Modal.Body>
+      </Modal>
+    </>
+            </td>
+            <td><p className="btn btn-sm btn-primary"  onClick={() => {
+                props.handleDeleteRandom(props.randomData.id)
+            }}>Delete</p></td>
+            </tr>
+            </tbody>
+            </table>
+
+        )
+
 }
-// =============================
-// EXPORT
-// =============================
+
+
 export default Random

@@ -1,30 +1,73 @@
-import React from 'react';
+import React, {useState} from 'react'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
-import Main from './components/Main.js'
-import Aside from './components/Aside.js'
-
-
-class App extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            formInputs: null
-        }
-    }
+import RandomPage from './components/RandomPage.js'
+import FabricPage from './components/FabricPage.js'
+import NeedlePage from './components/NeedlePage.js'
+import Home from './components/Home.js'
 
 
 
-    render () {
-        return (
-            <div>
-            <Main
-            formInputs={this.state.formInputs}
-            randomData={this.state.randomData}
-            fabricData={this.state.fabricData}
-            />
-            </div>
-        )
-    }
+
+const App = props => {
+    const [baseUrl, setBaseUrl] = useState('http://localhost:8888')
+
+    //define state in constructor add url if statement
+
+
+//     if (process.env.NODE_ENV === 'development') {
+//         baseUrl: 'http://localhost:8888'
+//     } else {
+//         console.log('this is for heroku');
+//     }
+
+
+let content = (
+    <Router>
+    <div>
+    <nav>
+    <ul>
+    <li>
+    <Link to="/">Home</Link>
+    </li>
+    <li>
+    <Link to="/fabric">Fabric</Link>
+    </li>
+    <li>
+    <Link to="/random">Random</Link>
+    </li>
+    <li>
+    <Link to="/needles">Needles</Link>
+    </li>
+    </ul>
+    </nav>
+
+    <Switch>
+    <Route exact path="/">
+      <Home />
+    </Route>
+    <Route path="/fabric">
+    <FabricPage
+    baseUrl={baseUrl} />
+    </Route>
+    <Route path="/random">
+    <RandomPage baseUrl={baseUrl}/>
+    </Route>
+    <Route path="/needles">
+    <NeedlePage baseUrl={baseUrl}/>
+    </Route>
+    </Switch>
+    </div>
+    </Router>
+
+);
+return content;
 }
 
 

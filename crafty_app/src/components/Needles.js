@@ -1,31 +1,39 @@
 import React from 'react'
 
-class Needles extends React.Component {
-  render () {
-    return (
-      <React.Fragment>
-        <div>
-        <h5>Size: {this.props.needleData.size}</h5>
-        <h5>Straight: {this.props.needleData.straight}</h5>
-        <h5>Circular: {this.props.needleData.circular}</h5>
-        <h5>Double-point: {this.props.needleData.doublepoint}</h5>
-        </div>
-        <div>
-        {this.props.needleData.body}
-        </div>
-        <div>
-        <ul>
-        <li onClick={() => {
-            {this.props.handleView('editNeedle', this.props.needleData)}
-        }}>edit post</li>
-        <li onClick={() => {
-            this.props.handleDeleteNeedle(this.props.needleData.id)
-        }}>delete post</li>
-        </ul>
-        </div>
-      </React.Fragment>
-    )
-  }
+const Needles = props => {
+        return (
+            <React.Fragment>
+            <div className = "needle-box">
+            {props.needleData.size}
+            <table>
+            <thead></thead>
+            <tbody>
+            <tr>
+            <td>Straight</td>
+            <td>{(props.needleData.straight==='1')? 'X' : null}</td>
+            </tr>
+            <tr>
+            <td>Circular</td>
+            <td>{(props.needleData.circular==='1')? 'X' : null}</td>
+            </tr>
+            <tr>
+            <td>Double-point</td>
+            <td>{(props.needleData.doublepoint==='1')? 'X' : null}</td>
+            </tr>
+            </tbody>
+            </table>
+            <p onClick={() => {
+                props.handleUpdateNeedle(props.needleData)
+            }}>edit</p>
+
+            <p onClick={() => {
+                props.handleDeleteNeedle(props.needleData.id)
+            }}>delete</p>
+
+            </div>
+            <br/>
+            </React.Fragment>
+        )
 }
 
 export default Needles
