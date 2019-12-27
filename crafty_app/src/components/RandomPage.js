@@ -106,7 +106,7 @@ class RandomPage extends React.Component {
             onChange={this.handleChange}/>
 
 
-
+            <div className="search-box">
             {this.state.randoms.filter(random=>{
                 return random.name === this.state.randomFilter
             }).map((randomData) => (
@@ -116,10 +116,9 @@ class RandomPage extends React.Component {
                 handleDeleteRandom={this.handleDeleteRandom}
                 handleUpdateRandom={this.handleUpdateRandom}
                 />
-
-
-        ))}
-        <br/>
+            ))}
+            </div>
+            <div className="random-box">
 
             Box 1
             {this.state.randoms.filter(random=>{
@@ -133,7 +132,9 @@ class RandomPage extends React.Component {
                 />
 
             ))}
-            <hr/>
+            </div>
+
+            <div className="random-box">
             Box 2
             {this.state.randoms.filter(random=>{
                 return random.box_number === '2'
@@ -146,8 +147,9 @@ class RandomPage extends React.Component {
                 />
 
             ))}
+            </div>
 
-            <hr/>
+            <div className="random-box">
             Box 3
             {this.state.randoms.filter(random=>{
                 return random.box_number === '3'
@@ -161,6 +163,7 @@ class RandomPage extends React.Component {
 
             ))}
 
+            </div>
             </div>
         )
     }

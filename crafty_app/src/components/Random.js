@@ -1,37 +1,52 @@
 
-import React from 'react'
+import React, { useState } from 'react'
+import Modal from 'react-bootstrap/Modal';
 import RandomEdit from './RandomEdit'
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-} from "react-router-dom";
 
 
 const Random = props => {
 
+const [show, setShow] = useState(false);
 
+    const handleClose = (e) => {
+        setShow(false)
+    }
+
+    const handleShow = (e) => {
+        setShow(true)
+    }
 
         return (
-            <article>
-            <div className="random-box">
-            <p>{props.randomData.name}<br/>
-            {(props.randomData.details)}</p>
-            <Router>
-            <Link to="/random-edit">Edit</Link>
-            <Switch>
-            <Route path="/random-edit">
-              <RandomEdit randomData={props.randomData} handleUpdateRandom={props.handleUpdateRandom}/>
-            </Route>
-            </Switch>
-            </Router>
-            <p onClick={() => {
-                props.handleDeleteRandom(props.randomData.id)
-            }}>delete</p>
+            <table className="random-table">
+            <thead></thead>
+            <tbody>
+            <tr>
+            <td className='random-name'>{props.randomData.name}</td>
+            <td className='random-details'>{props.randomData.details}</td>
+            <td>
 
-            </div>
-            </article>
+            <>
+      <p className="btn btn-sm btn-primary" onClick={handleShow}>
+        Edit
+      </p>
+
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Edit</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+        <RandomEdit randomData={props.randomData} handleUpdateRandom={props.handleUpdateRandom} handleClose={handleClose}/>
+         </Modal.Body>
+      </Modal>
+    </>
+            </td>
+            <td><p className="btn btn-sm btn-primary"  onClick={() => {
+                props.handleDeleteRandom(props.randomData.id)
+            }}>Delete</p></td>
+            </tr>
+            </tbody>
+            </table>
+
         )
 
 }

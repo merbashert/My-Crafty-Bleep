@@ -10,7 +10,7 @@
     border: 1px solid black;
     display: inline-block;
     margin: 5px;
-    width: 15%;
+    width: 16%;
 }
 
 
@@ -20,8 +20,22 @@
     border: 1px solid black;
 }
 
+.search-box {
+    border: 1px solid black;
+    display: inline-block;
+}
 
+.random-table p {
+    margin: 3px;
+}
 
+.random-name {
+    font-weight: bold;
+}
+
+.random-details {
+    padding: 0px 6px;
+}
 /********************NEEDLES********************/
 .needle-box {
     border: 1px solid black;
