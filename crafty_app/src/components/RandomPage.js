@@ -117,6 +117,7 @@ class RandomPage extends React.Component {
                 handleUpdateRandom={this.handleUpdateRandom}
                 />
             ))}
+
             </div>
             <div className="random-box">
 
