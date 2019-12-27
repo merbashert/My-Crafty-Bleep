@@ -2,8 +2,8 @@ import React from 'react'
 
 class NeedleForm extends React.Component {
 
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             size: '',
             straight: '',
@@ -33,14 +33,17 @@ class NeedleForm extends React.Component {
     // ==============
     render () {
         return (
+            <div className="needle-box">
             <form onSubmit={this.handleSubmit}>
+            {this.state.size}<br/>
             <label>
-            Size
-            <input type="text" placeholder="Size" id="size" value={this.state.size} onChange={this.handleChangeNeedle}/>
+            <input type="hidden" placeholder="Size" id="size" value={this.state.size} onChange={this.handleChangeNeedle}/>
             </label>
             <label>
             Straight
+            {(this.state.straight==='1')?<input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedleCheck} checked/>:
             <input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedleCheck}/>
+            }
             </label>
             <label id="circular">
             Circular
@@ -52,6 +55,7 @@ class NeedleForm extends React.Component {
             </label>
             <input type="submit" value="Put in the Box"/>
             </form>
+            </div>
         )
     }
 }
