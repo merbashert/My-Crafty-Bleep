@@ -3,6 +3,9 @@ import React from 'react'
 import RandomFind from './RandomFind'
 import RandomForm from './RandomForm'
 import Random from './Random'
+import box_picture1 from '../assets/box1.png'
+import box_picture2 from '../assets/box2.png'
+import box_picture3 from '../assets/box3.png'
 
 class RandomPage extends React.Component {
     constructor(props) {
@@ -144,13 +147,13 @@ class RandomPage extends React.Component {
             ))}
 
             </div>
+            <br/>
+                <img src={box_picture1} alt="box 1" onClick={this.setBox1}/>
+                <img src={box_picture2} alt="box 2" onClick={this.setBox2}/>
+                <img src={box_picture3} alt="box 3" onClick={this.setBox3}/>
+
             <div className="random-box">
 
-            <button className="btn btn-primary" onClick={this.setBox1}> Box 1 </button>
-            <button className="btn btn-primary" onClick={this.setBox2}> Box 2 </button>
-            <button className="btn btn-primary" onClick={this.setBox3}> Box 3 </button>
-
-            Box 1
             {this.state.randoms.filter(random=>{
                 return random.box_number === this.state.boxNumberFilter
             }).map((randomData) => (
