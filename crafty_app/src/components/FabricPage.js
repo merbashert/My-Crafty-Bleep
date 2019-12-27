@@ -97,8 +97,8 @@ class FabricPage extends React.Component {
             Add Fabric:
             <FabricForm
             handleCreateFabric={this.handleCreateFabric}
+            handleUpdateFabric={this.handleUpdateFabric}
             formInputs={this.props.formInputs}
-
             />
 
             <label htmlFor="filter">Search for tag/color</label>

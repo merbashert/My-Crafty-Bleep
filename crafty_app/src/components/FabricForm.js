@@ -53,7 +53,7 @@ class FabricForm extends React.Component {
             Picture:
             <input type="text" id="picture" value={this.state.picture} onChange={this.handleChange}></input>
             </label>
-            <input type="submit" value="Put in the Box"/>
+            <input type="submit" value="Add to fabric stash"/>
             </form>
         )
     }
