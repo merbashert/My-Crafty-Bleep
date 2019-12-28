@@ -64,10 +64,6 @@ const NeedlePage= props => {
 
     return (
         <React.Fragment>
-        <NeedleForm
-        handleCreateNeedle={handleCreateNeedle}
-        formInputs={props.formInputs}
-        />
 
         <div className = "needles">
         {needles.map((needleData) => (

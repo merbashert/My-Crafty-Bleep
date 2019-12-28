@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import RandomFind from './RandomFind'
 import RandomForm from './RandomForm'
@@ -7,47 +7,32 @@ import box_picture1 from '../assets/box1.png'
 import box_picture2 from '../assets/box2.png'
 import box_picture3 from '../assets/box3.png'
 
-class RandomPage extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            randoms: [],
-            formInputs: {
-                name: null,
-                details: null,
-                box_number:null,
-                id:null
-            },
-            randomFilter:'',
-            boxNumberFilter:''
-        }
+const RandomPage = props => {
+    const[randoms, setRandoms] = useState([])
+    const[randomFilter, setRandomFilter] = useState('')
+    const[boxNumberFilter, setBoxNumberFilter] = useState('')
+    const[formInputs, setFormInputs] = useState(null)
+
+
+    const handleChange = (e) => {
+        setRandomFilter(e.target.value)
     }
 
-    handleChange = (e) => {
-        this.setState({
-            randomFilter: e.target.value
-        })
-    }
-
-    handleBox = (e) => {
-        this.setState({
-            boxNumberFilter:e.target.value
-        })
+    const handleBox = (e) => {
+        setBoxNumberFilter(e.target.value)
     }
 
 
-    fetchRandom = () => {
-        fetch(`${this.props.baseUrl}/randoms`)
+    const fetchRandom = () => {
+        fetch(`${props.baseUrl}/randoms`)
         .then(data => data.json())
         .then(jData => {
-            this.setState({
-                randoms:jData
-            })
+            setRandoms(jData)
         }).catch(err=>console.log(err))
     }
 
-    handleCreateRandom = (createData) => {
-        fetch(`${this.props.baseUrl}/randoms`, {
+    const handleCreateRandom = (createData) => {
+        fetch(`${props.baseUrl}/randoms`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -58,15 +43,13 @@ class RandomPage extends React.Component {
             return createdRandom.json()
         })
         .then(json => {
-            this.setState({
-                randoms: json
-            })
+            setRandoms(json)
         })
         .catch(err=>console.log(err))
     }
 
-    handleUpdateRandom = (updateData) => {
-        fetch(`${this.props.baseUrl}/randoms/${updateData.id}`, {
+    const handleUpdateRandom = (updateData) => {
+        fetch(`${props.baseUrl}/randoms/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -74,94 +57,83 @@ class RandomPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedRandom => {
-            console.log("update data: " + updateData);
-            this.fetchRandom()
+            fetchRandom()
         }).catch(err=>console.log(err))
     }
 
-    handleDeleteRandom = (id) => {
-        fetch(`${this.props.baseUrl}/randoms/${id}`, {
+    const handleDeleteRandom = (id) => {
+        fetch(`${props.baseUrl}/randoms/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             }
         }).then(json => {
-            this.setState({
-                randoms: this.state.randoms.filter(random => random.id !== id)
-
-            })
+            setRandoms(randoms.filter(random => random.id !== id))
         }).catch(err=>console.log(err))
     }
 
-    setBox1 = () => {
-        this.setState({
-            boxNumberFilter:'1'
-        })
+    const setBox1 = () => {
+        setBoxNumberFilter('1')
     }
-    setBox2 = () => {
-        this.setState({
-            boxNumberFilter:'2'
-        })
+    const setBox2 = () => {
+        setBoxNumberFilter('2')
     }
-    setBox3 = () => {
-        this.setState({
-            boxNumberFilter:'3'
-        })
+    const setBox3 = () => {
+        setBoxNumberFilter('3')
     }
 
-    componentDidMount(){//loads right after the page does
-        this.fetchRandom()
-    }
+    useEffect(() => {
+        fetchRandom();
+    }, [])
 
 
-    render() {
         return (
 
             <div>
 
 
             <RandomForm
-            handleCreateRandom={this.handleCreateRandom}
-            handleUpdateRandom={this.handleUpdateRandom}
-            formInputs={this.props.formInputs}
+            handleCreateRandom={handleCreateRandom}
+            handleUpdateRandom={handleUpdateRandom}
+            formInputs={props.formInputs}
             />
 
 
             <label htmlFor="filter">Search for item </label>
             <input type="text" id="filter"
-            value={this.state.randomFilter}
-            onChange={this.handleChange}/>
+            value={randomFilter}
+            onChange={handleChange}/>
 
 
             <div className="search-box">
-            {this.state.randoms.filter(random=>{
-                return random.name === this.state.randomFilter
+            {randoms.filter(random=>{
+                return random.name === randomFilter
             }).map((randomData) => (
                 <RandomFind
                 key={randomData.id}
                 randomData={randomData}
-                handleDeleteRandom={this.handleDeleteRandom}
-                handleUpdateRandom={this.handleUpdateRandom}
+                handleDeleteRandom={handleDeleteRandom}
+                handleUpdateRandom={handleUpdateRandom}
                 />
             ))}
 
             </div>
             <br/>
-                <img src={box_picture1} alt="box 1" onClick={this.setBox1}/>
-                <img src={box_picture2} alt="box 2" onClick={this.setBox2}/>
-                <img src={box_picture3} alt="box 3" onClick={this.setBox3}/>
+                <img src={box_picture1} alt="box 1" onClick={setBox1}/>
+                <img src={box_picture2} alt="box 2" onClick={setBox2}/>
+                <img src={box_picture3} alt="box 3" onClick={setBox3}/>
 
             <div className="random-box">
 
-            {this.state.randoms.filter(random=>{
-                return random.box_number === this.state.boxNumberFilter
+            {randoms.filter(random=>{
+                return random.box_number === boxNumberFilter
             }).map((randomData) => (
                 <Random
                 key={randomData.id}
                 randomData={randomData}
-                handleDeleteRandom={this.handleDeleteRandom}
-                handleUpdateRandom={this.handleUpdateRandom}
+                handleDeleteRandom={handleDeleteRandom}
+                handleUpdateRandom={handleUpdateRandom}
                 />
 
             ))}
@@ -170,9 +142,6 @@ class RandomPage extends React.Component {
 
             </div>
         )
-    }
-
-
 }
 
 export default RandomPage
