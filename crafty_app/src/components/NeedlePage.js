@@ -59,7 +59,7 @@ const NeedlePage= props => {
     }
     useEffect(() => {
         fetchNeedle();
-    })
+    }, [])
 
 
     return (

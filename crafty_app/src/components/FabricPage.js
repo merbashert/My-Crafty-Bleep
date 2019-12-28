@@ -1,48 +1,39 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 import FabricForm from './FabricForm'
 import Fabric from './Fabrics'
 
 
 
-class FabricPage extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            fabrics: [],
-            fabricTagFilter: ''
-        }
-    }
+const FabricPage = props => {
 
-    handleChange = (e) => {
-        this.setState({
-            fabricTagFilter: e.target.value,
-            mainColorFilter: e.target.value
-        })
+    const[fabrics, setFabrics] = useState([])
+    const [fabricTagFilter, setFabricTagFilter] = useState('')
+    const [mainColorFilter, setMainColorFilter] = useState('')
+
+    const handleChange = (e) => {
+        setFabricTagFilter(e.target.value)
+        setMainColorFilter(e.target.value)
     }
 
     // handleChangeTag = (e) => {
-    //     this.setState({
-    //         fabricTagFilter: e.target.value
-    //     })
+    //     setFabricTagFilter(e.target.value)
     // }
     //
     // handleChangeColor = (e) => {
-    //     this.setState({
-    //         mainColorFilter: e.target.value
-    //     })
+    //     setMainColorFilter(e.target.value)
     // }
 
-    fetchFabric = () => {
-        fetch(`${this.props.baseUrl}/fabrics`)
+    const fetchFabric = () => {
+        fetch(`${props.baseUrl}/fabrics`)
         .then(data => data.json())
         .then(jData => {
-            this.setState({fabrics:jData})
+            setFabrics(jData)
         }).catch(err=>console.log(err))
     }
 
-    handleCreateFabric = (createData) => {
-        fetch(`${this.props.baseUrl}/fabrics`, {
+    const handleCreateFabric = (createData) => {
+        fetch(`${props.baseUrl}/fabrics`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -53,15 +44,13 @@ class FabricPage extends React.Component {
             return createdFabric.json()
         })
         .then(json => {
-            this.setState({
-                fabrics: json
-            })
+            setFabrics(json)
         })
         .catch(err=>console.log(err))
     }
 
-    handleUpdateFabric = (updateData) => {
-        fetch(`${this.props.baseUrl}/fabrics/${updateData.id}`, {
+    const handleUpdateFabric = (updateData) => {
+        fetch(`${props.baseUrl}/fabrics/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -69,98 +58,92 @@ class FabricPage extends React.Component {
                 'Content-Type': 'application/json'
             }
         }).then(updatedFabric => {
-            this.fetchFabric()
+            fetchFabric()
         }).catch(err=>console.log(err))
     }
 
-    handleDeleteFabric = (id) => {
-        fetch(`${this.props.baseUrl}/fabrics/${id}`, {
+    const handleDeleteFabric = (id) => {
+        fetch(`${props.baseUrl}/fabrics/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             }
         }).then(json => {
-            this.setState({
-                fabrics: this.state.fabrics.filter(fabric => fabric.id !== id)
-
-            })
+            setFabrics(fabrics.filter(fabric => fabric.id !== id))
         }).catch(err=>console.log(err))
     }
-    componentDidMount(){//loads right after the page does
-        this.fetchFabric()
-    }
+    useEffect(() => {
+        fetchFabric();
+    }, [])
 
-    render() {
-        return (
+
+    return (
+        <div>
+        Add Fabric:
+        <FabricForm
+        handleCreateFabric={handleCreateFabric}
+        handleUpdateFabric={handleUpdateFabric}
+        formInputs={props.formInputs}
+        />
+
+        <label htmlFor="filter">Search for tag/color</label>
+        <input type="text" id="filter"
+        value={fabricTagFilter}
+        onChange={handleChange}/>
+
+        <label id="main_color">
+        Main Color:
+        <select value={mainColorFilter} onChange={handleChange} id="main_color">
+        <option main_color="all">all</option>
+        <option main_color="red">red</option>
+        <option main_color="orange">orange</option>
+        <option main_color="yellow">yellow</option>
+        <option main_color="green">green</option>
+        <option main_color="blue">blue</option>
+        <option main_color="purple">purple</option>
+        <option main_color="pink">pink</option>
+        <option main_color="brown">brown</option>
+        <option main_color="black">black</option>
+        <option main_color="white">white</option>
+        </select>
+        </label>
+
+
+
+        {
+            (fabricTagFilter==='' || fabricTagFilter==='all')
+            ?
             <div>
-            Add Fabric:
-            <FabricForm
-            handleCreateFabric={this.handleCreateFabric}
-            handleUpdateFabric={this.handleUpdateFabric}
-            formInputs={this.props.formInputs}
-            />
+            {fabrics.map((fabricData) => (
+                <Fabric
+                key={fabricData.id}
+                fabricData={fabricData}
+                handleDeleteFabric={handleDeleteFabric}
+                handleUpdateFabric={handleUpdateFabric}
+                />
 
-            <label htmlFor="filter">Search for tag/color</label>
-            <input type="text" id="filter"
-            value={this.state.fabricTagFilter}
-            onChange={this.handleChange}/>
-
-            <label id="main_color">
-            Main Color:
-            <select value={this.state.mainColorFilter} onChange={this.handleChange} id="main_color">
-            <option main_color="all">all</option>
-            <option main_color="red">red</option>
-            <option main_color="orange">orange</option>
-            <option main_color="yellow">yellow</option>
-            <option main_color="green">green</option>
-            <option main_color="blue">blue</option>
-            <option main_color="purple">purple</option>
-            <option main_color="pink">pink</option>
-            <option main_color="brown">brown</option>
-            <option main_color="black">black</option>
-            <option main_color="white">white</option>
-            </select>
-            </label>
-
-
-
-            {
-                (this.state.fabricTagFilter===''  || this.state.fabricTagFilter==='all')
-                ?
-                <div>
-                {this.state.fabrics.map((fabricData) => (
-                    <Fabric
-                    key={fabricData.id}
-                    fabricData={fabricData}
-                    handleDeleteFabric={this.handleDeleteFabric}
-                    handleUpdateFabric={this.handleUpdateFabric}
-                    />
-
-                ))}</div>
-                :
-                <div>
-                {this.state.fabrics.filter(fabric=>{
-                    return fabric.tags === this.state.fabricTagFilter || fabric.main_color === this.state.mainColorFilter
-                }).map((fabricData) => (
-                    <Fabric
-                    key={fabricData.id}
-                    fabricData={fabricData}
-                    handleDeleteFabric={this.handleDeleteFabric}
-                    handleUpdateFabric={this.handleUpdateFabric}
-                    />
-                ))}
-                </div>
-            }
-
-
-
-
+            ))}</div>
+            :
+            <div>
+            {fabrics.filter(fabric=>{
+                return fabric.tags === fabricTagFilter || fabric.main_color === mainColorFilter
+            }).map((fabricData) => (
+                <Fabric
+                key={fabricData.id}
+                fabricData={fabricData}
+                handleDeleteFabric={handleDeleteFabric}
+                handleUpdateFabric={handleUpdateFabric}
+                />
+            ))}
             </div>
-        )//end of return
-    }//
+        }
 
 
+
+
+        </div>
+    )//end of return
 }
 
 export default FabricPage
