@@ -1,8 +1,9 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
 
 class RandomForm extends React.Component {
-    constructor() {
-        super()
+    constructor(props) {
+        super(props)
         this.state = {
             name: '',
             details: '',

@@ -16,17 +16,17 @@
 
 
 /********************RANDOM********************/
-.random-box {
-    border: 1px solid black;
-}
-
 .search-box {
     border: 1px solid black;
     display: inline-block;
 }
 
+table.table {
+    width: 45%;
+}
+
 .random-table p {
-    margin: 3px;
+    margin: 4px;
 }
 
 .random-name {
@@ -41,8 +41,12 @@
     border: 1px solid black;
     display: inline-block;
     margin: 5px;
+    width: 20%;
 }
 
+.needle-box table, p {
+    margin-left: 8px;
+}
 .needles {
     display: flex;
     justify-content: flex-start;
