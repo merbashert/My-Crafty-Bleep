@@ -17,9 +17,7 @@ const [show, setShow] = useState(false);
     }
 
         return (
-            <table className="random-table">
-            <thead></thead>
-            <tbody>
+
             <tr>
             <td className='random-name'>{props.randomData.name}</td>
             <td className='random-details'>{props.randomData.details}</td>
@@ -44,8 +42,7 @@ const [show, setShow] = useState(false);
                 props.handleDeleteRandom(props.randomData.id)
             }}>Delete</p></td>
             </tr>
-            </tbody>
-            </table>
+
 
         )
 

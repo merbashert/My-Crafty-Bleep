@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Table from 'react-bootstrap/Table';
 
 import RandomFind from './RandomFind'
 import RandomForm from './RandomForm'
@@ -125,7 +126,9 @@ const RandomPage = props => {
                 <img src={box_picture3} alt="box 3" onClick={setBox3}/>
 
             <div className="random-box">
-
+            <Table className="random-table">
+            <thead><tr><th>Box {boxNumberFilter}</th></tr></thead>
+            <tbody>
             {randoms.filter(random=>{
                 return random.box_number === boxNumberFilter
             }).map((randomData) => (
@@ -137,6 +140,8 @@ const RandomPage = props => {
                 />
 
             ))}
+            </tbody>
+            </Table>
             </div>
 
 
