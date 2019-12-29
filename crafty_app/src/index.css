@@ -21,16 +21,26 @@
     display: inline-block;
 }
 
+.random-box {
+    height: 300px;
+}
+
 table.table {
-    width: 45%;
+    width: 40%;
+}
+
+.random-table {
+
 }
 
 .random-table p {
     margin: 4px;
+
 }
 
 .random-name {
     font-weight: bold;
+    text-align: center;
 }
 
 .random-details {

@@ -1,6 +1,4 @@
 import React from 'react'
-import Button from 'react-bootstrap/Button';
-
 class RandomForm extends React.Component {
     constructor(props) {
         super(props)
@@ -19,7 +17,7 @@ class RandomForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleCreateRandom(this.state)
-        this.setState = ({
+        this.setState({
             name: '',
             details: '',
             box_number: ''

@@ -40,19 +40,28 @@ class NeedleForm extends React.Component {
             </label>
             <label>
             Straight
-            {(this.state.straight==='1')?<input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedleCheck} checked/>:
-            <input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedleCheck}/>
+            {(this.state.straight==='1')
+            ?
+            <input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedleCheck} checked/>
+            :
+            <input type="checkbox" id="straight" value='' onChange={this.handleChangeNeedleCheck}/>
             }
             </label>
             <label id="circular">
             Circular
-            {(this.state.circular==='1')?<input type="checkbox" id="circular" value={this.state.circular} onChange={this.handleChangeNeedleCheck} checked/>:
-            <input type="checkbox" id="circular" value={this.state.circular} onChange={this.handleChangeNeedleCheck}/>}
+            {(this.state.circular==='1')
+            ?
+            <input type="checkbox" id="circular" value={this.state.circular} onChange={this.handleChangeNeedleCheck} checked/>
+            :
+            <input type="checkbox" id="circular" value='' onChange={this.handleChangeNeedleCheck}/>}
             </label>
             <label id="doublepoint">
             Double-point
-            {(this.state.doublepoint==='1')?<input type="checkbox" id="doublepoint" value={this.state.doublepoint} onChange={this.handleChangeNeedleCheck} checked/>:
-            <input type="checkbox" id="doublepoint" value={this.state.doublepoint} onChange={this.handleChangeNeedleCheck}/>}
+            {(this.state.doublepoint==='1')
+            ?
+            <input type="checkbox" id="doublepoint" value={this.state.doublepoint} onChange={this.handleChangeNeedleCheck} checked/>
+            :
+            <input type="checkbox" id="doublepoint" value='' onChange={this.handleChangeNeedleCheck}/>}
             </label>
             <input type="submit" value="Apply Changes" onClick={this.props.handleClose}/>
             </form>

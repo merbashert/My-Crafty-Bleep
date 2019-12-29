@@ -52,10 +52,6 @@ const Needles = props => {
         </Modal.Body>
         </Modal>
         </>
-        <p onClick={() => {
-            props.handleDeleteNeedle(props.needleData.id)
-        }}>delete</p>
-
         </div>
         <br/>
         </React.Fragment>

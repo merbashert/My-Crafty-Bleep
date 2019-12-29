@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import NeedleForm from './NeedleForm'
 import Needle from './Needles'
 
 
@@ -16,23 +15,6 @@ const NeedlePage= props => {
         }).catch(err=>console.log(err))
     }
 
-    const handleCreateNeedle = (createData) => {
-        fetch(`${props.baseUrl}/needles`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdNeedle => {
-            return createdNeedle.json()
-        })
-        .then(json => {
-            setNeedles(json)
-        })
-        .catch(err=>console.log(err))
-    }
-
     const handleUpdateNeedle = (updateData) => {
         fetch(`${props.baseUrl}/needles/${updateData.id}`, {
             body: JSON.stringify(updateData),
@@ -46,17 +28,6 @@ const NeedlePage= props => {
         }).catch(err=>console.log(err))
     }
 
-    const handleDeleteNeedle = (id) => {
-        fetch(`${props.baseUrl}/needles/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(json => {
-            setNeedles(needles.filter(needle => needle.id !== id))
-        }).catch(err=>console.log(err))
-    }
     useEffect(() => {
         fetchNeedle();
     }, [])
@@ -70,7 +41,6 @@ const NeedlePage= props => {
             <Needle
             key={needleData.id}
             needleData={needleData}
-            handleDeleteNeedle={handleDeleteNeedle}
             handleUpdateNeedle={handleUpdateNeedle}
             />
         ))}

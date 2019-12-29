@@ -12,17 +12,11 @@ const RandomPage = props => {
     const[randoms, setRandoms] = useState([])
     const[randomFilter, setRandomFilter] = useState('')
     const[boxNumberFilter, setBoxNumberFilter] = useState('')
-    const[formInputs, setFormInputs] = useState('')
 
 
     const handleChange = (e) => {
         setRandomFilter(e.target.value)
     }
-
-    const handleBox = (e) => {
-        setBoxNumberFilter(e.target.value)
-    }
-
 
     const fetchRandom = () => {
         fetch(`${props.baseUrl}/randoms`)
@@ -45,7 +39,7 @@ const RandomPage = props => {
         })
         .then(json => {
             setRandoms(json)
-            setFormInputs()
+
         })
         .catch(err=>console.log(err))
     }
