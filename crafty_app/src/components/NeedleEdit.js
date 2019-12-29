@@ -56,7 +56,7 @@ class NeedleForm extends React.Component {
             </label>
             <input type="submit" value="Apply Changes" onClick={this.props.handleClose}/>
             </form>
-        
+
         )
     }
 }

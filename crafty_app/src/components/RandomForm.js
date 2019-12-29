@@ -19,6 +19,11 @@ class RandomForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleCreateRandom(this.state)
+        this.setState = ({
+            name: '',
+            details: '',
+            box_number: ''
+        })
     }
 
 

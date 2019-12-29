@@ -38,7 +38,12 @@ class RandomEdit extends React.Component {
             </label>
             <label>
             Details(if any):
-            <input type="text" placeholder="Details(if any)" id="details" value={this.state.details} onChange={this.handleChange}/>
+            <input
+            type="text"
+            placeholder="Details(if any)"
+            id="details"
+            value={this.state.details}
+            onChange={this.handleChange}/>
             </label>
             <label id="random-form">
             Box #:

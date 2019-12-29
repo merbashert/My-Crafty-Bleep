@@ -19,6 +19,12 @@ class FabricForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleCreateFabric(this.state)
+        this.setState({
+            length: '',
+            tags: '',
+            main_color: '',
+            picture: ''
+        })
     }
 
 
@@ -33,6 +39,7 @@ class FabricForm extends React.Component {
             <label id="main_color">
             Main Color:
             <select value={this.state.main_color} onChange={this.handleChange} id="main_color">
+            <option main_color=""></option>
             <option main_color="red">red</option>
             <option main_color="orange">orange</option>
             <option main_color="yellow">yellow</option>

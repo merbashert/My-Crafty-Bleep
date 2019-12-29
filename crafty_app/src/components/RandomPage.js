@@ -12,7 +12,7 @@ const RandomPage = props => {
     const[randoms, setRandoms] = useState([])
     const[randomFilter, setRandomFilter] = useState('')
     const[boxNumberFilter, setBoxNumberFilter] = useState('')
-    const[formInputs, setFormInputs] = useState(null)
+    const[formInputs, setFormInputs] = useState('')
 
 
     const handleChange = (e) => {
@@ -45,6 +45,7 @@ const RandomPage = props => {
         })
         .then(json => {
             setRandoms(json)
+            setFormInputs()
         })
         .catch(err=>console.log(err))
     }
@@ -74,14 +75,8 @@ const RandomPage = props => {
         }).catch(err=>console.log(err))
     }
 
-    const setBox1 = () => {
-        setBoxNumberFilter('1')
-    }
-    const setBox2 = () => {
-        setBoxNumberFilter('2')
-    }
-    const setBox3 = () => {
-        setBoxNumberFilter('3')
+    const setBox = (boxNumber) => {
+        setBoxNumberFilter(boxNumber)
     }
 
     useEffect(() => {
@@ -121,9 +116,12 @@ const RandomPage = props => {
 
             </div>
             <br/>
-                <img src={box_picture1} alt="box 1" onClick={setBox1}/>
-                <img src={box_picture2} alt="box 2" onClick={setBox2}/>
-                <img src={box_picture3} alt="box 3" onClick={setBox3}/>
+
+
+                <img src={box_picture1} alt="box 1" onClick={() => setBox('1')}/>
+                <img src={box_picture2} alt="box 2" onClick={() => setBox('2')}/>
+                <img src={box_picture3} alt="box 3" onClick={() => setBox('3')}/>
+
 
             <div className="random-box">
             <Table className="random-table">

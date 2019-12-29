@@ -25,15 +25,15 @@ const Needles = props => {
         <tbody>
         <tr>
         <td>Straight</td>
-        <td>{(props.needleData.straight==='1')? <img src={yarnball}/> : null}</td>
+        <td>{(props.needleData.straight==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
         </tr>
         <tr>
         <td>Circular</td>
-        <td>{(props.needleData.circular==='1')? <img src={yarnball}/> : null}</td>
+        <td>{(props.needleData.circular==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
         </tr>
         <tr>
         <td>Double-point</td>
-        <td>{(props.needleData.doublepoint==='1')? <img src={yarnball}/> : null}</td>
+        <td>{(props.needleData.doublepoint==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
         </tr>
         </tbody>
         </table>
