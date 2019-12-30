@@ -18,10 +18,10 @@ const [show, setShow] = useState(false);
 
         return (
 
-            <tr>
+            <tr className='random-row'>
             <td className='random-name'>{props.randomData.name}</td>
             <td className='random-details'>{props.randomData.details}</td>
-            <td>
+            <td className='random-buttons'>
             <p className="btn btn-sm btn-primary" onClick={handleShow}>
               Edit
             </p>
@@ -37,8 +37,8 @@ const [show, setShow] = useState(false);
          </Modal.Body>
       </Modal>
     </>
-            </td>
-            <td><p className="btn btn-sm btn-primary"  onClick={() => {
+
+            <p className="btn btn-sm btn-primary"  onClick={() => {
                 props.handleDeleteRandom(props.randomData.id)
             }}>Delete</p></td>
             </tr>

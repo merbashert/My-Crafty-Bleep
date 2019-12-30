@@ -16,27 +16,29 @@
 
 
 /********************RANDOM********************/
+.random-page {
+
+
+}
 .search-box {
     border: 1px solid black;
     display: inline-block;
 }
 
 .random-box {
-    height: 300px;
+    text-align: center;
 }
 
 table.table {
-    width: 40%;
-}
-
-.random-table {
-
+    width: 70%;
+    margin: auto;
 }
 
 .random-table p {
     margin: 4px;
 
 }
+
 
 .random-name {
     font-weight: bold;
@@ -45,6 +47,11 @@ table.table {
 
 .random-details {
     padding: 0px 6px;
+    text-align: center;
+}
+
+.boxpicture {
+    margin: 10px;
 }
 /********************NEEDLES********************/
 .needle-box {

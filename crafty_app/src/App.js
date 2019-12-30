@@ -44,11 +44,11 @@ let content = (
 
     <Switch>
     <Route exact path="/">
-      <Home />
+      <Home/>
     </Route>
     <Route path="/fabric">
     <FabricPage
-    baseUrl={baseUrl} />
+    baseUrl={baseUrl}/>
     </Route>
     <Route path="/random">
     <RandomPage baseUrl={baseUrl}/>
