@@ -14,12 +14,18 @@
 }
 
 
+.fabric-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
 /********************RANDOM********************/
 .random-page {
 
 
 }
+
 .search-box {
     border: 1px solid black;
     display: inline-block;
@@ -30,7 +36,7 @@
 }
 
 table.table {
-    width: 70%;
+    width: 65%;
     margin: auto;
 }
 
@@ -38,7 +44,6 @@ table.table {
     margin: 4px;
 
 }
-
 
 .random-name {
     font-weight: bold;
@@ -51,8 +56,10 @@ table.table {
 }
 
 .boxpicture {
-    margin: 10px;
+    margin: 5px;
+    padding: 8px;
 }
+
 /********************NEEDLES********************/
 .needle-box {
     border: 1px solid black;

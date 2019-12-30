@@ -115,9 +115,7 @@ const RandomPage = props => {
         <img src={box_picture1} alt="box 1" onClick={() => setBox('1')} className='boxpicture'/>
         <img src={box_picture2} alt="box 2" onClick={() => setBox('2')} className='boxpicture'/>
         <img src={box_picture3} alt="box 3" onClick={() => setBox('3')} className='boxpicture'/>
-
-
-
+        {boxNumberFilter?<h1>Box {boxNumberFilter}</h1>:null}
 
         <Table className="random-table">
         <tbody>

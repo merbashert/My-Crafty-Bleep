@@ -19,6 +19,13 @@ class FabricForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleUpdateFabric(this.state)
+        this.setState = ({
+            lengths: '',
+            main_color: '',
+            tags: '',
+            picture: '',
+            id: ''
+        })
     }
 
 

@@ -114,7 +114,7 @@ const FabricPage = props => {
         {
             (fabricTagFilter==='' || fabricTagFilter==='all')
             ?
-            <div>
+            <div className='fabric-container'>
             {fabrics.map((fabricData) => (
                 <Fabric
                 key={fabricData.id}
@@ -125,7 +125,7 @@ const FabricPage = props => {
 
             ))}</div>
             :
-            <div>
+            <div className='fabric-container'>
             {fabrics.filter(fabric=>{
                 return fabric.tags === fabricTagFilter || fabric.main_color === mainColorFilter
             }).map((fabricData) => (
