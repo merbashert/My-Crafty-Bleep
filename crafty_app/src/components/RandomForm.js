@@ -27,7 +27,7 @@ class RandomForm extends React.Component {
 
 
     render () {
-        console.log(this.state.name);
+        console.log(this.state);
         return (
             <form onSubmit={this.handleSubmit}>
             <label>
