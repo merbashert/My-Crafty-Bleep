@@ -16,11 +16,11 @@ const FabricPage = props => {
         setMainColorFilter(e.target.value)
     }
 
-    // handleChangeTag = (e) => {
+    // const handleChangeTag = (e) => {
     //     setFabricTagFilter(e.target.value)
     // }
     //
-    // handleChangeColor = (e) => {
+    // const handleChangeColor = (e) => {
     //     setMainColorFilter(e.target.value)
     // }
 
@@ -73,10 +73,10 @@ const FabricPage = props => {
             setFabrics(fabrics.filter(fabric => fabric.id !== id))
         }).catch(err=>console.log(err))
     }
+
     useEffect(() => {
         fetchFabric();
     }, [])
-
 
     return (
         <div>
@@ -109,10 +109,8 @@ const FabricPage = props => {
         </select>
         </label>
 
-
-
         {
-            (fabricTagFilter==='' || fabricTagFilter==='all')
+            (fabricTagFilter==='' || mainColorFilter==='all')
             ?
             <div className='fabric-container'>
             {fabrics.map((fabricData) => (
@@ -122,7 +120,6 @@ const FabricPage = props => {
                 handleDeleteFabric={handleDeleteFabric}
                 handleUpdateFabric={handleUpdateFabric}
                 />
-
             ))}</div>
             :
             <div className='fabric-container'>
@@ -138,10 +135,6 @@ const FabricPage = props => {
             ))}
             </div>
         }
-
-
-
-
         </div>
     )//end of return
 }

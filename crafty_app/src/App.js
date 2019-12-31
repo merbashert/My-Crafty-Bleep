@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 import {
     BrowserRouter as Router,
     Switch,
@@ -25,22 +26,22 @@ const App = props => {
 let content = (
     <Router>
     <div>
-    <nav>
-    <ul>
-    <li>
+
+    <div className='nav-bar'>
+    <p>
     <Link to="/">Home</Link>
-    </li>
-    <li>
+    </p>
+    <p>
     <Link to="/fabric">Fabric</Link>
-    </li>
-    <li>
+    </p>
+    <p>
     <Link to="/random">Random</Link>
-    </li>
-    <li>
+    </p>
+    <p>
     <Link to="/needles">Needles</Link>
-    </li>
-    </ul>
-    </nav>
+    </p>
+    </div>
+
 
     <Switch>
     <Route exact path="/">

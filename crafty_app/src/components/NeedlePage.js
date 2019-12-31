@@ -32,7 +32,6 @@ const NeedlePage= props => {
         fetchNeedle();
     }, [])
 
-
     return (
         <React.Fragment>
 

@@ -79,45 +79,40 @@ const RandomPage = props => {
 
 
     return (
-
-        <div className = 'random-page'>
-
-
+<>
+        <div className="random-add">
         <RandomForm
         handleCreateRandom={handleCreateRandom}
-        handleUpdateRandom={handleUpdateRandom}
-        formInputs={props.formInputs}
         />
-
-
-        <label htmlFor="filter">Search for item </label>
+        </div>
+        <div className="search-box">
+        <div className="search-terms">
+        <label htmlFor="filter">Search for item</label>
         <input type="text" id="filter"
         value={randomFilter}
         onChange={handleChange}/>
+        </div>
 
-
-        <div className="search-box">
+        <div className="results">
         {randoms.filter(random=>{
             return random.name === randomFilter
         }).map((randomData) => (
             <RandomFind
             key={randomData.id}
             randomData={randomData}
-            handleDeleteRandom={handleDeleteRandom}
-            handleUpdateRandom={handleUpdateRandom}
             />
         ))}
-
         </div>
-        <br/>
+        </div>
 
         <div className="random-box">
         <img src={box_picture1} alt="box 1" onClick={() => setBox('1')} className='boxpicture'/>
         <img src={box_picture2} alt="box 2" onClick={() => setBox('2')} className='boxpicture'/>
         <img src={box_picture3} alt="box 3" onClick={() => setBox('3')} className='boxpicture'/>
+
         {boxNumberFilter?<h1>Box {boxNumberFilter}</h1>:null}
 
-        <Table className="random-table">
+        <Table className="random-table" size="sm">
         <tbody>
         {randoms.filter(random=>{
             return random.box_number === boxNumberFilter
@@ -125,17 +120,19 @@ const RandomPage = props => {
             <Random
             key={randomData.id}
             randomData={randomData}
-            handleDeleteRandom={handleDeleteRandom}
             handleUpdateRandom={handleUpdateRandom}
+            handleDeleteRandom={handleDeleteRandom}
             />
 
         ))}
         </tbody>
         </Table>
-        </div>
+                </div>
+        </>
 
 
-        </div>
+
+
     )
 }
 

@@ -6,9 +6,7 @@ const RandomFind = props => {
 
     return (
         <div>
-         {props.randomData.name}<br/>
-         {props.randomData.details}<br/>
-         Box {props.randomData.box_number}
+         {props.randomData.name} {props.randomData.details} Box {props.randomData.box_number}
          </div>
     )
   }

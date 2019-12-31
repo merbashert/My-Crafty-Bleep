@@ -24,6 +24,12 @@ class NeedleForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleUpdateNeedle(this.state)
+        this.setState = ({
+            size: '',
+            circular: '',
+            doublepoint: '',
+            id: ''
+        })
     }
 
 
