@@ -15,7 +15,8 @@ const RandomEdit = props => {
         const boxinfo = {
             name:name,
             details:details,
-            box_number:box_number
+            box_number:box_number,
+            id:id
         }
         props.handleUpdateRandom(boxinfo)
         setName('')
