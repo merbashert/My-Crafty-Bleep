@@ -1,40 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 
-class RandomEdit extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            name: props.randomData.name,
-            details: props.randomData.details,
-            box_number: props.randomData.box_number,
-            id: props.randomData.id
-        }
-    }
+const RandomEdit = props => {
+    const [name, setName] = useState(props.randomData.name)
+    const [details, setDetails] = useState(props.randomData.details?props.randomData.details:'')
+    const [box_number, setBox_Number] = useState(props.randomData.box_number)
+    const [id, setId] = useState(props.randomData.id)
 
-    handleChange = (e) => {
-        this.setState({[e.target.id] : e.target.value})
-    }
 
-    handleSubmit = (e) => {
+
+
+    const handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleUpdateRandom(this.state)
-        this.setState = ({
-            name: '',
-            details: '',
-            box_number: '',
-            id: ''
-        })
-    }
+        const boxinfo = {
+            name:name,
+            details:details,
+            box_number:box_number
+        }
+        props.handleUpdateRandom(boxinfo)
+        setName('')
+        setDetails('')
+        setBox_Number('')
+        setId('')
+        }
 
 
 
-    render () {
+
+console.log(details);
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <label>
             Item:
-            <input type="text" placeholder="Item" id="name" value={this.state.name} onChange={this.handleChange}/>
+            <input type="text" placeholder="Item" id="name" value={name} onChange={e => setName(e.target.value)}/>
             </label>
             <label>
             Details(if any):
@@ -42,21 +40,21 @@ class RandomEdit extends React.Component {
             type="text"
             placeholder="Details(if any)"
             id="details"
-            value={this.state.details}
-            onChange={this.handleChange}/>
+            value={details}
+            onChange={e => setDetails(e.target.value)}/>
             </label>
             <label id="random-form">
             Box #:
-            <input type="number" placeholder="Box #" id="box_number" value={this.state.box_number} onChange={this.handleChange}></input>
+            <input type="number" placeholder="Box #" id="box_number" value={box_number} onChange={e => setBox_Number(e.target.value)}/>
             </label>
             <br/>
-            <input type="submit" className="btn btn-primary" value="Apply changes" onClick={this.props.handleClose}/>
-            <Button className="btn btn-primary" onClick={this.props.handleClose}>
+            <input type="submit" className="btn btn-primary" value="Apply changes" onClick={props.handleClose}/>
+            <Button className="btn btn-primary" onClick={props.handleClose}>
               Close
             </Button>
             </form>
         )
-    }
+
 }
 
 

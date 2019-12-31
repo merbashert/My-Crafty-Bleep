@@ -4,7 +4,7 @@ const RandomForm = props =>  {
     const [name, setName] = useState('')
     const [details, setDetails] = useState('')
     const [box_number, setBox_Number] = useState('')
-    const [id, setId] = useState(null)
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -17,7 +17,7 @@ const RandomForm = props =>  {
         setName('')
         setDetails('')
         setBox_Number('')
-        setId('')
+
     }
 
     return (
