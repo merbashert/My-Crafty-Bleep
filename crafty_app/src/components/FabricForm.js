@@ -19,6 +19,7 @@ class FabricForm extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault()
         this.props.handleCreateFabric(this.state)
+        console.log(this.state);
         this.setState({
             length: '',
             tags: '',
