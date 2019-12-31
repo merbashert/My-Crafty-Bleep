@@ -8,6 +8,7 @@ import box_picture1 from '../assets/box1.png'
 import box_picture2 from '../assets/box2.png'
 import box_picture3 from '../assets/box3.png'
 
+
 const RandomPage = props => {
     const[randoms, setRandoms] = useState([])
     const[randomFilter, setRandomFilter] = useState('')
@@ -77,7 +78,7 @@ const RandomPage = props => {
         fetchRandom();
     }, [])
 
-
+console.log(randomFilter);
     return (
 <>
         <div className="random-add">

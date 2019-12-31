@@ -1,45 +1,42 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-class FabricForm extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            length: props.fabricData.length,
-            main_color: props.fabricData.main_color,
-            tags: props.fabricData.tags,
-            picture: props.fabricData.picture,
-            id: props.fabricData.id
-        }
-    }
+const FabricEdit = props => {
 
-    handleChange = (e) => {
-        this.setState({[e.target.id] : e.target.value})
-    }
+    const [length, setLength] = useState(props.fabricData.length)
+    const [main_color, setMain_Color] = useState(props.fabricData.main_color?props.fabricData.main_color:'')
+    const [tags, setTags] = useState(props.fabricData.tags)
+    const [picture, setPicture] = useState(props.fabricData.picture)
+    const [id, setId] = useState(props.fabricData.id)
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleUpdateFabric(this.state)
-        this.setState = ({
-            lengths: '',
-            main_color: '',
-            tags: '',
-            picture: '',
-            id: ''
-        })
-    }
+        const fabricinfo = {
+            length:length,
+            main_color:main_color,
+            tags:tags,
+            picture: picture,
+            id:id
+        }
+        props.handleUpdateFabric(fabricinfo)
+        setLength('')
+        setMain_Color('')
+        setTags('')
+        setPicture('')
+        setId('')
+        }
 
 
-    render () {
+
         return (
-            <form onSubmit={this.handleSubmit}>
+            <form onSubmit={handleSubmit}>
             <label>
             Length:
-            <input type="text" placeholder="Length" id="length" value={this.state.length} onChange={this.handleChange}/>
+            <input type="text" placeholder="Length" id="length" value={length} onChange={e => setLength(e.target.value)}/>
             </label>
 
             <label id="main_color">
             Main Color:
-            <select value={this.state.main_color} onChange={this.handleChange} id="main_color">
+            <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color">
             <option main_color="red">red</option>
             <option main_color="orange">orange</option>
             <option main_color="yellow">yellow</option>
@@ -54,16 +51,16 @@ class FabricForm extends React.Component {
             </label>
             <label>
             Tags:
-            <input type="text" placeholder="Tags" id="tags" value={this.state.tags} onChange={this.handleChange}/>
+            <input type="text" placeholder="Tags" id="tags" value={tags} onChange={e => setTags(e.target.value)}/>
             </label>
             <label id="picture">
             Picture:
-            <input type="text" id="picture" value={this.state.picture} onChange={this.handleChange}></input>
+            <input type="text" id="picture" value={picture} onChange={e => setPicture(e.target.value)}></input>
             </label>
-            <input type="submit" value="Apply changes" onClick={this.props.handleClose}/>
+            <input type="submit" value="Apply changes" onClick={props.handleClose}/>
             </form>
         )
-    }
+
 }
 
-export default FabricForm
+export default FabricEdit

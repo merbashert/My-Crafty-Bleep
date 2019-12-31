@@ -17,7 +17,6 @@ const RandomForm = props =>  {
         setName('')
         setDetails('')
         setBox_Number('')
-
     }
 
     return (
