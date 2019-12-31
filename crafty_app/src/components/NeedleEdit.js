@@ -1,82 +1,68 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-class NeedleForm extends React.Component {
+const NeedleEdit = props => {
 
-    constructor(props) {
-        super(props)
-        this.state = {
-            size: props.needleData.size,
-            straight: props.needleData.straight,
-            circular: props.needleData.circular,
-            doublepoint: props.needleData.doublepoint,
-            id: props.needleData.id
-        }
-    }
+const [size, setSize] = useState(props.needleData.size)
+const [straight, setStraight] = useState(props.needleData.straight)
+const [circular, setCircular] = useState(props.needleData.circular)
+const [doublepoint, setDoublepoint] = useState(props.needleData.doublepoint)
+const [id, setId] = useState(props.needleData.id)
 
-    handleChangeNeedle = (e) => {
-        this.setState({[e.target.id] : e.target.value})
-    }
 
-    handleChangeNeedleCheck = (e) => {
-        this.setState({ [e.target.id]: e.target.checked })
-    }
 
-    handleSubmit = (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault()
-        this.props.handleUpdateNeedle(this.state)
-        this.setState = ({
-            size: '',
-            circular: '',
-            doublepoint: '',
-            id: ''
-        })
+        const needleinfo = {
+            size:size,
+            straight:straight,
+            circular:circular,
+            doublepoint:doublepoint,
+            id:id
+        }
+        props.handleUpdateNeedle(needleinfo)
+        setSize('')
+        setStraight('')
+        setCircular('')
+        setDoublepoint('')
+        console.log(needleinfo);
     }
 
 
-    // ==============
-    // RENDER
-    // ==============
-    render () {
         return (
 
-            <form onSubmit={this.handleSubmit}>
-            {this.state.size}<br/>
-            <label>
-            <input type="hidden" placeholder="Size" id="size" value={this.state.size} onChange={this.handleChangeNeedle}/>
-            </label>
+            <form onSubmit={handleSubmit}>
+            {size}<br/>
             <label>
             Straight
-            {(this.state.straight==='1')
+            {(straight==='1')
             ?
-            <input type="checkbox" id="straight" value={this.state.straight} onChange={this.handleChangeNeedleCheck} checked/>
+            <input type="checkbox" id="straight" value={straight} onChange={e => setStraight('0')} defaultChecked={true}/>
             :
-            <input type="checkbox" id="straight" value='' onChange={this.handleChangeNeedleCheck}/>
+            <input type="checkbox" id="straight" value='' onChange={e => setStraight('1')}/>
             }
             </label>
+
             <label id="circular">
             Circular
-            {(this.state.circular==='1')
+            {(circular==='1')
             ?
-            <input type="checkbox" id="circular" value={this.state.circular} onChange={this.handleChangeNeedleCheck} checked/>
+            <input type="checkbox" id="circular" value={circular} onChange={e => setCircular('0')} defaultChecked={true}/>
             :
-            <input type="checkbox" id="circular" value='' onChange={this.handleChangeNeedleCheck}/>}
+            <input type="checkbox" id="circular" value='' onChange={e => setCircular('1')}/>}
             </label>
+
             <label id="doublepoint">
             Double-point
-            {(this.state.doublepoint==='1')
+            {(doublepoint==='1')
             ?
-            <input type="checkbox" id="doublepoint" value={this.state.doublepoint} onChange={this.handleChangeNeedleCheck} checked/>
+            <input type="checkbox" id="doublepoint" value={doublepoint} onChange={e => setDoublepoint('0')} defaultChecked={true}/>
             :
-            <input type="checkbox" id="doublepoint" value='' onChange={this.handleChangeNeedleCheck}/>}
+            <input type="checkbox" id="doublepoint" value='' onChange={e => setDoublepoint('1')}/>}
             </label>
-            <input type="submit" value="Apply Changes" onClick={this.props.handleClose}/>
+            <input type="submit" value="Apply Changes" onClick={props.handleClose}/>
             </form>
 
         )
-    }
 }
 
-// =============================
-// EXPORT
-// =============================
-export default NeedleForm
+export default NeedleEdit
