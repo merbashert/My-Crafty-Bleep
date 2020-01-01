@@ -5,7 +5,7 @@ const RandomFind = props => {
 
 
     return (
-        <div>
+        <div className = 'filtered-result'>
          {props.randomData.name} {props.randomData.details} Box {props.randomData.box_number}
          </div>
     )

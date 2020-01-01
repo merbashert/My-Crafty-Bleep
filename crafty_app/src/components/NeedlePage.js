@@ -33,7 +33,7 @@ const NeedlePage= props => {
     }, [])
 
     return (
-        <React.Fragment>
+
 
         <div className = "needles">
         {needles.map((needleData) => (
@@ -44,8 +44,6 @@ const NeedlePage= props => {
             />
         ))}
         </div>
-
-        </React.Fragment>
     )
 }
 

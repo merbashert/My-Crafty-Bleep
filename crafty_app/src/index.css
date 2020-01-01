@@ -2,10 +2,11 @@
 @font-face {
     font-family: 'sketch_matchregular';
     src: url('./assets/sketch_match-webfont.woff2') format('woff2'),
-         url('./assets/sketch_match-webfont.woff') format('woff');
+    url('./assets/sketch_match-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
+
 
 .nav-bar {
     display: flex;
@@ -21,27 +22,27 @@
 
 .sitename {
     font-family: sketch_matchregular;
-    font-size: 20vh;
+    font-size: 25vh;
     width: 60%;
     text-align: center;
-    line-height: 18vh;
 }
 
 /********************FABRIC********************/
 .fabric-pic {
     width: 100%;
-    height: 55%;
 }
 
 .fabric-box {
     border: 1px solid black;
-    margin: 5px;
-    width: 16%;
+    margin: 2px;
+    width: 200px;
+    height: 50%;
 }
 
 .fabric-data {
     display: grid;
-    grid-template-columns: 1fr 40% 1fr;
+    grid-template-columns: 60% 1fr;
+    grid-template-rows: 1fr 1fr;
 }
 
 .fabric-container {
@@ -54,28 +55,35 @@
     text-transform: uppercase;
     font-size: 12px;
     grid-column-start: 1;
+    grid-row-start: 2;
 }
 
 .fabric-buttons {
     display: flex;
     justify-content: flex-end;
     grid-column-start: 3;
+    grid-row-start: 2;
 }
 
 .fabric-buttons p{
     margin: 3px;
 }
+
 /********************RANDOM********************/
 .random-add {
     border: 1px solid black;
     box-sizing: border-box;
+    text-align: center;
 }
 
 .search-box {
     border: 1px solid black;
     display: flex;
-    justify-content: space-around;
-    box-sizing: border-box;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 8px;
+    width: 70%;
+    margin: 10px auto;
 }
 
 .random-box {
@@ -108,6 +116,9 @@ table.table {
     width: 20%;
 }
 
+.filtered-result {
+    margin-left: 50px;
+}
 
 
 /********************NEEDLES********************/
@@ -128,4 +139,5 @@ table.table {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    width: 97%
 }
