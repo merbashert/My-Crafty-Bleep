@@ -1,5 +1,6 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Navbar from 'react-bootstrap/Navbar';
 
 import {
     BrowserRouter as Router,
@@ -7,6 +8,7 @@ import {
     Route,
     Link
 } from "react-router-dom";
+
 
 import RandomPage from './components/RandomPage.js'
 import FabricPage from './components/FabricPage.js'
@@ -27,7 +29,7 @@ let content = (
     <Router>
     <div>
 
-    <div className='nav-bar'>
+    <Navbar>
     <p>
     <Link to="/">Home</Link>
     </p>
@@ -40,7 +42,7 @@ let content = (
     <p>
     <Link to="/needles">Needles</Link>
     </p>
-    </div>
+    </Navbar>
 
 
     <Switch>

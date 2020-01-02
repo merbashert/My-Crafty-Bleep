@@ -34,7 +34,7 @@ const FabricForm = props => {
 
         <label id="main_color">
         Main Color:
-        <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color">
+        <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color" required>
         <option main_color=""></option>
         <option main_color="red">red</option>
         <option main_color="orange">orange</option>
@@ -54,9 +54,9 @@ const FabricForm = props => {
         </label>
         <label id="picture">
         Picture:
-        <input type="text" id="picture" value={picture} onChange={e => setPicture(e.target.value)}></input>
+        <input type="text" id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
         </label>
-        <input type="submit" value="Add to fabric stash"/>
+        <input type="submit" value="Add to fabric stash" className='add-button'/>
         </form>
     )
 }

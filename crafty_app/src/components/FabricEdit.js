@@ -32,8 +32,7 @@ const FabricEdit = props => {
             <label>
             Length:
             <input type="text" placeholder="Length" id="length" value={length} onChange={e => setLength(e.target.value)}/>
-            </label>
-
+            </label><br/>
             <label id="main_color">
             Main Color:
             <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color">
@@ -48,15 +47,15 @@ const FabricEdit = props => {
             <option main_color="black">black</option>
             <option main_color="white">white</option>
             </select>
-            </label>
+            </label><br/>
             <label>
             Tags:
             <input type="text" placeholder="Tags" id="tags" value={tags} onChange={e => setTags(e.target.value)}/>
-            </label>
+            </label><br/>
             <label id="picture">
             Picture:
-            <input type="text" id="picture" value={picture} onChange={e => setPicture(e.target.value)}></input>
-            </label>
+            <input type="text" id="picture" value={picture} onChange={e => setPicture(e.target.value)} className='fabric-picture'/>
+            </label><br/>
             <input type="submit" value="Apply changes" onClick={props.handleClose}/>
             </form>
         )

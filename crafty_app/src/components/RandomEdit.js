@@ -31,7 +31,7 @@ console.log(details);
             <label>
             Item:
             <input type="text" placeholder="Item" id="name" value={name} onChange={e => setName(e.target.value)}/>
-            </label>
+            </label><br/>
             <label>
             Details(if any):
             <input
@@ -40,15 +40,15 @@ console.log(details);
             id="details"
             value={details}
             onChange={e => setDetails(e.target.value)}/>
-            </label>
+            </label><br/>
             <label id="random-form">
             Box #:
             <input type="number" placeholder="Box #" id="box_number" value={box_number} onChange={e => setBox_Number(e.target.value)}/>
             </label>
             <br/>
-            <input type="submit" className="btn btn-primary" value="Apply changes" onClick={props.handleClose}/>
-            <Button className="btn btn-primary" onClick={props.handleClose}>
-              Close
+            <input type="submit" value="Apply changes" onClick={props.handleClose} className='add-button'/>
+            <Button className="add-button" onClick={props.handleClose}>
+              Cancel
             </Button>
             </form>
         )

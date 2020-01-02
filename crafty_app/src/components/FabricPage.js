@@ -80,23 +80,25 @@ const FabricPage = props => {
 
     return (
         <div>
-        Add Fabric:
+        <div className = 'add-form'>
+
         <FabricForm
         handleCreateFabric={handleCreateFabric}
         handleUpdateFabric={handleUpdateFabric}
         formInputs={props.formInputs}
         />
+        </div>
 
         <div className='fabric-filter'>
         <label htmlFor="filter">Search for tag/color</label>
         <input type="text" id="filter"
         value={fabricTagFilter}
-        onChange={handleChange}/>
+        onChange={handleChange} className='filter-input'/>
 
 
         <label id="main_color">
-        Main Color:
-        <select value={mainColorFilter} onChange={handleChange} id="main_color">
+        Main Color
+        <select value={mainColorFilter} onChange={handleChange} id="main_color" className='dropdown'>
         <option main_color="all">all</option>
         <option main_color="red">red</option>
         <option main_color="orange">orange</option>
@@ -110,7 +112,7 @@ const FabricPage = props => {
         <option main_color="white">white</option>
         </select>
         </label>
-        </div>
+
         {
             (fabricTagFilter==='' || mainColorFilter==='all')
             ?
@@ -138,6 +140,7 @@ const FabricPage = props => {
             </div>
         }
         </div>
+            </div>
     )//end of return
 }
 
