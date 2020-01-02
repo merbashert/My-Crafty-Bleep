@@ -1,6 +1,10 @@
 {
   "name": "crafty_app",
   "version": "0.1.0",
+  "engines": {
+    "node": "12.11.0",
+    "npm": "6.4.1"
+  },
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.8.0",
