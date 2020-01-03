@@ -19,7 +19,7 @@ let baseUrl = '';
 if (process.env.NODE_ENV === 'development') {
     baseUrl = 'http://localhost:8888'
 } else {
-    baseUrl = 'https://mycraftybleep.herokuapp.com/'
+    baseUrl = 'https://mycraftybleep-back.herokuapp.com/'
 }
 
 
