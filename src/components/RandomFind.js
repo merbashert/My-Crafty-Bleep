@@ -5,14 +5,14 @@ const RandomFind = props => {
 
 
     return (
-        <div className = 'filtered-result'>
+<React.Fragment>
         <div className = 'filtered-info'>
-         <div className = 'filtered-name'>{props.randomData.name}</div>
-         {props.randomData.details?<div className = 'filtered-details'> {props.randomData.details}</div>:null}
+         <h3>{props.randomData.name}</h3>
+         {props.randomData.details?props.randomData.details:null}
          </div>
          <div className="filtered-box"> Box {props.randomData.box_number}</div>
 
-         </div>
+         </React.Fragment>
     )
   }
 export default RandomFind

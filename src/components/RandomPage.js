@@ -80,23 +80,19 @@ const RandomPage = props => {
 
 
     return (
-        <div className='random-page'>
-        <div className="add-form">
-        <RandomForm
-        handleCreateRandom={handleCreateRandom}
-        />
+        <React.Fragment>
+
+        <div className='add-form'>
+        <RandomForm handleCreateRandom={handleCreateRandom}/>
         </div>
-        <div className="search-box">
-        <div className="search-terms">
+
+        <div className='search-box'>
+
         <label htmlFor="filter">Search for item</label>
-        <input type="text" id="filter"
-        value={randomFilter}
-        onChange={handleChange}
-        className='filter-input'
-         />
-        </div>
+        <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input'/>
         <button onClick={() => setRandomFilter('')}>Clear</button>
-        <div className="results">
+
+        <div className='results'>
         {randoms.filter(random=>{
             return random.name === randomFilter
         }).map((randomData) => (
@@ -105,19 +101,17 @@ const RandomPage = props => {
             randomData={randomData}
             />
         ))}
-
         </div>
         </div>
 
-        <div className="random-box">
-
-        <div className='boxes'>
+        <div className='random-box'>
         <img src={box_picture1} alt="box 1" onClick={() => setBox('1')} className='boxpicture' id='1' style={{opacity: boxNumberFilter!=='1'?'50%':'100%'}}/>
         <img src={box_picture2} alt="box 2" onClick={() => setBox('2')} className='boxpicture'id='2' style={{opacity: boxNumberFilter!=='2'?'50%':'100%'}}/>
         <img src={box_picture3} alt="box 3" onClick={() => setBox('3')} className='boxpicture'id='3' style={{opacity: boxNumberFilter!=='3'?'50%':'100%'}}/>
-        </div>
+
 
         {boxNumberFilter?<h4>Box {boxNumberFilter}</h4>:null}
+
 
         <Table className="random-table" size='sm'>
         <tbody>
@@ -135,11 +129,7 @@ const RandomPage = props => {
         </tbody>
         </Table>
         </div>
-        </div>
-
-
-
-
+        </React.Fragment>
     )
 }
 

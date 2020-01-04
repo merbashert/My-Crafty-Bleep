@@ -27,8 +27,11 @@ nav.nav-bar {
     color: #fbfbff;
 }
 
-.filtered-result {
-    display: flex;
+.results {
+    display: grid;
+    grid-template-columns: 150px 490px 1fr;
+    grid-gap: 10px;
+    margin-left: 10px;
 }
 
 .filtered-result div {
@@ -36,19 +39,17 @@ nav.nav-bar {
 }
 
 .filtered-info {
+    grid-column-start: 2;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border: 1px solid black;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .filtered-box {
     border: 1px solid black;
     padding: 7px;
-    display: flex;
-    align-items: center;
     font-size: 30px;
-
+    grid-column-start: 3;
 }
 
 .filter-input {
@@ -165,6 +166,14 @@ nav.nav-bar {
     justify-content: space-around;
 }
 
+.search-box input {
+    width: 300px;
+}
+
+.search-box label {
+    margin-left: 5px;
+}
+
 .search-box {
     border: 1px solid black;
     display: flex;
@@ -172,7 +181,7 @@ nav.nav-bar {
     align-items: center;
     padding: 8px;
     width: 80%;
-    height: 70px;
+    height: 100px;
     margin: 10px auto;
 }
 
