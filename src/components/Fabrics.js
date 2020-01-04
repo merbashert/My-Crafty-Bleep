@@ -16,7 +16,7 @@ const Fabrics = props => {
 
     const useStyle = {
         backgroundImage: `url(${props.fabricData.picture})`,
-        backgroundSize: 'cover'
+        backgroundSize: 'contain'
     }
 
     return (
@@ -29,11 +29,11 @@ const Fabrics = props => {
         {props.fabricData.tags?<div className='fabric-tags'>{props.fabricData.tags}</div>:<div></div>}
 
         <>
-        <Modal show={show} onHide={handleClose}  style={useStyle}>
+        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
         <Modal.Header closeButton>
         <Modal.Title>Edit Fabric</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body  style={useStyle}>
 
         <FabricEdit fabricData={props.fabricData} handleUpdateFabric={props.handleUpdateFabric} handleClose={handleClose}/>
         </Modal.Body>

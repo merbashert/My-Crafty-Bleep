@@ -95,7 +95,7 @@ const RandomPage = props => {
         className='filter-input'
          />
         </div>
-
+        <button onClick={() => setRandomFilter('')}>Clear</button>
         <div className="results">
         {randoms.filter(random=>{
             return random.name === randomFilter
@@ -105,6 +105,7 @@ const RandomPage = props => {
             randomData={randomData}
             />
         ))}
+
         </div>
         </div>
 
