@@ -29,19 +29,19 @@ let content = (
     <Router>
     <div>
 
-    <Navbar>
-    <p>
+    <Navbar className='nav-bar'>
+    <div>
     <Link to="/">Home</Link>
-    </p>
-    <p>
+    </div>
+    <div>
     <Link to="/fabric">Fabric</Link>
-    </p>
-    <p>
+    </div>
+    <div>
     <Link to="/random">Random</Link>
-    </p>
-    <p>
+    </div>
+    <div>
     <Link to="/needles">Needles</Link>
-    </p>
+    </div>
     </Navbar>
 
 

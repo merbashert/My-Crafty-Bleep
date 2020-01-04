@@ -35,6 +35,7 @@ const NeedlePage= props => {
     return (
 
 
+        <div className = 'needle-page'>
         <div className = "needles">
         {needles.map((needleData) => (
             <Needle
@@ -43,6 +44,7 @@ const NeedlePage= props => {
             handleUpdateNeedle={handleUpdateNeedle}
             />
         ))}
+        </div>
         </div>
     )
 }

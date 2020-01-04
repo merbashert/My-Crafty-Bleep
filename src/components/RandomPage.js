@@ -118,7 +118,7 @@ const RandomPage = props => {
 
         {boxNumberFilter?<h4>Box {boxNumberFilter}</h4>:null}
 
-        <Table className="random-table" size="sm">
+        <Table className="random-table" size='sm'>
         <tbody>
         {randoms.filter(random=>{
             return random.box_number === boxNumberFilter

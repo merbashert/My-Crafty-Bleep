@@ -8,6 +8,10 @@ const FabricEdit = props => {
     const [picture, setPicture] = useState(props.fabricData.picture)
     const [id, setId] = useState(props.fabricData.id)
 
+
+
+
+
     const handleSubmit = (e) => {
         e.preventDefault()
         const fabricinfo = {
@@ -25,9 +29,8 @@ const FabricEdit = props => {
         setId('')
         }
 
-
-
         return (
+            <div className='fabric-edit'>
             <form onSubmit={handleSubmit}>
             <label>
             Length:
@@ -53,11 +56,11 @@ const FabricEdit = props => {
             <input type="text" placeholder="Tags" id="tags" value={tags} onChange={e => setTags(e.target.value)}/>
             </label><br/>
             <label id="picture">
-            Picture:
-            <input type="text" id="picture" value={picture} onChange={e => setPicture(e.target.value)} className='fabric-picture'/>
+            <input type="hidden" id="picture" value={picture} onChange={e => setPicture(e.target.value)} className='fabric-picture'/>
             </label><br/>
             <input type="submit" value="Apply changes" onClick={props.handleClose}/>
             </form>
+            </div>
         )
 
 }

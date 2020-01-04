@@ -1,4 +1,5 @@
 import React from 'react'
+import banner from '../assets/mycraftybleep.jpg'
 
 
 const Home = props => {
@@ -6,7 +7,7 @@ const Home = props => {
 
     return (
         <div className="sitename-container">
-         <h1 className="sitename">My Crafty S@!*</h1>
+         <img src={banner}/>
          </div>
     )
   }

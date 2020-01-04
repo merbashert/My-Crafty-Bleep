@@ -46,7 +46,7 @@ const Needles = props => {
         <>
 
 
-        <Modal show={show} onHide={handleClose}>
+        <Modal show={show} onHide={handleClose} style={{backgroundColor:'rgb(255, 255, 255, .4)'}}>
         <Modal.Header closeButton>
         <Modal.Title>Edit</Modal.Title>
         </Modal.Header>
