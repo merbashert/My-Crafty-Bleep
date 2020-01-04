@@ -126,7 +126,7 @@ nav.nav-bar {
 .fabric-edit {
     text-align: left;
     margin: 20px;
-    padding: 8px;
+    padding: 5px;
 }
 
 .fabric-edit-image {
@@ -160,22 +160,28 @@ nav.nav-bar {
 }
 
 table.table {
-    width: 70%;
+    width: 60%;
     margin: auto;
 }
 
 
 .random-table p {
-    margin-left: 4px;
+    margin: 4px;
 }
 
 .random-name {
     font-weight: bold;
     text-align: left;
+    width: 35%;
 }
 
 .random-details {
     padding: 0px 6px;
+    width: 33%;
+    text-align: center;
+}
+
+.random-buttons {
     text-align: right;
 }
 
