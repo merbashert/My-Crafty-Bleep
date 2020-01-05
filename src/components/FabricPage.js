@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import Modal from 'react-bootstrap/Modal';
 
 import FabricForm from './FabricForm'
 import Fabric from './Fabrics'
@@ -10,6 +11,7 @@ const FabricPage = props => {
     const[fabrics, setFabrics] = useState([])
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
+    const [show, setShow] = useState(false);
 
     const handleChange = (e) => {
         setFabricTagFilter(e.target.value)
@@ -74,20 +76,38 @@ const FabricPage = props => {
         }).catch(err=>console.log(err))
     }
 
+    const handleClose = (e) => {
+        setShow(false)
+    }
+
+    const handleShow = (e) => {
+        setShow(true)
+    }
+
     useEffect(() => {
         fetchFabric();
     }, [])
 
     return (
         <div>
-        <div className = 'add-form'>
 
+        <>
+        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+        <Modal.Header closeButton>
+        <Modal.Title>Add Fabric</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
+        <div className = 'add-form'>
         <FabricForm
         handleCreateFabric={handleCreateFabric}
-        handleUpdateFabric={handleUpdateFabric}
-        formInputs={props.formInputs}
         />
         </div>
+
+        </Modal.Body>
+        </Modal>
+        </>
+
 
         <div className='fabric-filter'>
         <div className='fabric-filter-form'>
@@ -113,6 +133,8 @@ const FabricPage = props => {
         <option main_color="white">white</option>
         </select>
         </label>
+
+        <button onClick={() => handleShow()} className='add-fabric'>Add a New Fabric</button>
         </div>
 
         {
