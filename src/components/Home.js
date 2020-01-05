@@ -7,7 +7,7 @@ const Home = props => {
 
     return (
         <div className="sitename-container">
-         <img src={banner}/>
+         <img src={banner} alt='banner'/>
          </div>
     )
   }

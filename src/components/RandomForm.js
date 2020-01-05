@@ -32,8 +32,8 @@ const RandomForm = props =>  {
         <label id="random-form">
         Box #:
         <input type="number" id="box_number" value={box_number} onChange={e => setBox_Number(e.target.value)} required/>
-        </label>
-        <input type="submit" value="Put in the Box" className='add-button'/>
+        </label><br/>
+        <input type="submit" value="Put in the Box" className='add-random'/>
         </form>
     )
 }

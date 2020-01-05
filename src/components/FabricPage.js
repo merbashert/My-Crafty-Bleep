@@ -90,6 +90,7 @@ const FabricPage = props => {
         </div>
 
         <div className='fabric-filter'>
+        <div className='fabric-filter-form'>
         <label htmlFor="filter">Search for tag/color</label>
         <input type="text" id="filter"
         value={fabricTagFilter}
@@ -112,6 +113,7 @@ const FabricPage = props => {
         <option main_color="white">white</option>
         </select>
         </label>
+        </div>
 
         {
             (fabricTagFilter==='' || mainColorFilter==='all')

@@ -29,12 +29,12 @@ const FabricForm = props => {
         <form onSubmit={handleSubmit}>
         <label>
         Length:
-        <input type="text" placeholder="Length" id="length" value={length} onChange={e => setLength(e.target.value)}/>
+        <input type="text" placeholder="Length" id="length" value={length} onChange={e => setLength(e.target.value)} required/>
         </label>
 
         <label id="main_color">
         Main Color:
-        <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color" required>
+        <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color" className='dropdown' required>
         <option main_color=""></option>
         <option main_color="red">red</option>
         <option main_color="orange">orange</option>
@@ -54,7 +54,7 @@ const FabricForm = props => {
         </label>
         <label id="picture">
         Picture:
-        <input type="text" id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
+        <input type="text" placeholder='Picture URL' id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
         </label>
         <input type="submit" value="Add to fabric stash" className='add-button'/>
         </form>

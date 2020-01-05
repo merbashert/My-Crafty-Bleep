@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table';
+import Modal from 'react-bootstrap/Modal';
+
 
 import RandomFind from './RandomFind'
 import RandomForm from './RandomForm'
@@ -9,10 +11,12 @@ import box_picture2 from '../assets/box2.png'
 import box_picture3 from '../assets/box3.png'
 
 
+
 const RandomPage = props => {
     const[randoms, setRandoms] = useState([])
     const[randomFilter, setRandomFilter] = useState('')
     const[boxNumberFilter, setBoxNumberFilter] = useState('1')
+    const [show, setShow] = useState(false);
 
 
     const handleChange = (e) => {
@@ -74,6 +78,14 @@ const RandomPage = props => {
         setBoxNumberFilter(boxNumber)
     }
 
+    const handleClose = (e) => {
+        setShow(false)
+    }
+
+    const handleShow = (e) => {
+        setShow(true)
+    }
+
     useEffect(() => {
         fetchRandom();
     }, [])
@@ -82,17 +94,29 @@ const RandomPage = props => {
     return (
         <React.Fragment>
 
+        <>
+        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+        <Modal.Header closeButton>
+        <Modal.Title>Add Random Item</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
         <div className='add-form'>
         <RandomForm handleCreateRandom={handleCreateRandom}/>
         </div>
 
+        </Modal.Body>
+        </Modal>
+        </>
+
         <div className='search-box'>
 
-        <label htmlFor="filter">Search for item</label>
-        <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input'/>
-        <button onClick={() => setRandomFilter('')}>Clear</button>
+        <label htmlFor="filter">Search All Boxes</label>
+        <div className='filter-input'><input type="text" id="filter" value={randomFilter} onChange={handleChange}/></div>
+        <button onClick={() => setRandomFilter('')} className='clear'>Clear</button>
+        <button onClick={() => handleShow()} className='add-button'>Add a New Random Thing</button>
 
-        <div className='results'>
+
         {randoms.filter(random=>{
             return random.name === randomFilter
         }).map((randomData) => (
@@ -101,7 +125,7 @@ const RandomPage = props => {
             randomData={randomData}
             />
         ))}
-        </div>
+
         </div>
 
         <div className='random-box'>
