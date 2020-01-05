@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button';
+
 
 const RandomForm = props =>  {
     const [name, setName] = useState('')
@@ -31,9 +33,17 @@ const RandomForm = props =>  {
         </label>
         <label id="random-form">
         Box #:
-        <input type="number" id="box_number" value={box_number} onChange={e => setBox_Number(e.target.value)} required/>
+        <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="box_number" className='dropdown' required>
+        <option box_number=""></option>
+        <option box_number="1">1</option>
+        <option box_number="2">2</option>
+        <option box_number="3">3</option>
+        </select>
         </label><br/>
-        <input type="submit" value="Put in the Box" className='add-random'/>
+        <input type="submit" value="Put in the Box" className='add-random' onClick={props.handleClose}/>
+        <Button className="add-button" onClick={props.handleClose}>
+        Cancel
+        </Button>
         </form>
     )
 }

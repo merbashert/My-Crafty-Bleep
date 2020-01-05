@@ -44,7 +44,6 @@ const RandomPage = props => {
         })
         .then(json => {
             setRandoms(json)
-
         })
         .catch(err=>console.log(err))
     }
@@ -102,7 +101,7 @@ const RandomPage = props => {
         <Modal.Body>
 
         <div className='add-form'>
-        <RandomForm handleCreateRandom={handleCreateRandom}/>
+        <RandomForm handleCreateRandom={handleCreateRandom} handleClose={handleClose}/>
         </div>
 
         </Modal.Body>
@@ -110,11 +109,10 @@ const RandomPage = props => {
         </>
 
         <div className='search-box'>
-
         <label htmlFor="filter">Search All Boxes</label>
         <div className='filter-input'><input type="text" id="filter" value={randomFilter} onChange={handleChange}/></div>
         <button onClick={() => setRandomFilter('')} className='clear'>Clear</button>
-        <button onClick={() => handleShow()} className='add-button'>Add a New Random Thing</button>
+        <button onClick={() => handleShow()} className='add-random'>Add a New Random Thing</button>
 
 
         {randoms.filter(random=>{

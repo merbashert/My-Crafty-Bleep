@@ -25,7 +25,6 @@ const RandomEdit = props => {
 
 
 
-console.log(details);
         return (
             <form onSubmit={handleSubmit}>
             <label>
@@ -43,7 +42,12 @@ console.log(details);
             </label><br/>
             <label id="random-form">
             Box #:
-            <input type="number" placeholder="Box #" id="box_number" value={box_number} onChange={e => setBox_Number(e.target.value)}/>
+            <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="box_number" className='dropdown' required>
+            <option box_number=""></option>
+            <option box_number="1">1</option>
+            <option box_number="2">2</option>
+            <option box_number="3">3</option>
+            </select>
             </label>
             <br/>
             <input type="submit" value="Apply changes" onClick={props.handleClose} className='add-button'/>

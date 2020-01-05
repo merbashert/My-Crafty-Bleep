@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button';
 
 const FabricForm = props => {
     const [length, setLength] = useState('')
     const [main_color, setMain_Color] = useState('')
     const [tags, setTags] = useState('')
     const [picture, setPicture] = useState('')
-    const [id, setId] = useState('')
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -14,15 +13,13 @@ const FabricForm = props => {
             length:length,
             main_color:main_color,
             tags:tags,
-            picture: picture,
-            id:id
+            picture: picture
         }
         props.handleCreateFabric(fabricinfo);
         setLength('')
         setMain_Color('')
         setTags('')
         setPicture('')
-        setId('')
     }
 
     return (
@@ -56,7 +53,10 @@ const FabricForm = props => {
         Picture:
         <input type="text" placeholder='Picture URL' id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
         </label>
-        <input type="submit" value="Add to fabric stash" className='add-button'/>
+        <input type="submit" value="Add to fabric stash" className='add-button' onClick={props.handleClose}/>
+        <Button className="add-button" onClick={props.handleClose}>
+          Cancel
+        </Button>
         </form>
     )
 }

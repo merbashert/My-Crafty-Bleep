@@ -25,7 +25,6 @@ const [id, setId] = useState(props.needleData.id)
         setCircular('')
         setDoublepoint('')
         setId('')
-        console.log(needleinfo);
     }
 
 

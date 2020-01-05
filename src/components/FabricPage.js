@@ -101,6 +101,7 @@ const FabricPage = props => {
         <div className = 'add-form'>
         <FabricForm
         handleCreateFabric={handleCreateFabric}
+        handleClose={handleClose}
         />
         </div>
 

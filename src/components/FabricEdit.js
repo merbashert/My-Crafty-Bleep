@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button';
 
 const FabricEdit = props => {
 
@@ -59,6 +60,9 @@ const FabricEdit = props => {
             <input type="hidden" id="picture" value={picture} onChange={e => setPicture(e.target.value)} className='fabric-picture'/>
             </label><br/>
             <input type="submit" value="Apply changes" onClick={props.handleClose}/>
+            <Button className="add-button" onClick={props.handleClose}>
+              Cancel
+            </Button>
             </form>
             </div>
         )
