@@ -22,7 +22,7 @@ const [show, setShow] = useState(false);
             <td className='random-name'>{props.randomData.name}</td>
             <td className='random-details'>{props.randomData.details}</td>
             <td className='random-buttons'>
-            <p className="btn btn-sm btn-primary" onClick={handleShow}>
+            <p className="btn" onClick={handleShow}>
               Edit
             </p>
             <>
@@ -38,7 +38,7 @@ const [show, setShow] = useState(false);
       </Modal>
     </>
 
-            <p className="btn btn-sm btn-primary"  onClick={() => {
+            <p className="btn"  onClick={() => {
                 props.handleDeleteRandom(props.randomData.id)
             }}>Delete</p></td>
             </tr>

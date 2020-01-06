@@ -187,26 +187,20 @@ nav.nav-bar {
 
 @media (max-width: 940px) {
     .fabric-filter-form {
-        font-size: 16px;
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
 
     .fabric-filter-form input {
-        width: 30%;
+        width: 40%;
         margin: 5px;
     }
 
     .clear-fabric {
-        margin-left: 15px;
-        margin-bottom: 10px;
+        margin: 10px;
     }
 
-    .fabric-filter label {
-        font-size: 16px;
-    }
-    
 }
 
 /********************RANDOM********************/
@@ -228,7 +222,7 @@ nav.nav-bar {
     grid-column-start: 1;
 }
 
-.clear {
+.clear-random {
     grid-column-start: 3;
     height: 30%;
     margin-left: 5px;
@@ -243,7 +237,7 @@ nav.nav-bar {
 .search-box {
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 12% 18% 8% 7% 1fr 10%;
+    grid-template-columns: 12% 18% 8% 4% 1fr 12%;
     grid-gap: 7px;
     height: 130px;
     place-items: center;
@@ -252,7 +246,6 @@ nav.nav-bar {
 }
 
 @media (max-width: 970px) {
-
 
     .filtered-name {
         font-size: 24px;
@@ -263,8 +256,19 @@ nav.nav-bar {
     }
 
     .filtered-box {
-        font-size: 24px;
+        font-size: 20px;
+        padding: 2px;
     }
+
+    .clear-random, .search-box label, .search-box input {
+        font-size: 14px;
+    }
+
+    .random-buttons p.btn {
+        font-size: 14px;
+        padding: 0px;
+    }
+
 }
 
 .random-box {
@@ -275,6 +279,7 @@ table.table {
     width: 60%;
     margin: auto;
 }
+
 
 .random-table p {
     margin: 4px;

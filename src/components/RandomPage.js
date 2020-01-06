@@ -111,7 +111,7 @@ const RandomPage = props => {
         <div className='search-box'>
         <label htmlFor="filter">Search All Boxes</label>
         <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input'/>
-        <button onClick={() => setRandomFilter('')} className='clear'>Clear</button>
+        <button onClick={() => setRandomFilter('')} className='clear-random'>Clear</button>
 
 
 
@@ -127,7 +127,7 @@ const RandomPage = props => {
         </div>
 
         <div className='random-box'>
-        <button onClick={() => handleShow()} className='add-random'>Add a New Random Thing</button><br/>
+        <button onClick={() => handleShow()} className='add-random'>Add a New Random Craft Item</button><br/>
         <img src={box_picture1} alt="box 1" onClick={() => setBox('1')} className='boxpicture' id='1' style={{opacity: boxNumberFilter!=='1'?'50%':'100%'}}/>
         <img src={box_picture2} alt="box 2" onClick={() => setBox('2')} className='boxpicture'id='2' style={{opacity: boxNumberFilter!=='2'?'50%':'100%'}}/>
         <img src={box_picture3} alt="box 3" onClick={() => setBox('3')} className='boxpicture'id='3' style={{opacity: boxNumberFilter!=='3'?'50%':'100%'}}/>
