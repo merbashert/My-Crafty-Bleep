@@ -30,9 +30,9 @@ const [id, setId] = useState(props.needleData.id)
 
 
         return (
-
+            <div className='needle-edit'>
             <form onSubmit={handleSubmit}>
-            {size}<br/>
+
             <label id='straight' className='checkbox-label'>
             Straight
             {(straight==='1')
@@ -61,9 +61,12 @@ const [id, setId] = useState(props.needleData.id)
             <input type="checkbox" id="doublepoint" value='' onChange={e => setDoublepoint('1')}/>}
              <span className="checkmark"></span>
             </label><br/>
+            <div className='needle-buttons'>
             <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
             <Button onClick={props.handleClose}>Cancel</Button>
+            </div>
             </form>
+            </div>
 
         )
 }

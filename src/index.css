@@ -156,11 +156,13 @@ nav.nav-bar {
     font-size: 14px;
     background-color: #f1f1f1;
     padding: 3px;
+    cursor: pointer;
 }
 
 .fabric-buttons {
     display: flex;
     justify-content: flex-end;
+    cursor:pointer;
 }
 
 .fabric-buttons p{
@@ -370,11 +372,6 @@ table.table {
     margin: auto;
 }
 
-@media (max-width: 970px) {
-
-
-}
-
 .needle-box td, h1 {
     background-color: white;
 }
@@ -411,6 +408,7 @@ table.table {
     height: 35px;
     width: 35px;
     background-color: #eee;
+    margin-left: -5px;
 }
 
 /* On mouse-over, add a grey background color */
@@ -436,9 +434,7 @@ table.table {
     display: block;
 }
 
-/* Style the checkmark/indicator */
-.checkbox-label .checkmark:after {
-
-
-
+.needle-buttons {
+    display: flex;
+    justify-content: center;
 }
