@@ -27,20 +27,20 @@ const Needles = props => {
         <tbody>
         <tr>
         <td>Straight</td>
-        <td>{(props.needleData.straight==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
+        <td className='yarnball'>{(props.needleData.straight==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
         </tr>
         <tr>
         <td>Circular</td>
-        <td>{(props.needleData.circular==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
+        <td className='yarnball'>{(props.needleData.circular==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
         </tr>
         <tr>
         <td>Double-point</td>
-        <td>{(props.needleData.doublepoint==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
+        <td className='yarnball'>{(props.needleData.doublepoint==='1')? <img src={yarnball} alt='yarnball'/> : null}</td>
         </tr>
         </tbody>
         </Table>
         <br/>
-        <p className="btn btn-sm btn-primary" onClick={handleShow}>
+        <p className="btn" onClick={handleShow}>
         Edit
         </p>
         <>

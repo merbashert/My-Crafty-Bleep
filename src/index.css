@@ -95,6 +95,7 @@ nav.nav-bar {
 .sitename-container {
     display: flex;
     justify-content: center;
+    margin-top: 30px;
 }
 
 /********************FABRIC********************/
@@ -327,7 +328,7 @@ table.table {
     background-color: white;
     outline-offset: -10px;
     margin: 5px;
-    width: 20%;
+    width: 250px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -336,6 +337,15 @@ table.table {
 
 .needle-box table, p {
     margin: auto;
+}
+
+@media (max-width: 970px) {
+
+
+}
+
+.needle-box td, h1 {
+    background-color: white;
 }
 
 .needles {
