@@ -44,9 +44,8 @@ const Fabrics = props => {
         <p onClick={handleShow}>
         <span className="lnr lnr-pencil"></span>
         </p>
-
         <p onClick={() => {
-            props.handleDeleteFabric(props.fabricData.id)
+            if (window.confirm('Definitely delete?')) props.handleDeleteFabric(props.fabricData.id)
         }}><span className="lnr lnr-trash"></span></p>
         </div>
         </div>

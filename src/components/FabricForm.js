@@ -16,6 +16,7 @@ const FabricForm = props => {
             picture: picture
         }
         props.handleCreateFabric(fabricinfo);
+        props.handleClose()
         setLength('')
         setMain_Color('')
         setTags('')
@@ -53,7 +54,7 @@ const FabricForm = props => {
         Picture:
         <input type="text" placeholder='Picture URL' id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
         </label>
-        <input type="submit" value="Add to fabric stash" className='add-button' onClick={props.handleClose}/>
+        <input type="submit" value="Add to fabric stash" className='add-button'/>
         <Button className="add-button" onClick={props.handleClose}>
           Cancel
         </Button>
