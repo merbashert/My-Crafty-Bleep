@@ -243,6 +243,7 @@ nav.nav-bar {
     display: grid;
     grid-template-columns: 12% 18% 8% 4% 1fr 12%;
     grid-gap: 7px;
+    width: 95%;
     height: 130px;
     place-items: center;
     margin:10px auto;
@@ -268,7 +269,7 @@ nav.nav-bar {
         font-size: 14px;
     }
 
-    .random-buttons p.btn {
+    .random-buttons div {
         font-size: 14px;
         padding: 0px;
     }
@@ -292,9 +293,10 @@ table.table {
 }
 
 
-.random-table p {
+.random-table div.btn {
     margin: 4px;
 }
+
 
 .random-name {
     font-weight: bold;
@@ -309,6 +311,12 @@ table.table {
 
 .random-buttons {
     text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.random-buttons div {
+    margin: 0px 8px;
 }
 
 .boxpicture {

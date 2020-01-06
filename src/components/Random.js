@@ -22,9 +22,9 @@ const Random = props => {
         <td className='random-name'>{props.randomData.name}</td>
         <td className='random-details'>{props.randomData.details}</td>
         <td className='random-buttons'>
-        <p className="btn" onClick={handleShow}>
+        <div onClick={handleShow}>
         Edit
-        </p>
+        </div>
         <>
 
 
@@ -38,7 +38,7 @@ const Random = props => {
         </Modal>
         </>
 
-        <p className='btn' onClick={(e) => {if (window.confirm('Definitely delete?')) props.handleDeleteRandom(props.randomData.id)}}>Delete</p></td>
+        <div onClick={(e) => {if (window.confirm('Definitely delete?')) props.handleDeleteRandom(props.randomData.id)}}>Delete</div></td>
         </tr>
     )
 }
