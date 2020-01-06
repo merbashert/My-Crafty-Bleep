@@ -40,17 +40,19 @@ nav.nav-bar {
 }
 
 .results {
-
     margin-left: 10px;
 }
+
 .add-form input, .dropdown {
     margin-left: 8px;
 }
+
 .filtered-result div {
     margin: 3px 10px;
 }
 
 .filtered-name {
+    font-size: 30px;
 }
 
 .filtered-info {
@@ -59,7 +61,7 @@ nav.nav-bar {
 
 .filtered-box {
     border: 1px solid black;
-    padding: 15px;
+    padding: 6px;
     font-size: 30px;
     grid-column-start: 6;
 }
@@ -152,11 +154,16 @@ nav.nav-bar {
     grid-column-start: 3;
 }
 
+.fabric-filter label {
+    margin: 0px;
+}
+
 .fabric-filter-form {
     display: grid;
-    grid-template-columns: 180px 25% 200px 1fr 200px;
+    grid-template-columns: 180px 20% 200px 60px 1fr 180px;
     grid-gap: 7px;
     margin: 10px 20px;
+    place-items: center center;
 }
 
 .fabric-edit {
@@ -171,7 +178,35 @@ nav.nav-bar {
 }
 
 .add-fabric {
-    grid-column-start: 5;
+    grid-column-start: 6;
+}
+
+.clear-fabric {
+    grid-column-start: 4;
+}
+
+@media (max-width: 940px) {
+    .fabric-filter-form {
+        font-size: 16px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .fabric-filter-form input {
+        width: 30%;
+        margin: 5px;
+    }
+
+    .clear-fabric {
+        margin-left: 15px;
+        margin-bottom: 10px;
+    }
+
+    .fabric-filter label {
+        font-size: 16px;
+    }
+    
 }
 
 /********************RANDOM********************/
@@ -185,6 +220,7 @@ nav.nav-bar {
 
 .filter-input {
     grid-column-start: 2;
+    width: 100%;
 }
 
 .search-box label {
@@ -195,6 +231,7 @@ nav.nav-bar {
 .clear {
     grid-column-start: 3;
     height: 30%;
+    margin-left: 5px;
 }
 
 .add-random {
@@ -206,11 +243,28 @@ nav.nav-bar {
 .search-box {
     border: 1px solid black;
     display: grid;
-    grid-template-columns: 150px 18% 70px 250px 1fr 10%;
+    grid-template-columns: 12% 18% 8% 7% 1fr 10%;
     grid-gap: 7px;
-    height: 110px;
+    height: 130px;
     place-items: center;
     margin:10px auto;
+    text-align: center;
+}
+
+@media (max-width: 970px) {
+
+
+    .filtered-name {
+        font-size: 24px;
+    }
+
+    .filtered-details {
+        font-size: 16px;
+    }
+
+    .filtered-box {
+        font-size: 24px;
+    }
 }
 
 .random-box {
@@ -248,7 +302,7 @@ table.table {
 }
 
 #box_number {
-    
+
 }
 
 /********************NEEDLES********************/

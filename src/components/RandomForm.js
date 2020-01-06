@@ -34,10 +34,10 @@ const RandomForm = props =>  {
         <label id="random-form">
         Box #:
         <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="box_number" className='dropdown' required>
-        <option box_number=""></option>
-        <option box_number="1">1</option>
-        <option box_number="2">2</option>
-        <option box_number="3">3</option>
+        <option value=""></option>
+        <option value="1">Box 1</option>
+        <option value="2">Box 2</option>
+        <option value="3">Box 3</option>
         </select>
         </label><br/>
         <input type="submit" value="Put in the Box" className='add-random' onClick={props.handleClose}/>

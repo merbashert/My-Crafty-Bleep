@@ -84,6 +84,11 @@ const FabricPage = props => {
         setShow(true)
     }
 
+    const reset = () => {
+        setFabricTagFilter('')
+        setMainColorFilter('')
+    }
+
     useEffect(() => {
         fetchFabric();
     }, [])
@@ -112,6 +117,7 @@ const FabricPage = props => {
 
         <div className='fabric-filter'>
         <div className='fabric-filter-form'>
+        <div className='fabric-filter-terms'>
         <label htmlFor="filter">Search for tag/color</label>
         <input type="text" id="filter"
         value={fabricTagFilter}
@@ -135,6 +141,8 @@ const FabricPage = props => {
         </select>
         </label>
 
+        <button onClick={() => reset()} className='clear-fabric'>Clear</button>
+</div>
         <button onClick={() => handleShow()} className='add-fabric'>Add a New Fabric</button>
         </div>
 
