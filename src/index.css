@@ -272,6 +272,10 @@ nav.nav-bar {
         padding: 0px;
     }
 
+    .random-name, .random-details {
+        font-size: 16px;
+    }
+
 }
 
 .random-box {
