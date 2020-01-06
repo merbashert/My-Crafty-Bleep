@@ -118,6 +118,14 @@ nav.nav-bar {
     border: 6px solid white;
 }
 
+.show-fabric {
+    width: 100%;
+}
+
+.close-button {
+    cursor: pointer;
+}
+
 .fabric-box {
     border: 1px solid black;
     margin: 3px;
@@ -387,6 +395,7 @@ table.table {
     font-size: 22px;
 }
 
+/*hide old checkbox*/
 .checkbox-label input {
     position: absolute;
     opacity: 0;

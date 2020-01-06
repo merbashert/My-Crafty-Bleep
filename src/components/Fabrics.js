@@ -5,6 +5,7 @@ import FabricEdit from './FabricEdit'
 const Fabrics = props => {
 
     const [show, setShow] = useState(false);
+    const [fabricShow, setFabricShow] = useState(false)
 
     const handleClose = (e) => {
         setShow(false)
@@ -12,6 +13,14 @@ const Fabrics = props => {
 
     const handleShow = (e) => {
         setShow(true)
+    }
+
+    const handleShowFabric = (e) => {
+        setFabricShow(true)
+    }
+
+    const handleCloseFabric = (e) => {
+        setFabricShow(false)
     }
 
     const useStyle = {
@@ -22,7 +31,16 @@ const Fabrics = props => {
     return (
         <React.Fragment>
         <div className="fabric-box">
-        <img src={props.fabricData.picture} className="fabric-pic" alt="fabric"/>
+        <img src={props.fabricData.picture} className="fabric-pic" alt="fabric" onClick={handleShowFabric}/>
+
+        <>
+        <Modal show={fabricShow} onHide={handleCloseFabric} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+        <Modal.Body>
+        <div className = 'close-button' onClick={handleCloseFabric}>Close</div>
+        <img src={props.fabricData.picture} className='show-fabric'/>
+        </Modal.Body>
+        </Modal>
+        </>
 
         <div className='fabric-length'>{props.fabricData.length} yards</div>
         <div className='fabric-data'>
