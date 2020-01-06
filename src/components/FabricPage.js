@@ -117,7 +117,7 @@ const FabricPage = props => {
 
         <div className='fabric-filter'>
         <div className='fabric-filter-form'>
-        
+
         <label htmlFor="filter">Search for tag/color</label>
         <input type="text" id="filter"
         value={fabricTagFilter}
@@ -156,6 +156,7 @@ const FabricPage = props => {
                 fabricData={fabricData}
                 handleDeleteFabric={handleDeleteFabric}
                 handleUpdateFabric={handleUpdateFabric}
+                setFabricTagFilter={setFabricTagFilter}
                 />
             ))}</div>
             :
@@ -168,6 +169,7 @@ const FabricPage = props => {
                 fabricData={fabricData}
                 handleDeleteFabric={handleDeleteFabric}
                 handleUpdateFabric={handleUpdateFabric}
+                setFabricTagFilter={setFabricTagFilter}
                 />
             ))}
             </div>

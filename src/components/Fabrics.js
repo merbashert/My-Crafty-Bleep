@@ -26,7 +26,9 @@ const Fabrics = props => {
 
         <div className='fabric-length'>{props.fabricData.length} yards</div>
         <div className='fabric-data'>
-        {props.fabricData.tags?<div className='fabric-tags'>{props.fabricData.tags}</div>:<div></div>}
+        {props.fabricData.tags?<div className='fabric-tags' onClick={() => {
+            props.setFabricTagFilter(props.fabricData.tags)
+        }}>{props.fabricData.tags}</div>:<div></div>}
 
         <>
         <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
