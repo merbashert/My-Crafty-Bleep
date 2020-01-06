@@ -54,10 +54,8 @@ const FabricForm = props => {
         Picture:
         <input type="text" placeholder='Picture URL' id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
         </label>
-        <input type="submit" value="Add to fabric stash" className='add-button'/>
-        <Button className="add-button" onClick={props.handleClose}>
-          Cancel
-        </Button>
+        <Button type="submit" onClick={props.handleClose}>Add to Fabric Stash</Button>
+        <Button onClick={props.handleClose}>Cancel</Button>
         </form>
     )
 }

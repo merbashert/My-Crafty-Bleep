@@ -41,10 +41,8 @@ const RandomForm = props =>  {
         <option value="3">Box 3</option>
         </select>
         </label><br/>
-        <input type="submit" value="Put in the Box" className='add-random'/>
-        <Button className="add-button" onClick={props.handleClose}>
-        Cancel
-        </Button>
+        <Button type="submit" onClick={props.handleClose}>Put in the Box</Button>
+        <Button onClick={props.handleClose}>Cancel</Button>
         </form>
     )
 }

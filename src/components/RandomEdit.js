@@ -50,10 +50,8 @@ const RandomEdit = props => {
             </select>
             </label>
             <br/>
-            <input type="submit" value="Apply changes" onClick={props.handleClose} className='add-button'/>
-            <Button className="add-button" onClick={props.handleClose}>
-              Cancel
-            </Button>
+            <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
+            <Button onClick={props.handleClose}>Cancel</Button>
             </form>
         )
 

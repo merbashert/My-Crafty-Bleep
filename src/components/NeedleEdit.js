@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import Button from 'react-bootstrap/Button';
 
 const NeedleEdit = props => {
 
@@ -60,7 +61,8 @@ const [id, setId] = useState(props.needleData.id)
             <input type="checkbox" id="doublepoint" value='' onChange={e => setDoublepoint('1')}/>}
              <span className="checkmark"></span>
             </label><br/>
-            <input type="submit" value="Apply Changes" onClick={props.handleClose}/>
+            <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
+            <Button onClick={props.handleClose}>Cancel</Button>
             </form>
 
         )

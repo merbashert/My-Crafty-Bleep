@@ -30,7 +30,7 @@ const Random = props => {
 
         <Modal show={show} onHide={handleClose} style={{backgroundColor:'rgb(255, 255, 255, .4)'}}>
         <Modal.Header closeButton>
-        <Modal.Title>Edit</Modal.Title>
+        <Modal.Title>Edit Random Item</Modal.Title>
         </Modal.Header>
         <Modal.Body>
         <RandomEdit randomData={props.randomData} handleUpdateRandom={props.handleUpdateRandom} handleClose={handleClose}/>
