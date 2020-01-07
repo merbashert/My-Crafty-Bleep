@@ -28,20 +28,20 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     background-color: #499ddb;
 }
 
-nav.nav-bar {
-    display: flex;
-    justify-content: space-around;
+.nav-bar, .navbar-brand{
     background-color: #72b01d;
 }
 
 .nav-bar div {
     background-color: #72b01d;
     margin-bottom: 0px;
-    padding: 10px;
+    margin-right: 70px;
+    padding: 5px;
 }
 
 .nav-bar img {
     width: 300px;
+
 }
 
 .nav-bar a {
@@ -59,9 +59,10 @@ nav.nav-bar {
     background-color: transparent;
 }
 
-.navbar-brand {
+/* .navbar-brand {
     background-color: transparent;
-}
+
+} */
 .results {
     margin-left: 10px;
 }

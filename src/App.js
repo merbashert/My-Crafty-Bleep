@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 import logo from './assets/logo.png'
 
 import {
@@ -30,8 +31,12 @@ let content = (
     <Router>
     <div>
 
-    <Navbar className='nav-bar' sticky="top">
+
+    <Navbar className='nav-bar' sticky="top" expand="lg">
     <Navbar.Brand><div className='logo'><img src={logo}/></div></Navbar.Brand>
+    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+    <Navbar.Collapse id="basic-navbar-nav">
+    <Nav className="mr-auto">
     <div>
     <Link to="/">Home</Link>
     </div>
@@ -44,7 +49,10 @@ let content = (
     <div>
     <Link to="/needles">Needles</Link>
     </div>
-    </Navbar>
+
+    </Nav>
+      </Navbar.Collapse>
+          </Navbar>
 
 
     <Switch>
