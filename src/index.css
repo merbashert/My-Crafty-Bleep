@@ -53,9 +53,15 @@ nav.nav-bar {
 .nav-bar a:hover {
     text-decoration: none;
     color: #499ddb;
-
 }
 
+.navbar-brand img {
+    background-color: transparent;
+}
+
+.navbar-brand {
+    background-color: transparent;
+}
 .results {
     margin-left: 10px;
 }

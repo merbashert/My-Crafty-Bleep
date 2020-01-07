@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
+import logo from './assets/logo.png'
 
 import {
     BrowserRouter as Router,
@@ -29,7 +30,8 @@ let content = (
     <Router>
     <div>
 
-    <Navbar className='nav-bar'>
+    <Navbar className='nav-bar' sticky="top">
+    <Navbar.Brand><div className='logo'><img src={logo}/></div></Navbar.Brand>
     <div>
     <Link to="/">Home</Link>
     </div>
