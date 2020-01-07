@@ -1,7 +1,7 @@
-# My Crafty S*!&
+![banner](https://i.imgur.com/nTATrbB.png)
 
 ## **Live site:**
-[My Crafty S*!&](https://mycraftybleep.herokuapp.com/)
+### [My Crafty S*!&](https://mycraftybleep.herokuapp.com/)
 
 ## **Technologies Used:**
 
