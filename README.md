@@ -35,6 +35,8 @@ A button in the upper-right corner of the fabric page opens a modal to add new f
 
 A filter box at the top of the fabric page allows the user to filter the fabric by tag name by entering a tag name into the input field, or by color by selecting a color from the dropdown menu. A clear button allows the user to clear any applied filters.  The fabric can also be filtered by clicking on any individual tag.
 
+Clicking on the photo of the fabric brings up a show modal of the fabric.
+
 Clicking on the pencil icon brings up the edit form in a modal that has the picture of the fabric as the background of the modal.  This was achieved by grabbing the background image in a useStyle function and then using that grabbed data as the style for the modal.  
 ![useStyle function](https://i.imgur.com/5bRLa8x.png)
 ![useStyle modal](https://i.imgur.com/KeaKwdT.png)
