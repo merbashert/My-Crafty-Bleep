@@ -30,23 +30,21 @@ const App = props => {
 let content = (
     <Router>
     <div>
-
-
     <Navbar className='nav-bar' sticky="top" expand="lg">
-    <Navbar.Brand><div className='logo'><img src={logo}/></div></Navbar.Brand>
+    <Navbar.Brand><div className='logo'><img src={logo} alt='logo'/></div></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-    <Navbar.Collapse id="basic-navbar-nav">
+    <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
-    <div>
+    <div className='navlink'>
     <Link to="/">Home</Link>
     </div>
-    <div>
+    <div className='navlink'>
     <Link to="/fabric">Fabric</Link>
     </div>
-    <div>
+    <div className='navlink'>
     <Link to="/random">Random</Link>
     </div>
-    <div>
+    <div className='navlink'>
     <Link to="/needles">Needles</Link>
     </div>
 
