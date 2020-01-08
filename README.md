@@ -39,7 +39,14 @@ Clicking on the pencil icon brings up the edit form in a modal that has the pict
 ![useStyle function](https://i.imgur.com/5bRLa8x.png)
 ![useStyle modal](https://i.imgur.com/KeaKwdT.png)
 
+Delete on this page (and on all pages) confirms befre actually deleting, using an alert box and an if statement.
+![alert command](https://i.imgur.com/kt2PNz0.png)
+
 ### *Random Page*
+The random page is loaded with Random Box 1 as default, and shows a table of the items in the selected box.  The unselected boxes are faded out.  User can switch between boxes by clicking on each box, and whichever box is selected, the other two will be faded out.  This was achieved by a conditional style statement on each box that's triggered by the setBox function, which is run when the user chooses a box.
+![setbox](https://i.imgur.com/U0oQFkn.png)
+![box change](https://i.imgur.com/M5s01g6.png)
+
 ### *Needle Page*
 
 
