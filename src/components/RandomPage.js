@@ -99,11 +99,9 @@ const RandomPage = props => {
         <Modal.Title>Add Random Item</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
         <div className='add-form'>
         <RandomForm handleCreateRandom={handleCreateRandom} handleClose={handleClose}/>
         </div>
-
         </Modal.Body>
         </Modal>
         </>

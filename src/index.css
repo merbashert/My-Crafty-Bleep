@@ -334,6 +334,24 @@ table.table {
     }
 }
 
+@media (max-width: 576px) {
+    .clear-random {
+        font-size: 12px;
+    }
+
+    .filtered-name {
+        font-size: 20px;
+    }
+
+    .filtered-details {
+        font-size: 12px;
+    }
+
+    .filtered-box {
+        font-size: 14px;
+        margin-right: 2px;
+    }
+}
 /********************NEEDLES********************/
 /* Needle Page */
 .needles {
