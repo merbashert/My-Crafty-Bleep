@@ -13,21 +13,7 @@
     font-size: 20px;
 }
 
-span {
-    font-family: serif;
-}
-
-input.btn.submit-button, button.btn.btn-primary {
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    margin: 8px;
-}
-
-input.btn.submit-button:hover, button.btn.btn-primary:hover {
-    background-color: #499ddb;
-}
-
+/********************NAVBAR********************/
 .nav-bar, .navbar-brand{
     background-color: #72b01d;
 }
@@ -41,7 +27,6 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 
 .nav-bar img {
     width: 300px;
-
 }
 
 .nav-bar a {
@@ -59,54 +44,6 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     background-color: transparent;
 }
 
-/* .navbar-brand {
-    background-color: transparent;
-
-} */
-.results {
-    margin-left: 10px;
-}
-
-.add-form input, .dropdown {
-    margin-left: 8px;
-}
-
-.filtered-result div {
-    margin: 3px 10px;
-}
-
-.filtered-name {
-    font-size: 30px;
-}
-
-.filtered-info {
-    grid-column-start: 5;
-}
-
-.filtered-box {
-    border: 1px solid black;
-    padding: 6px;
-    font-size: 30px;
-    grid-column-start: 6;
-}
-
-
-.add-button {
-    margin: 0px 10px;
-}
-
-.add-random {
-    font-size: 26px;
-}
-
-.dropdown {
-    margin-left: 10px;
-}
-
-.add-form label {
-    margin: 15px;
-    font-size: 22px;
-}
 /********************HOME********************/
 
 .sitename-container img{
@@ -119,7 +56,112 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     margin-top: 30px;
 }
 
+/********************MODALS********************/
+span {
+    font-family: serif;
+}
+
+input.btn.submit-button, button.btn.btn-primary {
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    margin: 8px;
+}
+
+input.btn.submit-button:hover, button.btn.btn-primary:hover {
+    background-color: #499ddb;
+}
+
+.add-form input {
+    margin-left: 8px;
+}
+
+.add-form label {
+    margin: 15px;
+    font-size: 22px;
+}
+
 /********************FABRIC********************/
+
+/* Fabric Page */
+.fabric-filter {
+    margin: 5px;
+    padding: 5px;
+}
+
+.fabric-filter label {
+    margin: 0px;
+}
+
+.fabric-filter-form {
+    display: grid;
+    grid-template-columns: 180px 20% 200px 60px 1fr 180px;
+    grid-gap: 7px;
+    margin: 10px 20px;
+    place-items: center center;
+}
+
+.filter-input {
+    grid-column-start: 2;
+    width: 100%;
+}
+
+.clear-fabric {
+    grid-column-start: 4;
+}
+
+.add-fabric {
+    grid-column-start: 6;
+}
+
+.fabric-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+@media (max-width: 940px) {
+    .fabric-filter-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .fabric-filter-form input {
+        width: 40%;
+        margin: 5px;
+    }
+
+    .clear-fabric {
+        margin: 10px;
+    }
+}
+
+/* Fabric Edit */
+.fabric-edit {
+    text-align: left;
+    margin: 40px;
+    padding: 10px;
+}
+
+.fabric-edit-image {
+    width: 100%;
+    height: 30%;
+}
+
+.fabric-picture {
+    width: 85%;
+}
+
+/* Fabrics */
+.fabric-box {
+    border: 1px solid black;
+    margin: 3px;
+    width: 200px;
+    height: 50%;
+}
+
 .fabric-pic {
     width: 99%;
     border: 6px solid white;
@@ -129,15 +171,8 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     width: 100%;
 }
 
-.close-button {
-    cursor: pointer;
-}
-
-.fabric-box {
-    border: 1px solid black;
-    margin: 3px;
-    width: 200px;
-    height: 50%;
+.fabric-length {
+    margin: 0px 5px;
 }
 
 .fabric-data {
@@ -145,17 +180,6 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     justify-content: space-between;
     align-items: center;
     margin: 2px 5px;
-}
-
-.fabric-length {
-    margin: 0px 5px;
-}
-
-.fabric-container {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin: 10px;
 }
 
 .fabric-tags {
@@ -176,99 +200,8 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     margin: 3px;
 }
 
-.fabric-picture {
-    width: 85%;
-}
-
-.fabric-filter {
-    margin: 5px;
-    padding: 5px;
-}
-
-#main_color {
-    grid-column-start: 3;
-}
-
-.fabric-filter label {
-    margin: 0px;
-}
-
-.fabric-filter-form {
-    display: grid;
-    grid-template-columns: 180px 20% 200px 60px 1fr 180px;
-    grid-gap: 7px;
-    margin: 10px 20px;
-    place-items: center center;
-}
-
-.fabric-edit {
-    text-align: left;
-    margin: 40px;
-    padding: 10px;
-}
-
-.fabric-edit-image {
-    width: 100%;
-    height: 30%;
-}
-
-.add-fabric {
-    grid-column-start: 6;
-}
-
-.clear-fabric {
-    grid-column-start: 4;
-}
-
-@media (max-width: 940px) {
-    .fabric-filter-form {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .fabric-filter-form input {
-        width: 40%;
-        margin: 5px;
-    }
-
-    .clear-fabric {
-        margin: 10px;
-    }
-
-}
-
 /********************RANDOM********************/
-.random-add {
-    box-sizing: border-box;
-    padding: 10px;
-    margin: auto;
-    display: flex;
-    justify-content: space-around;
-}
-
-.filter-input {
-    grid-column-start: 2;
-    width: 100%;
-}
-
-.search-box label {
-    margin-left: 5px;
-    grid-column-start: 1;
-}
-
-.clear-random {
-    grid-column-start: 3;
-    height: 30%;
-    margin-left: 5px;
-}
-
-.add-random {
-    grid-column-start: 4;
-    margin: 0px;
-    font-size: 20px;
-}
-
+/* Random Page */
 .search-box {
     border: 1px solid black;
     display: grid;
@@ -280,6 +213,89 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     margin:10px auto;
     text-align: center;
 }
+
+.search-box label {
+    margin-left: 5px;
+    grid-column-start: 1;
+}
+
+.filtered-info {
+    grid-column-start: 5;
+}
+
+.filtered-name {
+    font-size: 30px;
+}
+
+.filtered-box {
+    border: 1px solid black;
+    padding: 6px;
+    font-size: 30px;
+    grid-column-start: 6;
+}
+
+.clear-random {
+    grid-column-start: 3;
+    height: 30%;
+    margin-left: 5px;
+}
+
+.random-add {
+    box-sizing: border-box;
+    padding: 10px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+}
+
+.random-box {
+    text-align: center;
+}
+
+.add-random {
+    grid-column-start: 4;
+    margin: 0px;
+    font-size: 26px;
+}
+
+.boxpicture {
+    margin: 5px;
+    padding: 8px;
+    width: 20%;
+}
+
+table.table {
+    width: 60%;
+    margin: auto;
+}
+
+.random-table div.btn {
+    margin: 4px;
+}
+
+/* Randoms */
+.random-name {
+    font-weight: bold;
+    text-align: left;
+    width: 35%;
+}
+
+.random-details {
+    width: 33%;
+    text-align: center;
+}
+
+.random-buttons {
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
+.random-buttons div {
+    margin: 0px 8px;
+}
+
 
 @media (max-width: 970px) {
 
@@ -312,58 +328,22 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     .random-box h4 {
         font-size: 20px;
     }
-}
 
-.random-box {
-    text-align: center;
-}
-
-table.table {
-    width: 60%;
-    margin: auto;
-}
-
-
-.random-table div.btn {
-    margin: 4px;
-}
-
-
-.random-name {
-    font-weight: bold;
-    text-align: left;
-    width: 35%;
-}
-
-.random-details {
-    width: 33%;
-    text-align: center;
-}
-
-.random-buttons {
-    text-align: right;
-    display: flex;
-    justify-content: flex-end;
-    cursor: pointer;
-}
-
-.random-buttons div {
-    margin: 0px 8px;
-}
-
-.boxpicture {
-    margin: 5px;
-    padding: 8px;
-    width: 20%;
-}
-
-#box_number {
-
+    .add-random {
+        font-size: 20px;
+    }
 }
 
 /********************NEEDLES********************/
-.needle-box {
+/* Needle Page */
+.needles {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
 
+/* Needles */
+.needle-box {
     box-shadow: 3px 3px rgb(211,211,211,.6);
     background-color: white;
     outline-offset: -10px;
@@ -383,13 +363,7 @@ table.table {
     background-color: white;
 }
 
-.needles {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-
-}
-
+/* Needle Edit */
 .checkbox-label {
     display: block;
     position: relative;
@@ -399,7 +373,7 @@ table.table {
     font-size: 22px;
 }
 
-/*hide old checkbox*/
+/*Hide old checkbox*/
 .checkbox-label input {
     position: absolute;
     opacity: 0;

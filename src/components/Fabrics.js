@@ -36,7 +36,6 @@ const Fabrics = props => {
         <>
         <Modal show={fabricShow} onHide={handleCloseFabric} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
         <Modal.Body>
-    {    /* <div className = 'close-button' onClick={handleCloseFabric}>Close</div> */}
         <img src={props.fabricData.picture} className='show-fabric'/>
         </Modal.Body>
         </Modal>
