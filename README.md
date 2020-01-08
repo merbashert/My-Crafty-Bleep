@@ -58,8 +58,7 @@ The Needles Page opens with cards for each needle size, with a table in each one
 ![checkmark code](https://i.imgur.com/bNq5baa.png)
 
 ### *Still to Accomplish:*
-Future Goals:
-Add fat quarters to Fabric Page
-Add fuzzy search to Random Page
-Add image upload to Fabric Page
+* Add fat quarters to Fabric Page
+* Add fuzzy search to Random Page
+* Add image upload to Fabric Page
 
