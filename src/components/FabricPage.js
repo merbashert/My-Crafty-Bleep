@@ -129,7 +129,7 @@ const FabricPage = props => {
                 <label id="main_color">
                     Main Color
                     <select value={mainColorFilter} onChange={handleChange} id="main_color" className='dropdown'>
-                        <option main_color="all">all</option>
+                        <option main_color=""></option>
                         <option main_color="red">red</option>
                         <option main_color="orange">orange</option>
                         <option main_color="yellow">yellow</option>
@@ -149,7 +149,7 @@ const FabricPage = props => {
             </div>
 
             {
-                (fabricTagFilter==='' || mainColorFilter==='all')
+                (fabricTagFilter==='' || mainColorFilter==='')
                 ?
                 <div className='fabric-container'>
                     {fabrics.map((fabricData) => (
