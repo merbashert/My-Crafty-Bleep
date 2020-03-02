@@ -5,10 +5,10 @@ import FabricForm from './FabricForm'
 import Fabric from './Fabrics'
 
 
-
 const FabricPage = props => {
 
     const[fabrics, setFabrics] = useState([])
+    const[fabricTags, setFabricTags] = useState([])
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
     const [show, setShow] = useState(false);
@@ -17,14 +17,6 @@ const FabricPage = props => {
         setFabricTagFilter(e.target.value)
         setMainColorFilter(e.target.value)
     }
-
-    // const handleChangeTag = (e) => {
-    //     setFabricTagFilter(e.target.value)
-    // }
-    //
-    // const handleChangeColor = (e) => {
-    //     setMainColorFilter(e.target.value)
-    // }
 
     const fetchFabric = () => {
         fetch(`${props.baseUrl}/fabrics`)
@@ -93,89 +85,99 @@ const FabricPage = props => {
         fetchFabric();
     }, [])
 
+    useEffect(() => {
+        setFabricTags([...new Set(fabrics.map(fabrics=>fabrics.tags))]);
+    }, [fabrics])
+
     return (
         <div>
 
-        <>
-        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
-        <Modal.Header closeButton>
-        <Modal.Title>Add Fabric</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+            <>
+            <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Fabric</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
 
-        <div className = 'add-form'>
-        <FabricForm
-        handleCreateFabric={handleCreateFabric}
-        handleClose={handleClose}
-        />
-        </div>
+                    <div className = 'add-form'>
+                        <FabricForm
+                            handleCreateFabric={handleCreateFabric}
+                            handleClose={handleClose}
+                            />
+                    </div>
 
-        </Modal.Body>
-        </Modal>
-        </>
+                </Modal.Body>
+            </Modal>
+            </>
 
 
         <div className='fabric-filter'>
-        <div className='fabric-filter-form'>
 
-        <label htmlFor="filter">Search for tag/color</label>
-        <input type="text" id="filter"
-        value={fabricTagFilter}
-        onChange={handleChange} className='filter-input'/>
+            <div className='fabric-filter-form'>
+                Filter By:
+                <label id = "tag_filter">
+                    Tag:
+                    <select value = {fabricTagFilter} onChange={handleChange} className='dropdown'>
+                        <option></option>
+                        {fabricTags.filter(fabricTags => {return fabricTags != null}).map((fabricData, i) => {
+                            return <option key = {i}>{fabricData}</option>
+                        })}
+                    </select>
+                </label>
 
 
-        <label id="main_color">
-        Main Color
-        <select value={mainColorFilter} onChange={handleChange} id="main_color" className='dropdown'>
-        <option main_color="all">all</option>
-        <option main_color="red">red</option>
-        <option main_color="orange">orange</option>
-        <option main_color="yellow">yellow</option>
-        <option main_color="green">green</option>
-        <option main_color="blue">blue</option>
-        <option main_color="purple">purple</option>
-        <option main_color="pink">pink</option>
-        <option main_color="brown">brown</option>
-        <option main_color="black">black</option>
-        <option main_color="white">white</option>
-        </select>
-        </label>
+                <label id="main_color">
+                    Main Color
+                    <select value={mainColorFilter} onChange={handleChange} id="main_color" className='dropdown'>
+                        <option main_color="all">all</option>
+                        <option main_color="red">red</option>
+                        <option main_color="orange">orange</option>
+                        <option main_color="yellow">yellow</option>
+                        <option main_color="green">green</option>
+                        <option main_color="blue">blue</option>
+                        <option main_color="purple">purple</option>
+                        <option main_color="pink">pink</option>
+                        <option main_color="brown">brown</option>
+                        <option main_color="black">black</option>
+                        <option main_color="white">white</option>
+                    </select>
+                </label>
 
-        <button onClick={() => reset()} className='clear-fabric'>Clear</button>
+                <button onClick={() => reset()} className='clear-fabric'>Clear Filters</button>
 
-        <button onClick={() => handleShow()} className='add-fabric'>Add a New Fabric</button>
-        </div>
-
-        {
-            (fabricTagFilter==='' || mainColorFilter==='all')
-            ?
-            <div className='fabric-container'>
-            {fabrics.map((fabricData) => (
-                <Fabric
-                key={fabricData.id}
-                fabricData={fabricData}
-                handleDeleteFabric={handleDeleteFabric}
-                handleUpdateFabric={handleUpdateFabric}
-                setFabricTagFilter={setFabricTagFilter}
-                />
-            ))}</div>
-            :
-            <div className='fabric-container'>
-            {fabrics.filter(fabric=>{
-                return fabric.tags === fabricTagFilter || fabric.main_color === mainColorFilter
-            }).map((fabricData) => (
-                <Fabric
-                key={fabricData.id}
-                fabricData={fabricData}
-                handleDeleteFabric={handleDeleteFabric}
-                handleUpdateFabric={handleUpdateFabric}
-                setFabricTagFilter={setFabricTagFilter}
-                />
-            ))}
+                <button onClick={() => handleShow()} className='add-fabric'>Add a New Fabric</button>
             </div>
-        }
-        </div>
+
+            {
+                (fabricTagFilter==='' || mainColorFilter==='all')
+                ?
+                <div className='fabric-container'>
+                    {fabrics.map((fabricData) => (
+                        <Fabric
+                            key={fabricData.id}
+                            fabricData={fabricData}
+                            handleDeleteFabric={handleDeleteFabric}
+                            handleUpdateFabric={handleUpdateFabric}
+                            setFabricTagFilter={setFabricTagFilter}
+                            />
+                    ))}</div>
+                    :
+                    <div className='fabric-container'>
+                        {fabrics.filter(fabric=>{
+                            return fabric.tags === fabricTagFilter || fabric.main_color === mainColorFilter
+                        }).map((fabricData) => (
+                            <Fabric
+                                key={fabricData.id}
+                                fabricData={fabricData}
+                                handleDeleteFabric={handleDeleteFabric}
+                                handleUpdateFabric={handleUpdateFabric}
+                                setFabricTagFilter={setFabricTagFilter}
+                                />
+                        ))}
+                    </div>
+                }
             </div>
+        </div>
     )//end of return
 }
 
