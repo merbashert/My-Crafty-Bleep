@@ -15,6 +15,7 @@ import {
 import RandomPage from './components/RandomPage.js'
 import FabricPage from './components/FabricPage.js'
 import NeedlePage from './components/NeedlePage.js'
+import ZipperPage from './components/ZipperPage.js'
 import Home from './components/Home.js'
 
 let baseUrl = '';
@@ -47,6 +48,9 @@ let content = (
     <div className='navlink'>
     <Link to="/needles">Needles</Link>
     </div>
+    <div className='navlink'>
+    <Link to="/zippers">Zippers</Link>
+    </div>
 
     </Nav>
       </Navbar.Collapse>
@@ -66,6 +70,9 @@ let content = (
     </Route>
     <Route path="/needles">
     <NeedlePage baseUrl={baseUrl}/>
+    </Route>
+    <Route path="/zippers">
+    <ZipperPage baseUrl={baseUrl}/>
     </Route>
     </Switch>
     </div>
