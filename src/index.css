@@ -478,11 +478,7 @@ table.table {
 }
 
 .zipper-size {
-    /* display: flex;
-    flex-direction: column;
-    align-items: flex-start; */
     width: 17%;
-    /* border: 1px solid black; */
     padding: 5px 20px;
     margin: 10px;
 }
@@ -499,4 +495,28 @@ table.table {
 
 .add-zipper {
     padding: 3px;
+}
+
+@media (max-width: 576px) {
+    .zipper-container h3{
+        font-size: 24px;
+    }
+
+    .zipper-container p{
+        font-size: 16px;
+    }
+
+    .zipper-size {
+        width: 20%;
+    }
+
+    .new-zipper {
+        width: 150%;
+        font-size: 16px;
+    }
+
+    .add-zipper {
+        margin: 5px 0px;
+        font-size: 16px;
+    }
 }
