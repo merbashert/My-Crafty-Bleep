@@ -255,6 +255,18 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
         padding: 2px;
         height: 30px;
     }
+
+    .search-box {
+        grid-template-columns: 25% 30% 8% 20% 1fr;
+    }
+
+    .filtered-info {
+        grid-column-start: 4;
+    }
+
+    .filtered-box {
+        grid-column-start: 5;
+    }
 }
 
 .random-add {
@@ -453,4 +465,38 @@ table.table {
 .needle-buttons {
     display: flex;
     justify-content: center;
+}
+
+
+/********************ZIPPER********************/
+
+.zipper-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin: 0px 20px;
+}
+
+.zipper-size {
+    /* display: flex;
+    flex-direction: column;
+    align-items: flex-start; */
+    width: 17%;
+    /* border: 1px solid black; */
+    padding: 5px 20px;
+    margin: 10px;
+}
+
+.zipper {
+    list-style-type: none;
+    margin-left: 0px;
+}
+
+.new-zipper {
+    width: 70%;
+    margin-right: 3px;
+}
+
+.add-zipper {
+    padding: 3px;
 }
