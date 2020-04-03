@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -28,28 +28,30 @@ if (process.env.NODE_ENV === 'development') {
 
 const App = props => {
 
+    const [expanded, setExpanded] = useState(false);
+
 let content = (
     <Router>
     <div>
-    <Navbar className='nav-bar' sticky="top" expand="lg">
+    <Navbar className='nav-bar' sticky="top" expand="lg" expanded={expanded}>
     <Navbar.Brand><div className='logo'><img src={logo} alt='logo'/></div></Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+    <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")}/>
     <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
     <div className='navlink'>
     <Link to="/">Home</Link>
     </div>
     <div className='navlink'>
-    <Link to="/fabric">Fabric</Link>
+    <Link to="/fabric" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Fabric</Link>
     </div>
     <div className='navlink'>
-    <Link to="/random">Random</Link>
+    <Link to="/random" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Random</Link>
     </div>
     <div className='navlink'>
-    <Link to="/needles">Needles</Link>
+    <Link to="/needles" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Needles</Link>
     </div>
     <div className='navlink'>
-    <Link to="/zippers">Zippers</Link>
+    <Link to="/zippers" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Zippers</Link>
     </div>
 
     </Nav>
