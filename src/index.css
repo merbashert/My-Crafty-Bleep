@@ -483,11 +483,6 @@ table.table {
     margin: 10px;
 }
 
-.zipper {
-    list-style-type: none;
-    margin-left: 0px;
-}
-
 .new-zipper {
     width: 70%;
     margin-right: 3px;
@@ -497,12 +492,22 @@ table.table {
     padding: 3px;
 }
 
-@media (max-width: 576px) {
-    .zipper-container h3{
-        font-size: 22px;
+.delete {
+    margin-right: 2px;
+    cursor: default;
+}
+
+@media (max-width: 1030px) {
+    .new-zipper {
+        font-size: 16px;
+        width: 80%;
     }
 
-    .zipper-container p{
+    .zipper-container h3 {
+        font-size: 24px;
+    }
+
+    .zipper-container p {
         font-size: 16px;
     }
 
@@ -510,13 +515,28 @@ table.table {
         width: 20%;
     }
 
-    .new-zipper {
-        width: 150%;
-        font-size: 16px;
-    }
-
     .add-zipper {
         margin: 5px 0px;
         font-size: 16px;
     }
+}
+@media (max-width: 675px) {
+    .zipper-container h3{
+        font-size: 22px;
+    }
+
+    .zipper-container p{
+        font-size: 14px;
+    }
+
+    .zipper-size {
+        width: 25%;
+    }
+
+    .new-zipper {
+        width: 100%;
+        font-size: 16px;
+    }
+
+
 }

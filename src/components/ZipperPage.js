@@ -73,6 +73,7 @@ const ZipperPage = props => {
                     <Zipper
                         key={zipperData.id}
                         zipperData={zipperData}
+                        handleDeleteZipper={handleDeleteZipper}
                         />
                 ))}
                 <ZipperForm handleCreateZipper={handleCreateZipper}
@@ -88,6 +89,7 @@ const ZipperPage = props => {
                     <Zipper
                         key={zipperData.id}
                         zipperData={zipperData}
+                        handleDeleteZipper={handleDeleteZipper}
                         />
                 ))}
                 <ZipperForm handleCreateZipper={handleCreateZipper}
@@ -101,6 +103,7 @@ const ZipperPage = props => {
                     <Zipper
                         key={zipperData.id}
                         zipperData={zipperData}
+                        handleDeleteZipper={handleDeleteZipper}
                         />
                 ))}
                 <ZipperForm handleCreateZipper={handleCreateZipper}
@@ -114,6 +117,7 @@ const ZipperPage = props => {
                     <Zipper
                         key={zipperData.id}
                         zipperData={zipperData}
+                        handleDeleteZipper={handleDeleteZipper}
                         />
                 ))}
                 <ZipperForm handleCreateZipper={handleCreateZipper}
@@ -127,6 +131,7 @@ const ZipperPage = props => {
                     <Zipper
                         key={zipperData.id}
                         zipperData={zipperData}
+                        handleDeleteZipper={handleDeleteZipper}
                         />
                 ))}
                 <ZipperForm handleCreateZipper={handleCreateZipper}
@@ -140,6 +145,7 @@ const ZipperPage = props => {
                     <Zipper
                         key={zipperData.id}
                         zipperData={zipperData}
+                        handleDeleteZipper={handleDeleteZipper}
                         />
                 ))}
                 <ZipperForm handleCreateZipper={handleCreateZipper}
@@ -154,6 +160,7 @@ const ZipperPage = props => {
                     <Zipper
                         key={zipperData.id}
                         zipperData={zipperData}
+                        handleDeleteZipper={handleDeleteZipper}
                         />
                 ))}
                 <ZipperForm handleCreateZipper={handleCreateZipper}
