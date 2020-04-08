@@ -100,7 +100,7 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 
 .fabric-filter-form {
     display: grid;
-    grid-template-columns: 80px 20% 200px 150px 1fr 180px;
+    grid-template-columns: 80px 13% 200px 150px 1fr 180px;
     grid-gap: 7px;
     margin: 10px 20px;
     place-items: center center;
@@ -125,6 +125,11 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     margin: 10px;
 }
 
+@media (max-width: 1300px) {
+    .fabric-filter-form {
+        grid-template-columns: 80px 20% 200px 150px 1fr 180px;
+    }
+}
 @media (max-width: 940px) {
     .fabric-filter-form {
         display: flex;
@@ -221,7 +226,7 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     display: grid;
     grid-template-columns: 12% 18% 8% 4% 1fr 12%;
     grid-gap: 7px;
-    width: 95%;
+    width: 93%;
     height: 130px;
     place-items: center;
     margin:10px auto;
@@ -302,7 +307,7 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 }
 
 table.table {
-    width: 60%;
+    width: 58%;
     margin: auto;
 }
 
