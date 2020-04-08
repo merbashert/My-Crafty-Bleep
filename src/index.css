@@ -271,6 +271,10 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
     .filtered-box {
         grid-column-start: 5;
     }
+
+    .filter-input {
+        width: 100%;
+    }
 }
 
 .random-add {
