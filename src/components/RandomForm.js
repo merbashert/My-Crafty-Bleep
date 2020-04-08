@@ -39,6 +39,7 @@ const RandomForm = props =>  {
         <option value="1">Box 1</option>
         <option value="2">Box 2</option>
         <option value="3">Box 3</option>
+        <option value="4">Box 4</option>
         </select>
         </label><br/>
         <Button type="submit" onClick={props.handleClose}>Put in the Box</Button>

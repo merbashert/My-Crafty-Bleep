@@ -9,6 +9,7 @@ import Random from './Random'
 import box_picture1 from '../assets/box1.png'
 import box_picture2 from '../assets/box2.png'
 import box_picture3 from '../assets/box3.png'
+import box_picture4 from '../assets/box4.png'
 
 
 
@@ -129,6 +130,7 @@ const RandomPage = props => {
         <img src={box_picture1} alt="box 1" onClick={() => setBox('1')} className='boxpicture' id='1' style={{opacity: boxNumberFilter!=='1'?'50%':'100%'}}/>
         <img src={box_picture2} alt="box 2" onClick={() => setBox('2')} className='boxpicture'id='2' style={{opacity: boxNumberFilter!=='2'?'50%':'100%'}}/>
         <img src={box_picture3} alt="box 3" onClick={() => setBox('3')} className='boxpicture'id='3' style={{opacity: boxNumberFilter!=='3'?'50%':'100%'}}/>
+        <img src={box_picture4} alt="box 4" onClick={() => setBox('4')} className='boxpicture'id='4' style={{opacity: boxNumberFilter!=='4'?'50%':'100%'}}/>
 
 
         {boxNumberFilter?<h4>Box {boxNumberFilter}</h4>:null}
