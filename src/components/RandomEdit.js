@@ -47,6 +47,7 @@ const RandomEdit = props => {
             <option box_number="1">1</option>
             <option box_number="2">2</option>
             <option box_number="3">3</option>
+            <option box_number="4">4</option>
             </select>
             </label>
             <br/>
