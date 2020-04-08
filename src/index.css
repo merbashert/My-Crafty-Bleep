@@ -100,7 +100,7 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 
 .fabric-filter-form {
     display: grid;
-    grid-template-columns: 80px 15% 200px 150px 1fr 180px;
+    grid-template-columns: 80px 20% 200px 150px 1fr 180px;
     grid-gap: 7px;
     margin: 10px 20px;
     place-items: center center;
@@ -139,6 +139,10 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 
     .clear-fabric {
         margin: 10px;
+    }
+
+    #tag_filter {
+        margin: 8px 0px;
     }
 }
 
