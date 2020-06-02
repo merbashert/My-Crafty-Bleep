@@ -16,7 +16,7 @@ import box_picture4 from '../assets/box4.png'
 const RandomPage = props => {
     const[randoms, setRandoms] = useState([])
     const[randomFilter, setRandomFilter] = useState('')
-    const[boxNumberFilter, setBoxNumberFilter] = useState('1')
+    const[boxNumberFilter, setBoxNumberFilter] = useState('')
     const [show, setShow] = useState(false);
 
 
@@ -24,6 +24,14 @@ const RandomPage = props => {
         setRandomFilter(e.target.value)
     }
 
+    const handleDropdown = (e) => {
+        setBoxNumberFilter(e.target.value)
+    }
+
+    const clear = () => {
+        setRandomFilter('')
+        setBoxNumberFilter('')
+    }
     const fetchRandom = () => {
         fetch(`${props.baseUrl}/randoms`)
         .then(data => data.json())
@@ -94,66 +102,80 @@ const RandomPage = props => {
     return (
         <React.Fragment>
 
-        <>
-        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
-        <Modal.Header closeButton>
-        <Modal.Title>Add Random Item</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-        <div className='add-form'>
-        <RandomForm handleCreateRandom={handleCreateRandom} handleClose={handleClose}/>
+            <>
+            <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Random Item</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <div className='add-form'>
+                        <RandomForm handleCreateRandom={handleCreateRandom} handleClose={handleClose}/>
+                    </div>
+                </Modal.Body>
+            </Modal>
+            </>
+
+
+
+        <div className='random-page'>
+            <div className='function-box'>
+                <div>
+                <label htmlFor="filter">Search All Boxes</label>
+                <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input'/>
+
+                Filter By Box: <select value={boxNumberFilter} id = 'box_number' onChange={handleDropdown}>
+                <option value="">All</option>
+                <option value="1">Box 1</option>
+                <option value="2">Box 2</option>
+                <option value="3">Box 3</option>
+                <option value="4">Box 4</option>
+            </select>
+            <button onClick={() => clear()} id='clear-random'>Clear</button>
+            </div>
+            <div>
+            <button onClick={() => handleShow()} >Add New</button><br/>
+            </div>
         </div>
-        </Modal.Body>
-        </Modal>
-        </>
 
-        <div className='search-box'>
-        <label htmlFor="filter">Search All Boxes</label>
-        <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input'/>
-        <button onClick={() => setRandomFilter('')} className='clear-random'>Clear</button>
+            <Table className="random-table" size='sm'>
+                {
+                    (boxNumberFilter == '') ?
+                    <tbody>
+                        {randoms.filter(random => {
+                            return random.name
+                        }).filter(random => random.name.includes(randomFilter))
+                        .map((randomData) => (
+                            <Random
+                                key={randomData.id}
+                                randomData={randomData}
+                                handleUpdateRandom={handleUpdateRandom}
+                                handleDeleteRandom={handleDeleteRandom}
+                                />
 
+                        ))
+                    }
 
+                </tbody>
+                :
+                <tbody>
+                    {randoms.filter(random => {
+                        return random.box_number == boxNumberFilter
+                    }).map((randomData) => (
+                        <Random
+                            key={randomData.id}
+                            randomData={randomData}
+                            handleUpdateRandom={handleUpdateRandom}
+                            handleDeleteRandom={handleDeleteRandom}
+                            />
+                    ))}
 
-        {randoms.filter(random=>{
-            return random.name === randomFilter
-        }).map((randomData) => (
-            <RandomFind
-            key={randomData.id}
-            randomData={randomData}
-            />
-        ))}
+                </tbody>
+            }
 
-        </div>
-
-        <div className='random-box'>
-        <button onClick={() => handleShow()} className='add-random'>Add a New Random Craft Item</button><br/>
-        <img src={box_picture1} alt="box 1" onClick={() => setBox('1')} className='boxpicture' id='1' style={{opacity: boxNumberFilter!=='1'?'50%':'100%'}}/>
-        <img src={box_picture2} alt="box 2" onClick={() => setBox('2')} className='boxpicture'id='2' style={{opacity: boxNumberFilter!=='2'?'50%':'100%'}}/>
-        <img src={box_picture3} alt="box 3" onClick={() => setBox('3')} className='boxpicture'id='3' style={{opacity: boxNumberFilter!=='3'?'50%':'100%'}}/>
-        <img src={box_picture4} alt="box 4" onClick={() => setBox('4')} className='boxpicture'id='4' style={{opacity: boxNumberFilter!=='4'?'50%':'100%'}}/>
-
-
-        {boxNumberFilter?<h4>Box {boxNumberFilter}</h4>:null}
-
-
-        <Table className="random-table" size='sm'>
-        <tbody>
-        {randoms.filter(random=>{
-            return random.box_number === boxNumberFilter
-        }).map((randomData) => (
-            <Random
-            key={randomData.id}
-            randomData={randomData}
-            handleUpdateRandom={handleUpdateRandom}
-            handleDeleteRandom={handleDeleteRandom}
-            />
-
-        ))}
-        </tbody>
         </Table>
-        </div>
-        </React.Fragment>
-    )
+    </div>
+</React.Fragment>
+)
 }
 
 export default RandomPage
