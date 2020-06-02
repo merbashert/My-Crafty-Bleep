@@ -10,7 +10,7 @@ const Zipper = props => {
 
         <div className='zipper'>
         <p>
-        <span className='delete' onClick={(e) => {if (window.confirm('Definitely delete?')) props.handleDeleteZipper(props.zipperData.id)}}>x </span>
+        <span style={{opacity: '50%'}} className='delete' onClick={(e) => {if (window.confirm('Definitely delete?')) props.handleDeleteZipper(props.zipperData.id)}}>x </span>
          {props.zipperData.color}</p>
         </div>
     )
