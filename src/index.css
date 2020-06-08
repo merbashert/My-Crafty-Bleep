@@ -221,82 +221,50 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 
 /********************RANDOM********************/
 /* Random Page */
-.search-box {
+/* .search-box {
     border: 1px solid black;
-    display: grid;
-    grid-template-columns: 12% 18% 8% 4% 1fr 12%;
-    grid-gap: 7px;
     width: 93%;
     height: 130px;
     place-items: center;
     margin:10px auto;
     text-align: center;
 }
+*/
 
-.search-box label {
-    margin-left: 5px;
-    grid-column-start: 1;
+.function-box {
+    width: 78%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
 }
 
-.filtered-info {
-    grid-column-start: 5;
+.function-box label {
+    margin-right: 5px;
 }
 
-.filtered-name {
-    font-size: 30px;
+#filter {
+    width: 30%;
+    margin-right: 10px;
 }
 
-.filtered-box {
-    border: 1px solid black;
-    padding: 6px;
-    font-size: 30px;
-    grid-column-start: 6;
+#clear-random, #add-random {
+    margin: 5px;
 }
 
-.clear-random {
-    grid-column-start: 3;
-    height: 30%;
-    margin-left: 5px;
-}
-
-@media (max-width: 576px) {
-    .clear-random {
-        padding: 2px;
-        height: 30px;
-    }
-
-    .search-box {
-        grid-template-columns: 25% 30% 8% 20% 1fr;
-    }
-
-    .filtered-info {
-        grid-column-start: 4;
-    }
-
-    .filtered-box {
-        grid-column-start: 5;
-    }
-
-    .filter-input {
-        width: 100%;
-    }
-}
 
 .random-add {
     box-sizing: border-box;
     padding: 10px;
     margin: auto;
     display: flex;
-    justify-content: space-around;
 }
 
-.random-box {
+.random-page  {
     text-align: center;
+    margin-top: 30px;
 }
 
-.add-random {
-    grid-column-start: 4;
-    margin: 0px;
+#add-random {
     font-size: 26px;
 }
 
@@ -307,7 +275,7 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 }
 
 table.table {
-    width: 58%;
+    width: 79%;
     margin: auto;
 }
 
@@ -332,35 +300,21 @@ table.table {
     display: flex;
     justify-content: flex-end;
     cursor: pointer;
+
 }
 
 .random-buttons div {
-    margin: 0px 8px;
+    margin: 0px 4px;
+    border: 1px solid black;
+    padding: 2px;
+    font-size: 14px;
 }
 
 
 @media (max-width: 970px) {
 
-    .filtered-name {
-        font-size: 24px;
-    }
-
-    .filtered-details {
-        font-size: 16px;
-    }
-
-    .filtered-box {
-        font-size: 20px;
-        padding: 2px;
-    }
-
-    .clear-random, .search-box label, .search-box input {
-        font-size: 14px;
-    }
-
     .random-buttons div {
-        font-size: 14px;
-        padding: 0px;
+        font-size: 12px;
     }
 
     .random-name, .random-details {
@@ -371,13 +325,14 @@ table.table {
         font-size: 20px;
     }
 
-    .add-random {
-        font-size: 20px;
+    #clear-random, #add-random {
+        font-size: 14px;
+        padding: 3px;
     }
 }
 
 @media (max-width: 576px) {
-    .clear-random {
+    #clear-random {
         font-size: 12px;
     }
 
