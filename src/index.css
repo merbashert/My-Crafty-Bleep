@@ -21,7 +21,7 @@
 .nav-bar div {
     background-color: #72b01d;
     margin-bottom: 0px;
-    margin-right: 70px;
+    margin-right: 30px;
     padding: 5px;
 }
 
@@ -48,6 +48,8 @@
     .nav-bar div {
         margin-right: 30px;
     }
+
+
 }
 
 /********************HOME********************/
@@ -221,15 +223,6 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 
 /********************RANDOM********************/
 /* Random Page */
-/* .search-box {
-    border: 1px solid black;
-    width: 93%;
-    height: 130px;
-    place-items: center;
-    margin:10px auto;
-    text-align: center;
-}
-*/
 
 .function-box {
     width: 78%;
@@ -240,23 +233,29 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 
 .function-box label {
     margin-right: 5px;
+    margin-bottom: 0;
 }
 
-#filter {
-    width: 30%;
-    margin-right: 10px;
+#search_box {
+    height: 50%;
+
+    box-sizing: border-box;
+    margin-right: 5px;
+}
+
+#filter_box {
+    margin-right: 20px;
+}
+
+#options {
+    display: flex;
+    text-align: left;
+    align-items: center;
+    width: 80%;
 }
 
 #clear-random, #add-random {
-    margin: 5px;
-}
-
-
-.random-add {
-    box-sizing: border-box;
-    padding: 10px;
-    margin: auto;
-    display: flex;
+    margin: 4px 0px;
 }
 
 .random-page  {
@@ -265,7 +264,7 @@ input.btn.submit-button:hover, button.btn.btn-primary:hover {
 }
 
 #add-random {
-    font-size: 26px;
+    font-size: 20px;
 }
 
 .boxpicture {
@@ -321,14 +320,42 @@ table.table {
         font-size: 16px;
     }
 
-    .random-box h4 {
-        font-size: 20px;
+    .random-box {
+        font-size: 16px;
     }
 
-    #clear-random, #add-random {
+    #clear-random, #add-random, .function-box label, .function-box select {
         font-size: 14px;
         padding: 3px;
     }
+}
+
+@media (max-width: 810px) {
+    #search_box {
+        width: 100px;
+    }
+}
+
+@media (max-width: 740px) {
+    #options {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    #add-box {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    #search_box {
+        width: 200px;
+    }
+
+    table.table, .function-box {
+        width: 90%;
+    }
+
 }
 
 @media (max-width: 576px) {
@@ -336,17 +363,12 @@ table.table {
         font-size: 12px;
     }
 
-    .filtered-name {
-        font-size: 20px;
-    }
-
-    .filtered-details {
-        font-size: 12px;
-    }
-
-    .filtered-box {
+    .random-name, .random-details {
         font-size: 14px;
-        margin-right: 2px;
+    }
+
+    .random-box {
+        font-size: 12px;
     }
 }
 /********************NEEDLES********************/

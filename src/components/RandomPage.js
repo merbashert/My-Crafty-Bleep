@@ -110,23 +110,32 @@ const RandomPage = props => {
 
         <div className='random-page'>
             <div className='function-box'>
-                <div>
-                <label htmlFor="filter">Search All Boxes</label>
-                <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input' autoFocus='autofocus'/>
+                <div id='options'>
+                    <div id='search'>
+                        <label htmlFor="search_box">Search</label>
+                        <input
+                            type="text"
+                            id="search_box" value={randomFilter} onChange={handleChange} autoFocus='autofocus'/>
+                    </div>
 
-                Filter By Box: <select value={boxNumberFilter} id = 'box_number' onChange={handleDropdown}>
-                <option value="">All</option>
-                <option value="1">Box 1</option>
-                <option value="2">Box 2</option>
-                <option value="3">Box 3</option>
-                <option value="4">Box 4</option>
-            </select>
-            <button onClick={() => clear()} id='clear-random'>Clear</button>
+                    <div id='filter_box'>
+                        <label htmlFor="box_number">Filter By Box:</label>
+                        <select value={boxNumberFilter} id = 'box_number' onChange={handleDropdown}>
+                            <option value="">All</option>
+                            <option value="1">Box 1</option>
+                            <option value="2">Box 2</option>
+                            <option value="3">Box 3</option>
+                            <option value="4">Box 4</option>
+                        </select>
+                    </div>
+
+
+                    <button onClick={() => clear()} id='clear-random'>Clear</button>
+                </div>
+                <div id='add-box'>
+                    <button onClick={() => handleShow()} id = 'add-random'>Add New</button><br/>
+                </div>
             </div>
-            <div>
-            <button onClick={() => handleShow()} id = 'add-random'>Add New</button><br/>
-            </div>
-        </div>
 
             <Table className="random-table" size='sm'>
                 {
