@@ -31,19 +31,6 @@ const ZipperPage = props => {
         .catch(err=>console.log(err))
     }
 
-    const handleUpdateZipper = (updateData) => {
-        fetch(`${props.baseUrl}/zippers/${updateData.id}`, {
-            body: JSON.stringify(updateData),
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(updatedZipper => {
-            fetchZippers()
-        }).catch(err=>console.log(err))
-    }
-
     const handleDeleteZipper = (id) => {
         fetch(`${props.baseUrl}/zippers/${id}`, {
             method: 'DELETE',

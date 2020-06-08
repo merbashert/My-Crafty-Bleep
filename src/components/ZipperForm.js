@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 
 const ZipperForm = props =>  {
     const [color, setColor] = useState('')
-    const [size, setSize] = useState(props.zipperSize)
+    const [size] = useState(props.zipperSize)
 
 
 

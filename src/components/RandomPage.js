@@ -2,14 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 
-
-import RandomFind from './RandomFind'
 import RandomForm from './RandomForm'
 import Random from './Random'
-import box_picture1 from '../assets/box1.png'
-import box_picture2 from '../assets/box2.png'
-import box_picture3 from '../assets/box3.png'
-import box_picture4 from '../assets/box4.png'
+
 
 
 
@@ -82,10 +77,6 @@ const RandomPage = props => {
         }).catch(err=>console.log(err))
     }
 
-    const setBox = (boxNumber) => {
-        setBoxNumberFilter(boxNumber)
-    }
-
     const handleClose = (e) => {
         setShow(false)
     }
@@ -121,7 +112,7 @@ const RandomPage = props => {
             <div className='function-box'>
                 <div>
                 <label htmlFor="filter">Search All Boxes</label>
-                <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input'/>
+                <input type="text" id="filter" value={randomFilter} onChange={handleChange} className='filter-input' autoFocus='autofocus'/>
 
                 Filter By Box: <select value={boxNumberFilter} id = 'box_number' onChange={handleDropdown}>
                 <option value="">All</option>
@@ -133,13 +124,13 @@ const RandomPage = props => {
             <button onClick={() => clear()} id='clear-random'>Clear</button>
             </div>
             <div>
-            <button onClick={() => handleShow()} >Add New</button><br/>
+            <button onClick={() => handleShow()} id = 'add-random'>Add New</button><br/>
             </div>
         </div>
 
             <Table className="random-table" size='sm'>
                 {
-                    (boxNumberFilter == '') ?
+                    (boxNumberFilter === '') ?
                     <tbody>
                         {randoms.filter(random => {
                             return random.name
@@ -159,7 +150,7 @@ const RandomPage = props => {
                 :
                 <tbody>
                     {randoms.filter(random => {
-                        return random.box_number == boxNumberFilter
+                        return random.box_number === boxNumberFilter
                     }).map((randomData) => (
                         <Random
                             key={randomData.id}

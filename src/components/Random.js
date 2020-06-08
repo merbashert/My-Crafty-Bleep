@@ -21,7 +21,7 @@ const Random = props => {
         <tr className='random-row'>
         <td className='random-name'>{props.randomData.name}</td>
         <td className='random-details'>{props.randomData.details}</td>
-        <td>Box {props.randomData.box_number}</td>
+        <td className = 'random-box'>Box {props.randomData.box_number}</td>
         <td className='random-buttons'>
         <div onClick={handleShow}>
         Edit
