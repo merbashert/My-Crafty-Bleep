@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
-import Needle from './Needles'
 
+import Needle from './Needles';
 
 
 const NeedlePage= props => {

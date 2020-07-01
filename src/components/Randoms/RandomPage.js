@@ -5,7 +5,7 @@ import Modal from 'react-bootstrap/Modal';
 import RandomForm from './RandomForm'
 import Random from './Random'
 
-
+import './Randoms.css';
 
 
 const RandomPage = props => {
@@ -27,6 +27,7 @@ const RandomPage = props => {
         setRandomFilter('')
         setBoxNumberFilter('')
     }
+
     const fetchRandom = () => {
         fetch(`${props.baseUrl}/randoms`)
         .then(data => data.json())
@@ -115,7 +116,10 @@ const RandomPage = props => {
                         <label htmlFor="search_box">Search</label>
                         <input
                             type="text"
-                            id="search_box" value={randomFilter} onChange={handleChange} autoFocus='autofocus'/>
+                            id="search_box"
+                            value={randomFilter}
+                            onChange={handleChange}
+                            autoFocus='autofocus'/>
                     </div>
 
                     <div id='filter_box'>
