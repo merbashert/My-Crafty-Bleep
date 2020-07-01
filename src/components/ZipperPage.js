@@ -15,8 +15,6 @@ const ZipperPage = props => {
         }).catch(err=>console.log(err))
     }
 
-
-
     useEffect(() => {
         fetchZippers();
     }, [])
@@ -28,12 +26,14 @@ const ZipperPage = props => {
                 zipperSize = {7}
                 zippers = {zippers}
                 setZippers = {setZippers}
+                baseUrl={props.baseUrl}
                 />
 
             <ZipperList
                 zipperSize = {9}
                 zippers = {zippers}
                 setZippers = {setZippers}
+                baseUrl={props.baseUrl}
                 />
 
             <ZipperList
@@ -47,24 +47,28 @@ const ZipperPage = props => {
                 zipperSize = {14}
                 zippers = {zippers}
                 setZippers = {setZippers}
+                baseUrl={props.baseUrl}
                 />
 
             <ZipperList
                 zipperSize = {18}
                 zippers = {zippers}
                 setZippers = {setZippers}
+                baseUrl={props.baseUrl}
                 />
 
             <ZipperList
                 zipperSize = {20}
                 zippers = {zippers}
                 setZippers = {setZippers}
+                baseUrl={props.baseUrl}
                 />
 
             <ZipperList
                 zipperSize = {22}
                 zippers = {zippers}
                 setZippers = {setZippers}
+                baseUrl={props.baseUrl}
                 />
         </div>
     )

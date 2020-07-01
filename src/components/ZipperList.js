@@ -43,11 +43,12 @@ const zipperList = (props) => {
                 <Zipper
                     key={zipperData.id}
                     zipperData={zipperData}
-                    handleDeleteZipper={props.handleDeleteZipper}
+                    handleDeleteZipper={handleDeleteZipper}
                     />
             ))}
-            <ZipperForm handleCreateZipper={props.handleCreateZipper}
-                zipperSize='7' />
+            <ZipperForm
+            handleCreateZipper={handleCreateZipper}
+                zipperSize = {props.zipperSize} />
 
         </div>
     )
