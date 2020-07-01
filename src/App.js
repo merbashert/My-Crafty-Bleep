@@ -70,8 +70,6 @@ const App = props => {
                             baseUrl={baseUrl}
                             handleClose={handleClose}
                             handleShow={handleShow}
-                            setShow={setShow}
-                            show={show}
                             />
                     </Route>
                     <Route path="/random">

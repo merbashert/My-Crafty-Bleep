@@ -141,7 +141,7 @@ const FabricPage = props => {
             </div>
 
             {
-                (fabricTagFilter==='' || mainColorFilter==='')
+                (fabricTagFilter==='' && mainColorFilter==='')
                 ?
                 <div className='fabric-container'>
                     {fabrics.map((fabricData) => (
