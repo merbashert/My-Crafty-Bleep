@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import logo from './assets/logo.png'
@@ -23,6 +23,14 @@ const App = props => {
 
     const [expanded, setExpanded] = useState(false);
     const [show, setShow] = useState(false);
+
+    const handleClose = (e) => {
+        setShow(false)
+    }
+
+    const handleShow = (e) => {
+        setShow(true)
+    }
 
     let content = (
         <Router>
@@ -60,6 +68,8 @@ const App = props => {
                     <Route path="/fabric">
                         <FabricPage
                             baseUrl={baseUrl}
+                            handleClose={handleClose}
+                            handleShow={handleShow}
                             setShow={setShow}
                             show={show}
                             />

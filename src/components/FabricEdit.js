@@ -5,7 +5,7 @@ const FabricEdit = props => {
 
     const [length, setLength] = useState(props.fabricData.length)
     const [main_color, setMain_Color] = useState(props.fabricData.main_color?props.fabricData.main_color:'')
-    const [tags, setTags] = useState(props.fabricData.tags)
+    const [tags, setTags] = useState(props.fabricData.tags?props.fabricData.tags:'')
     const [picture, setPicture] = useState(props.fabricData.picture)
     const [id, setId] = useState(props.fabricData.id)
 

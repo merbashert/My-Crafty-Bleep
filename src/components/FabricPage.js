@@ -68,14 +68,6 @@ const FabricPage = props => {
         }).catch(err=>console.log(err))
     }
 
-    const handleClose = (e) => {
-        props.setShow(false)
-    }
-
-    const handleShow = (e) => {
-        props.setShow(true)
-    }
-
     const reset = () => {
         setFabricTagFilter('')
         setMainColorFilter('')
@@ -93,7 +85,7 @@ const FabricPage = props => {
         <div>
 
             <>
-            <Modal show={props.show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+            <Modal show={props.show} onHide={props.handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Fabric</Modal.Title>
                 </Modal.Header>
@@ -102,7 +94,7 @@ const FabricPage = props => {
                     <div className = 'add-form'>
                         <FabricForm
                             handleCreateFabric={handleCreateFabric}
-                            handleClose={handleClose}
+                            handleClose={props.handleClose}
                             />
                     </div>
 
@@ -145,7 +137,7 @@ const FabricPage = props => {
 
                 <button onClick={() => reset()} className='clear-fabric'>Clear Filters</button>
 
-                <button onClick={() => handleShow()} className='add-fabric'>Add a New Fabric</button>
+                <button onClick={() => props.handleShow()} className='add-fabric'>Add a New Fabric</button>
             </div>
 
             {
