@@ -11,6 +11,7 @@ const FabricPage = props => {
     const[fabricTags, setFabricTags] = useState([])
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
+    const colors = ['','red','orange','yellow','green', 'blue', 'purple', 'pink', 'brown', 'black', 'white']
 
 
     const handleChange = (e) => {
@@ -120,23 +121,14 @@ const FabricPage = props => {
 
                 <label id="main_color">
                     Main Color
-                    <select value={mainColorFilter} onChange={handleChange} id="main_color" className='dropdown'>
-                        <option main_color=""></option>
-                        <option main_color="red">red</option>
-                        <option main_color="orange">orange</option>
-                        <option main_color="yellow">yellow</option>
-                        <option main_color="green">green</option>
-                        <option main_color="blue">blue</option>
-                        <option main_color="purple">purple</option>
-                        <option main_color="pink">pink</option>
-                        <option main_color="brown">brown</option>
-                        <option main_color="black">black</option>
-                        <option main_color="white">white</option>
+                    <select value = {mainColorFilter} onChange={handleChange} className='dropdown'>
+                        {colors.map((color, i) => {
+                            return <option key = {i}>{color}</option>
+                        })}
                     </select>
                 </label>
 
                 <button onClick={() => reset()} className='clear-fabric'>Clear Filters</button>
-
                 <button onClick={() => props.handleShow()} className='add-fabric'>Add a New Fabric</button>
             </div>
 
