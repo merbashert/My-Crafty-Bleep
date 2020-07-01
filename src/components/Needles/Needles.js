@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import Table from 'react-bootstrap/Table';
 import NeedleEdit from './NeedleEdit'
-import yarnball from '../assets/favicon-32x32.png'
+import yarnball from '../../assets/favicon-32x32.png'
 
 
 const Needles = props => {

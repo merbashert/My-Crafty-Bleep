@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import FabricForm from './FabricForm'
 import Fabric from './Fabrics'
 
+import './Fabrics.css';
 
 const FabricPage = props => {
 

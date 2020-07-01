@@ -5,9 +5,9 @@ import logo from './assets/logo.png'
 
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import RandomPage from './components/RandomPage.js'
-import FabricPage from './components/FabricPage.js'
-import NeedlePage from './components/NeedlePage.js'
+import RandomPage from './components/Randoms/RandomPage.js'
+import FabricPage from './components/Fabrics/FabricPage.js'
+import NeedlePage from './components/Needles/NeedlePage.js'
 import ZipperPage from './components/Zippers/ZipperPage.js'
 import Home from './components/Home.js'
 
@@ -70,6 +70,8 @@ const App = props => {
                             baseUrl={baseUrl}
                             handleClose={handleClose}
                             handleShow={handleShow}
+                            setShow={setShow}
+                            show={show}
                             />
                     </Route>
                     <Route path="/random">

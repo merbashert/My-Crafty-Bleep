@@ -23,6 +23,8 @@ const Fabrics = props => {
         setFabricShow(false)
     }
 
+    
+
     const useStyle = {
         backgroundImage: `url(${props.fabricData.picture})`,
         backgroundSize: 'contain'
