@@ -11,7 +11,7 @@ const FabricPage = props => {
     const[fabricTags, setFabricTags] = useState([])
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
-    const [show, setShow] = useState(false);
+
 
     const handleChange = (e) => {
         setFabricTagFilter(e.target.value)
@@ -69,11 +69,11 @@ const FabricPage = props => {
     }
 
     const handleClose = (e) => {
-        setShow(false)
+        props.setShow(false)
     }
 
     const handleShow = (e) => {
-        setShow(true)
+        props.setShow(true)
     }
 
     const reset = () => {
@@ -93,7 +93,7 @@ const FabricPage = props => {
         <div>
 
             <>
-            <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+            <Modal show={props.show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Fabric</Modal.Title>
                 </Modal.Header>
