@@ -15,34 +15,6 @@ const ZipperPage = props => {
         }).catch(err=>console.log(err))
     }
 
-    const handleCreateZipper = (createData) => {
-        fetch(`${props.baseUrl}/zippers`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdZipper => {
-            return createdZipper.json()
-        })
-        .then(json => {
-            setZippers(json)
-        })
-        .catch(err=>console.log(err))
-    }
-
-    const handleDeleteZipper = (id) => {
-        fetch(`${props.baseUrl}/zippers/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(json => {
-            setZippers(zippers.filter(zipper => zipper.id !== id))
-        }).catch(err=>console.log(err))
-    }
 
 
     useEffect(() => {
@@ -55,45 +27,44 @@ const ZipperPage = props => {
             <ZipperList
                 zipperSize = {7}
                 zippers = {zippers}
-                handleCreateZipper = {handleCreateZipper}
-                handleDeleteZipper = {handleDeleteZipper}
+                setZippers = {setZippers}
                 />
 
             <ZipperList
                 zipperSize = {9}
                 zippers = {zippers}
-                handleDeleteZipper = {handleDeleteZipper}
+                setZippers = {setZippers}
                 />
 
             <ZipperList
                 zipperSize = {12}
                 zippers = {zippers}
-                handleDeleteZipper = {handleDeleteZipper}
+                setZippers = {setZippers}
                 />
 
 
             <ZipperList
                 zipperSize = {14}
                 zippers = {zippers}
-                handleDeleteZipper = {handleDeleteZipper}
+                setZippers = {setZippers}
                 />
 
             <ZipperList
                 zipperSize = {18}
                 zippers = {zippers}
-                handleDeleteZipper = {handleDeleteZipper}
+                setZippers = {setZippers}
                 />
 
             <ZipperList
                 zipperSize = {20}
                 zippers = {zippers}
-                handleDeleteZipper = {handleDeleteZipper}
+                setZippers = {setZippers}
                 />
 
             <ZipperList
                 zipperSize = {22}
                 zippers = {zippers}
-                handleDeleteZipper = {handleDeleteZipper}
+                setZippers = {setZippers}
                 />
         </div>
     )
