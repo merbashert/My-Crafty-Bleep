@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react'
 
 import Needle from './Needles';
 
+import './Needles.css'
 
 const NeedlePage= props => {
     const [needles, setNeedles] = useState([])
@@ -36,15 +37,15 @@ const NeedlePage= props => {
 
 
         <div className = 'needle-page'>
-        <div className = "needles">
-        {needles.map((needleData) => (
-            <Needle
-            key={needleData.id}
-            needleData={needleData}
-            handleUpdateNeedle={handleUpdateNeedle}
-            />
-        ))}
-        </div>
+            <div className = "needles">
+                {needles.map((needleData) => (
+                    <Needle
+                        key={needleData.id}
+                        needleData={needleData}
+                        handleUpdateNeedle={handleUpdateNeedle}
+                        />
+                ))}
+            </div>
         </div>
     )
 }

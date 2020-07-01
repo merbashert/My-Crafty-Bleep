@@ -61,7 +61,7 @@
 }
 
 .checkbox-label input:checked ~ .checkmark {
-    background-image: url('../assets/favicon-32x32.png');
+    background-image: url('../../assets/favicon-32x32.png');
     background-repeat: no-repeat;
     background-color: white;
 }
