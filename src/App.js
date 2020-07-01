@@ -15,7 +15,7 @@ import {
 import RandomPage from './components/RandomPage.js'
 import FabricPage from './components/FabricPage.js'
 import NeedlePage from './components/NeedlePage.js'
-import ZipperPage from './components/ZipperPage.js'
+import ZipperPage from './components/Zippers/ZipperPage.js'
 import Home from './components/Home.js'
 
 let baseUrl = '';

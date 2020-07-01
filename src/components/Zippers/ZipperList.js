@@ -47,7 +47,7 @@ const zipperList = (props) => {
                     />
             ))}
             <ZipperForm
-            handleCreateZipper={handleCreateZipper}
+                handleCreateZipper={handleCreateZipper}
                 zipperSize = {props.zipperSize} />
 
         </div>

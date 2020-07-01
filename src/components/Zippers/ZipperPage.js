@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Zipper from './Zipper'
-import ZipperForm from './ZipperForm'
-import ZipperList from './ZipperList'
+import ZipperList from '../Zippers/ZipperList'
 
+import './Zippers.css';
 
 const ZipperPage = props => {
     const[zippers, setZippers] = useState([])
