@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Zipper from './Zipper'
 import ZipperForm from './ZipperForm'
+import ZipperList from './ZipperList'
 
 
 const ZipperPage = props => {
@@ -51,107 +52,49 @@ const ZipperPage = props => {
 
     return (
         <div className = 'zipper-container'>
-            <div className = "zipper-size">
-                <h3>7 Inches</h3>
-                {zippers.filter(zipper=>{
-                    return zipper.size === 7
-                }).map((zipperData) => (
-                    <Zipper
-                        key={zipperData.id}
-                        zipperData={zipperData}
-                        handleDeleteZipper={handleDeleteZipper}
-                        />
-                ))}
-                <ZipperForm handleCreateZipper={handleCreateZipper}
-                    zipperSize='7' />
+            <ZipperList
+                zipperSize = {7}
+                zippers = {zippers}
+                handleCreateZipper = {handleCreateZipper}
+                handleDeleteZipper = {handleDeleteZipper}
+                />
 
-            </div>
+            <ZipperList
+                zipperSize = {9}
+                zippers = {zippers}
+                handleDeleteZipper = {handleDeleteZipper}
+                />
 
-            <div className = "zipper-size">
-                <h3>9 Inches</h3>
-                {zippers.filter(zipper=>{
-                    return zipper.size === 9
-                }).map((zipperData) => (
-                    <Zipper
-                        key={zipperData.id}
-                        zipperData={zipperData}
-                        handleDeleteZipper={handleDeleteZipper}
-                        />
-                ))}
-                <ZipperForm handleCreateZipper={handleCreateZipper}
-                    zipperSize='9' />
-            </div>
-            <div className = "zipper-size">
-                <h3>12 Inches</h3>
-                {zippers.filter(zipper=>{
-                    return zipper.size === 12
-                }).map((zipperData) => (
-                    <Zipper
-                        key={zipperData.id}
-                        zipperData={zipperData}
-                        handleDeleteZipper={handleDeleteZipper}
-                        />
-                ))}
-                <ZipperForm handleCreateZipper={handleCreateZipper}
-                    zipperSize='12' />
-            </div>
-            <div className = "zipper-size">
-                <h3>14 Inches</h3>
-                {zippers.filter(zipper=>{
-                    return zipper.size === 14
-                }).map((zipperData) => (
-                    <Zipper
-                        key={zipperData.id}
-                        zipperData={zipperData}
-                        handleDeleteZipper={handleDeleteZipper}
-                        />
-                ))}
-                <ZipperForm handleCreateZipper={handleCreateZipper}
-                    zipperSize='14' />
-            </div>
-            <div className = "zipper-size">
-                <h3>18 Inches</h3>
-                {zippers.filter(zipper=>{
-                    return zipper.size === 18
-                }).map((zipperData) => (
-                    <Zipper
-                        key={zipperData.id}
-                        zipperData={zipperData}
-                        handleDeleteZipper={handleDeleteZipper}
-                        />
-                ))}
-                <ZipperForm handleCreateZipper={handleCreateZipper}
-                    zipperSize='18' />
-            </div>
-            <div className = "zipper-size">
-                <h3>20 Inches</h3>
-                {zippers.filter(zipper=>{
-                    return zipper.size === 20
-                }).map((zipperData) => (
-                    <Zipper
-                        key={zipperData.id}
-                        zipperData={zipperData}
-                        handleDeleteZipper={handleDeleteZipper}
-                        />
-                ))}
-                <ZipperForm handleCreateZipper={handleCreateZipper}
-                    zipperSize='20' />
-            </div>
+            <ZipperList
+                zipperSize = {12}
+                zippers = {zippers}
+                handleDeleteZipper = {handleDeleteZipper}
+                />
 
-            <div className = "zipper-size">
-                <h3>22 Inches</h3>
-                {zippers.filter(zipper=>{
-                    return zipper.size === 22
-                }).map((zipperData) => (
-                    <Zipper
-                        key={zipperData.id}
-                        zipperData={zipperData}
-                        handleDeleteZipper={handleDeleteZipper}
-                        />
-                ))}
-                <ZipperForm handleCreateZipper={handleCreateZipper}
-                    zipperSize='22' />
-            </div>
+
+            <ZipperList
+                zipperSize = {14}
+                zippers = {zippers}
+                handleDeleteZipper = {handleDeleteZipper}
+                />
+
+            <ZipperList
+                zipperSize = {18}
+                zippers = {zippers}
+                handleDeleteZipper = {handleDeleteZipper}
+                />
+
+            <ZipperList
+                zipperSize = {20}
+                zippers = {zippers}
+                handleDeleteZipper = {handleDeleteZipper}
+                />
+
+            <ZipperList
+                zipperSize = {22}
+                zippers = {zippers}
+                handleDeleteZipper = {handleDeleteZipper}
+                />
         </div>
     )
 }
