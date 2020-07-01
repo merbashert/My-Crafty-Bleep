@@ -6,6 +6,7 @@ import ZipperList from './ZipperList'
 
 const ZipperPage = props => {
     const[zippers, setZippers] = useState([])
+    const sizeList = [7,9,12,14,18,20,22]
 
     const fetchZippers = () => {
         fetch(`${props.baseUrl}/zippers`)
@@ -21,57 +22,18 @@ const ZipperPage = props => {
 
 
     return (
-        <div className = 'zipper-container'>
-            <ZipperList
-                zipperSize = {7}
-                zippers = {zippers}
-                setZippers = {setZippers}
-                baseUrl={props.baseUrl}
-                />
+        <div className = "zipper-container">
+            {sizeList.map((size) => {
+                return (
+                    <ZipperList
+                        zipperSize = {size}
+                        zippers = {zippers}
+                        setZippers = {setZippers}
+                        baseUrl={props.baseUrl}
+                        />)
+                    })}
+                </div>
+            )
+        }
 
-            <ZipperList
-                zipperSize = {9}
-                zippers = {zippers}
-                setZippers = {setZippers}
-                baseUrl={props.baseUrl}
-                />
-
-            <ZipperList
-                zipperSize = {12}
-                zippers = {zippers}
-                setZippers = {setZippers}
-                />
-
-
-            <ZipperList
-                zipperSize = {14}
-                zippers = {zippers}
-                setZippers = {setZippers}
-                baseUrl={props.baseUrl}
-                />
-
-            <ZipperList
-                zipperSize = {18}
-                zippers = {zippers}
-                setZippers = {setZippers}
-                baseUrl={props.baseUrl}
-                />
-
-            <ZipperList
-                zipperSize = {20}
-                zippers = {zippers}
-                setZippers = {setZippers}
-                baseUrl={props.baseUrl}
-                />
-
-            <ZipperList
-                zipperSize = {22}
-                zippers = {zippers}
-                setZippers = {setZippers}
-                baseUrl={props.baseUrl}
-                />
-        </div>
-    )
-}
-
-export default ZipperPage
+        export default ZipperPage
