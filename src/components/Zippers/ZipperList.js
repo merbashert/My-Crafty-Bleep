@@ -36,6 +36,7 @@ const zipperList = (props) => {
 
     return (
         <div className = "zipper-size">
+            <div>
             <h3>{props.zipperSize} Inches</h3>
             {props.zippers.filter(zipper=>{
                 return zipper.size === props.zipperSize
@@ -46,6 +47,7 @@ const zipperList = (props) => {
                     handleDeleteZipper={handleDeleteZipper}
                     />
             ))}
+            </div>  
             <ZipperForm
                 handleCreateZipper={handleCreateZipper}
                 zipperSize = {props.zipperSize} />
