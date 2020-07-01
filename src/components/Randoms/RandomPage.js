@@ -12,7 +12,7 @@ const RandomPage = props => {
     const[randoms, setRandoms] = useState([])
     const[randomFilter, setRandomFilter] = useState('')
     const[boxNumberFilter, setBoxNumberFilter] = useState('')
-    const [show, setShow] = useState(false);
+
 
 
     const handleChange = (e) => {
@@ -79,11 +79,11 @@ const RandomPage = props => {
     }
 
     const handleClose = (e) => {
-        setShow(false)
+        props.setShow(false)
     }
 
     const handleShow = (e) => {
-        setShow(true)
+        props.setShow(true)
     }
 
     useEffect(() => {
@@ -95,7 +95,7 @@ const RandomPage = props => {
         <React.Fragment>
 
             <>
-            <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+            <Modal show={props.show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Random Item</Modal.Title>
                 </Modal.Header>

@@ -77,6 +77,8 @@ const App = props => {
                     <Route path="/random">
                         <RandomPage
                             baseUrl={baseUrl}
+                            handleClose={handleClose}
+                            handleShow={handleShow}
                             setShow={setShow}
                             show={show}
                             />
@@ -84,11 +86,19 @@ const App = props => {
                     <Route path="/needles">
                         <NeedlePage
                             baseUrl={baseUrl}
+                            handleClose={handleClose}
+                            handleShow={handleShow}
+                            setShow={setShow}
+                            show={show}
                             />
                     </Route>
                     <Route path="/zippers">
                         <ZipperPage
                             baseUrl={baseUrl}
+                            handleClose={handleClose}
+                            handleShow={handleShow}
+                            setShow={setShow}
+                            show={show}
                             />
                     </Route>
                 </Switch>
