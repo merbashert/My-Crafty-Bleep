@@ -22,10 +22,11 @@ const ZipperPage = props => {
 
     return (
         <div className = "zipper-container">
-            {sizeList.map((size) => {
+            {sizeList.map((size, i) => {
                 return (
                     <ZipperList
                         zipperSize = {size}
+                        key={i}
                         zippers = {zippers}
                         setZippers = {setZippers}
                         baseUrl={props.baseUrl}
