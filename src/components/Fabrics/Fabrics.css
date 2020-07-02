@@ -12,7 +12,7 @@
     display: grid;
     grid-template-columns: 80px 13% 200px 150px 1fr 180px;
     grid-gap: 7px;
-    margin: 10px 10px;
+    margin: 10px 2.5%;
     place-items: center center;
 }
 

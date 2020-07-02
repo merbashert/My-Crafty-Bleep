@@ -23,7 +23,19 @@ const Fabrics = props => {
         setFabricShow(false)
     }
 
-    
+    const handleUpdateFabric = (updateData) => {
+        fetch(`${props.baseUrl}/fabrics/${updateData.id}`, {
+            body: JSON.stringify(updateData),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(updatedFabric => {
+            props.fetchFabric()
+        }).catch(err=>console.log(err))
+    }
+
 
     const useStyle = {
         backgroundImage: `url(${props.fabricData.picture})`,
@@ -56,7 +68,7 @@ const Fabrics = props => {
         </Modal.Header>
         <Modal.Body  style={useStyle}>
 
-        <FabricEdit fabricData={props.fabricData} handleUpdateFabric={props.handleUpdateFabric} handleClose={handleClose}/>
+        <FabricEdit fabricData={props.fabricData} handleUpdateFabric={handleUpdateFabric} handleClose={handleClose}/>
         </Modal.Body>
         </Modal>
         </>

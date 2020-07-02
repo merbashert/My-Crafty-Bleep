@@ -45,18 +45,7 @@ const FabricPage = props => {
         .catch(err=>console.log(err))
     }
 
-    const handleUpdateFabric = (updateData) => {
-        fetch(`${props.baseUrl}/fabrics/${updateData.id}`, {
-            body: JSON.stringify(updateData),
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(updatedFabric => {
-            fetchFabric()
-        }).catch(err=>console.log(err))
-    }
+
 
     const handleDeleteFabric = (id) => {
         fetch(`${props.baseUrl}/fabrics/${id}`, {
@@ -142,7 +131,6 @@ const FabricPage = props => {
                             key={fabricData.id}
                             fabricData={fabricData}
                             handleDeleteFabric={handleDeleteFabric}
-                            handleUpdateFabric={handleUpdateFabric}
                             setFabricTagFilter={setFabricTagFilter}
                             />
                     ))}</div>
@@ -155,7 +143,6 @@ const FabricPage = props => {
                                 key={fabricData.id}
                                 fabricData={fabricData}
                                 handleDeleteFabric={handleDeleteFabric}
-                                handleUpdateFabric={handleUpdateFabric}
                                 setFabricTagFilter={setFabricTagFilter}
                                 />
                         ))}
