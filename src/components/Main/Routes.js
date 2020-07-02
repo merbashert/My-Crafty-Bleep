@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { Switch, Route } from "react-router-dom";
 
@@ -9,6 +9,25 @@ import ZipperPage from '../../components/Zippers/ZipperPage.js'
 import Home from '../../components/Main/Home.js'
 
 const Routes = props => {
+
+    let baseUrl = '';
+    if (process.env.NODE_ENV === 'development') {
+        baseUrl = 'http://localhost:8888'
+    } else {
+        baseUrl = 'https://mycraftybleep-back.herokuapp.com'
+    }
+
+    const [show, setShow] = useState(false);
+
+    const handleClose = (e) => {
+        setShow(false)
+    }
+
+    const handleShow = (e) => {
+        setShow(true)
+    }
+
+
     return(
         <Switch>
             <Route exact path="/">
@@ -16,38 +35,38 @@ const Routes = props => {
             </Route>
             <Route path="/fabric">
                 <FabricPage
-                    baseUrl={props.baseUrl}
-                    handleClose={props.handleClose}
-                    handleShow={props.handleShow}
-                    setShow={props.setShow}
-                    show={props.show}
+                    baseUrl={baseUrl}
+                    handleClose={handleClose}
+                    handleShow={handleShow}
+                    setShow={setShow}
+                    show={show}
                     />
             </Route>
             <Route path="/random">
                 <RandomPage
-                    baseUrl={props.baseUrl}
-                    handleClose={props.handleClose}
-                    handleShow={props.handleShow}
-                    setShow={props.setShow}
-                    show={props.show}
+                    baseUrl={baseUrl}
+                    handleClose={handleClose}
+                    handleShow={handleShow}
+                    setShow={setShow}
+                    show={show}
                     />
             </Route>
             <Route path="/needles">
                 <NeedlePage
-                    baseUrl={props.baseUrl}
-                    handleClose={props.handleClose}
-                    handleShow={props.handleShow}
-                    setShow={props.setShow}
-                    show={props.show}
+                    baseUrl={baseUrl}
+                    handleClose={handleClose}
+                    handleShow={handleShow}
+                    setShow={setShow}
+                    show={show}
                     />
             </Route>
             <Route path="/zippers">
                 <ZipperPage
-                    baseUrl={props.baseUrl}
-                    handleClose={props.handleClose}
-                    handleShow={props.handleShow}
-                    setShow={props.setShow}
-                    show={props.show}
+                    baseUrl={baseUrl}
+                    handleClose={handleClose}
+                    handleShow={handleShow}
+                    setShow={setShow}
+                    show={show}
                     />
             </Route>
         </Switch>
