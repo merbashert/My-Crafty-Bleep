@@ -147,7 +147,7 @@ const RandomPage = props => {
                     <tbody>
                         {randoms.filter(random => {
                             return random.name
-                        }).filter(random => random.name.includes(randomFilter))
+                        }).filter(random => random.name.includes(randomFilter.toLowerCase()))
                         .map((randomData) => (
                             <Random
                                 key={randomData.id}
