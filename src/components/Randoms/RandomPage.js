@@ -17,10 +17,12 @@ const RandomPage = props => {
 
     const handleChange = (e) => {
         setRandomFilter(e.target.value)
+        setBoxNumberFilter('')
     }
 
     const handleDropdown = (e) => {
         setBoxNumberFilter(e.target.value)
+        setRandomFilter('')
     }
 
     const clear = () => {
