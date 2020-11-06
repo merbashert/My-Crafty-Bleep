@@ -39,7 +39,7 @@ const Random = props => {
         </Modal>
         </>
 
-        <div onClick={(e) => {if (window.confirm('Definitely delete?')) props.handleDeleteRandom(props.randomData.id)}}>Delete</div></td>
+    <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}}>Delete</div></td>
         </tr>
     )
 }
