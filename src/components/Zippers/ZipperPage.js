@@ -21,18 +21,29 @@ const ZipperPage = props => {
 
 
     return (
-        <div className = "zipper-container">
-            {sizeList.map((size, i) => {
-                return (
-                    <ZipperList
-                        zipperSize = {size}
-                        key={i}
-                        zippers = {zippers}
-                        setZippers = {setZippers}
-                        baseUrl={props.baseUrl}
-                        />)
-                    })}
+        <div className = 'zipper-page'>
+            {zippers.length > 0 ?
+                <div className = "zipper-container">
+                    {sizeList.map((size, i) => {
+                        return (
+                            <ZipperList
+                                zipperSize = {size}
+                                key={i}
+                                zippers = {zippers}
+                                setZippers = {setZippers}
+                                baseUrl={props.baseUrl}
+                                />)
+                            })}
+                        </div>
+                        :
+                        <h1 className='loading'>Loading...</h1>
+
+
+                    }
+
+
                 </div>
+
             )
         }
 
