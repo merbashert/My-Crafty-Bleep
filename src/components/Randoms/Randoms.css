@@ -58,6 +58,12 @@ table.table {
     margin: 4px;
 }
 
+.loading {
+    position: relative;
+    top: 100px;
+    background-color: transparent;
+}
+
 /* Randoms */
 .random-name {
     font-weight: bold;

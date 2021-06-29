@@ -143,7 +143,8 @@ const RandomPage = props => {
                 </div>
             </div>
 
-            <Table className="random-table" size='sm'>
+            {randoms.length > 1 ?
+                <Table className="random-table" size='sm'>
                 {
                     (boxNumberFilter === '') ?
                     <tbody>
@@ -179,6 +180,11 @@ const RandomPage = props => {
             }
 
         </Table>
+        :
+        <h1 className='loading'>Loading...</h1>
+
+    }
+
     </div>
 </React.Fragment>
 )

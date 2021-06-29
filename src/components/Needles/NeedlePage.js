@@ -37,15 +37,21 @@ const NeedlePage= props => {
 
 
         <div className = 'needle-page'>
-            <div className = "needles">
-                {needles.map((needleData) => (
-                    <Needle
-                        key={needleData.id}
-                        needleData={needleData}
-                        handleUpdateNeedle={handleUpdateNeedle}
-                        />
-                ))}
-            </div>
+            {needles.length > 0 ?
+                <div className = "needles">
+                    {needles.map((needleData) => (
+                        <Needle
+                            key={needleData.id}
+                            needleData={needleData}
+                            handleUpdateNeedle={handleUpdateNeedle}
+                            />
+                    ))}
+                </div>
+                :
+                <h1 className='loading'>Loading...</h1>
+
+            }
+
         </div>
     )
 }
