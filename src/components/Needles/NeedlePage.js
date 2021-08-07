@@ -30,7 +30,8 @@ const NeedlePage= props => {
     }
 
     useEffect(() => {
-        fetchNeedle();
+        fetchNeedle()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     return (

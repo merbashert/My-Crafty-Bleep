@@ -89,7 +89,8 @@ const RandomPage = props => {
     }
 
     useEffect(() => {
-        fetchRandom();
+        fetchRandom()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
 
@@ -139,7 +140,8 @@ const RandomPage = props => {
                     <button onClick={() => clear()} id='clear-random'>Clear</button>
                 </div>
                 <div id='add-box'>
-                    <button onClick={() => handleShow()} id = 'add-random'>Add New</button><br/>
+                    <button onClick={() => handleShow()} id = 'add-random'>Add New</button>
+                    <button onClick={() => handleShow()} id = 'add-random-small'>+</button>
                 </div>
             </div>
 

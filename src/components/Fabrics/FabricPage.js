@@ -65,7 +65,8 @@ const FabricPage = props => {
     }
 
     useEffect(() => {
-        fetchFabric();
+        fetchFabric()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {
