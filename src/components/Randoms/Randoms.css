@@ -33,6 +33,13 @@
     margin: 4px 0px;
 }
 
+
+#add-random-small {
+    padding: 0 5px;
+    line-height: 75%;
+    margin: 4px 0px;
+}
+
 .random-page  {
     text-align: center;
     margin-top: 30px;
@@ -40,6 +47,11 @@
 
 #add-random {
     font-size: 20px;
+}
+
+#add-random-small {
+    font-size:30px;
+    display: none;
 }
 
 .boxpicture {
@@ -56,6 +68,7 @@ table.table {
 .random-table div.btn {
     margin: 4px;
 }
+
 
 .loading {
     position: relative;
@@ -114,12 +127,8 @@ table.table {
 
 @media (max-width: 810px) {
     #search_box {
-        width: 50px;
+        width: 120px;
         height: 60%;
-    }
-
-    .function-box {
-        justify-content: flex-start;
     }
 }
 
@@ -148,7 +157,7 @@ table.table {
 }
 
 @media (max-width: 576px) {
-    #clear-random {
+    #clear-random, #add-random {
         font-size: 12px;
     }
 
@@ -165,6 +174,14 @@ table.table {
     }
 
     .dropdown, .dropleft, .dropright, .dropup {
-    font-size: 14px;
-}
+        font-size: 14px;
+    }
+
+    #add-random {
+        display: none;
+    }
+
+    #add-random-small {
+        display: inline;
+    }
 }
