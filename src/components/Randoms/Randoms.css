@@ -142,8 +142,13 @@ table.table {
     #add-box {
         display: flex;
         align-items: flex-end;
+        background-color: transparent;
     }
 
+    #add-box button:focus {
+        outline: none;
+    }
+    
     #search_box {
         width: 100px;
         font-size: 15px;
@@ -183,5 +188,21 @@ table.table {
 
     #add-random-small {
         display: inline;
+    }
+
+    .add-form label {
+        font-size: 80%;
+    }
+
+    .modal-header {
+        padding: 10 20px;
+    }
+
+    .modal-header .h4 {
+        font-size: 20px;
+    }
+
+    .modal-body button {
+        font-size: 80%;
     }
 }
