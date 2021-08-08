@@ -95,4 +95,41 @@
         width: 160px;
     }
 
+    .needle-box td {
+        font-size: 70%;
+    }
+
+    .needle-box h1 {
+        font-size: 30px;
+    }
+
+    .yarnball img{
+        width: 120%;
+    }
+
+    .modal-header {
+        padding: 10 20px;
+    }
+
+    .modal-header .h4 {
+        font-size: 20px;
+    }
+
+    .modal-body button {
+        font-size: 80%;
+    }
+
+    .modal-dialog modal-sm{
+        width: 70%;
+    }
+
+    .needle-edit label {
+        font-size: 80%;
+    }
+
+    .loading {
+        font-size: 50%;
+    }
+
+
 }
