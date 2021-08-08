@@ -135,3 +135,14 @@
 .fabric-buttons p{
     margin: 3px;
 }
+
+@media (max-width: 576px) {
+
+    .fabric-box {
+        width: 40%;
+    }
+
+    .fabric-length, .fabric-tags, .clear-fabric, .add-fabric {
+        font-size: 70%;
+    }
+}
