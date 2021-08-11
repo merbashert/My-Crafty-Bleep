@@ -118,7 +118,6 @@ const FabricPage = props => {
                         })}
                     </select>
                 </label>
-
                 <button onClick={() => reset()} className='clear-fabric'>Clear Filters</button>
                 <button onClick={() => props.handleShow()} className='add-fabric'>Add a New Fabric</button>
             </div>
@@ -151,7 +150,7 @@ const FabricPage = props => {
                         ))}
                     </div>
                     :
-                    <h1 className='loading'>Loading...</h1>
+                    <h1 className='fabric-loading'>Loading...</h1>
 
                 }
             </div>

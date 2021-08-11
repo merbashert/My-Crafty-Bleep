@@ -87,8 +87,13 @@
         width: 70%;
         font-size: 16px;
     }
+}
 
-
-
-
+@media (max-width: 576px) {
+    .loading {
+        top: 40%;
+        left: 40%;
+        position: absolute;
+        font-size:100%;
+    }
 }

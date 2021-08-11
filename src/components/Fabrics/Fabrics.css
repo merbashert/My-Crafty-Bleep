@@ -35,7 +35,7 @@
     margin: 10px;
 }
 
-.loading {
+.fabric-loading {
     position: relative;
     top: 100px;
     text-align: center;
@@ -144,5 +144,12 @@
 
     .fabric-length, .fabric-tags, .clear-fabric, .add-fabric {
         font-size: 70%;
+    }
+
+    .fabric-loading {
+        font-size: 100%;
+        background-color: transparent;
+        margin-top: 40px;
+        text-align: center;
     }
 }
