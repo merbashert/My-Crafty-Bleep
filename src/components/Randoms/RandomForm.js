@@ -30,7 +30,7 @@ const RandomForm = props =>  {
         </label>
         <label>
         Details(if any):
-        <input type="text" id="details" value={details} onChange={e => setDetails(e.target.value)}/>
+        <input type="text" id="details" value={details} onChange={e => setDetails(e.target.value.toLowerCase())}/>
         </label>
         <label id="random-form">
         Box #:
