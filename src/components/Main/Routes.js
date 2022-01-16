@@ -7,6 +7,7 @@ import FabricPage from '../../components/Fabrics/FabricPage.js'
 import NeedlePage from '../../components/Needles/NeedlePage.js'
 import ZipperPage from '../../components/Zippers/ZipperPage.js'
 import Home from '../../components/Main/Home.js'
+import NotFound from '../../components/Main/NotFound.js'
 
 const Routes = props => {
 
@@ -69,6 +70,8 @@ const Routes = props => {
                     show={show}
                     />
             </Route>
+            <Route component={NotFound} />
+
         </Switch>
     )
 }

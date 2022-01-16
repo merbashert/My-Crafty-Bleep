@@ -15,8 +15,10 @@ const RandomForm = props =>  {
             details:details,
             box_number:box_number
         }
+
         props.handleCreateRandom(boxinfo);
         props.handleClose()
+        // alert(name + ' added to Box ' + box_number)
         setName('')
         setDetails('')
         setBox_Number('')
