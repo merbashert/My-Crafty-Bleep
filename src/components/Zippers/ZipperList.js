@@ -5,23 +5,6 @@ import ZipperForm from './ZipperForm'
 const zipperList = (props) => {
 
 
-    const handleCreateZipper = (createData) => {
-        fetch(`${props.baseUrl}/zippers`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdZipper => {
-            return createdZipper.json()
-        })
-        .then(json => {
-            props.setZippers(json)
-        })
-        .catch(err=>console.log(err))
-    }
-
     const handleDeleteZipper = (id) => {
         fetch(`${props.baseUrl}/zippers/${id}`, {
             method: 'DELETE',
@@ -47,11 +30,7 @@ const zipperList = (props) => {
                     handleDeleteZipper={handleDeleteZipper}
                     />
             ))}
-            </div>  
-            <ZipperForm
-                handleCreateZipper={handleCreateZipper}
-                zipperSize = {props.zipperSize} />
-
+            </div>
         </div>
     )
 }

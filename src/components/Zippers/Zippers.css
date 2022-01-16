@@ -20,12 +20,13 @@
 
 
 .new-zipper {
-    width: 70%;
-    margin-right: 3px;
+    margin-left: -20px;
 }
 
-.add-zipper {
-    padding: 3px;
+#add-box {
+    display: flex;
+    justify-content: flex-end;
+    margin: 5px 20px;
 }
 
 .delete {
