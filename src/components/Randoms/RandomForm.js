@@ -34,6 +34,7 @@ const RandomForm = props =>  {
         Details(if any):
         <input type="text" id="details" value={details} onChange={e => setDetails(e.target.value.toLowerCase())}/>
         </label>
+        <br/>
         <label id="random-form">
         Box #:
         <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="box_number" className='dropdown' required>

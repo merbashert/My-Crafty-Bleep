@@ -20,14 +20,15 @@ const ZipperForm = props =>  {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className='zipper-modal'>
         <label>
             Zipper Color:
     <input type="text" id="color" value={color} placeholder='new zipper' onChange={e => setColor(e.target.value)} required className = 'new-zipper'/>
         </label>
+        <br/>
         <label>
         Zipper Size:
-        <select id="size" value={size} onChange={e => setSize(e.target.value)} required>
+        <select id="size" value={size} id='new-zipper-size' onChange={e => setSize(e.target.value)} required>
             <option value=""></option>
             <option value="7">7 inches</option>
             <option value="9">9 inches</option>
@@ -37,9 +38,10 @@ const ZipperForm = props =>  {
             <option value="20">20 inches</option>
             <option value="22">22 inches</option>
         </select>
-        </label><br/>
-        <Button type="submit" className='add-zipper' onClick={props.handleClose}>Add Zipper</Button>
-        <Button className='add-zipper' onClick={props.handleClose}>Cancel</Button>
+        </label>
+        <br/>
+        <Button type="submit" className='add-zipper-button' onClick={props.handleClose}>Add Zipper</Button>
+        <Button id='zipper-cancel' onClick={props.handleClose}>Cancel</Button>
         </form>
     )
 }

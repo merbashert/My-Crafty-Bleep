@@ -23,6 +23,10 @@
     margin-left: -20px;
 }
 
+#new-zipper-size {
+    margin-left: 10px;
+}
+
 #add-box {
     display: flex;
     justify-content: flex-end;
@@ -109,25 +113,12 @@
 }
 
 @media (max-width: 576px) {
+
     .loading {
         top: 40%;
         left: 40%;
         position: absolute;
         font-size:100%;
-    }
-    #clear-random, #add-random {
-        font-size: 12px;
-    }
-    #search_box {
-        font-size: 10px;
-    }
-
-    .random-name, .random-details {
-        font-size: 14px;
-    }
-
-    .random-box {
-        font-size: 12px;
     }
 
     .dropdown, .dropleft, .dropright, .dropup {
@@ -143,7 +134,7 @@
     }
 
     .add-form label {
-        font-size: 80%;
+        font-size: 60%;
     }
 
     .modal-header {
@@ -155,6 +146,6 @@
     }
 
     .modal-body button {
-        font-size: 80%;
+        font-size: 60%;
     }
 }
