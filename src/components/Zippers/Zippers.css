@@ -29,6 +29,14 @@
     margin: 5px 20px;
 }
 
+#add-zipper-small {
+    padding: 0 5px;
+    line-height: 75%;
+    margin: 4px 0px;
+    font-size:30px;
+    display: none;
+}
+
 .delete {
     margin-right: 2px;
     cursor: default;
@@ -66,9 +74,13 @@
         width: 80%;
     }
 }
+
+
+
 @media (max-width: 675px) {
     .zipper-page {
         display: flex;
+        flex-direction: column;
         justify-content: center;
     }
 
@@ -88,6 +100,12 @@
         width: 70%;
         font-size: 16px;
     }
+
+    #add-zipper {
+        display: flex;
+        flex-direction: column;
+        background-color: transparent;
+    }
 }
 
 @media (max-width: 576px) {
@@ -96,5 +114,47 @@
         left: 40%;
         position: absolute;
         font-size:100%;
+    }
+    #clear-random, #add-random {
+        font-size: 12px;
+    }
+    #search_box {
+        font-size: 10px;
+    }
+
+    .random-name, .random-details {
+        font-size: 14px;
+    }
+
+    .random-box {
+        font-size: 12px;
+    }
+
+    .dropdown, .dropleft, .dropright, .dropup {
+        font-size: 14px;
+    }
+
+    #add-zipper {
+        display: none;
+    }
+
+    #add-zipper-small {
+        display: inline;
+    }
+
+    .add-form label {
+        font-size: 80%;
+    }
+
+    .modal-header {
+        padding: 10 20px;
+    }
+
+    .modal-header .h4 {
+        font-size: 20px;
+    }
+
+    .modal-body button {
+        font-size: 80%;
     }
 }
