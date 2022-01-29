@@ -13,6 +13,10 @@
     font-size: 20px;
 }
 
+button {
+    border: 1px solid black;
+}
+
 /********************NAVBAR********************/
 .nav-bar, .navbar-brand{
     background-color: #72b01d;
