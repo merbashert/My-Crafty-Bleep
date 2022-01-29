@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import Modal from 'react-bootstrap/Modal';
 import RandomEdit from './RandomEdit'
 
+import './Randoms.css';
 
 const Random = props => {
 
@@ -23,9 +24,9 @@ const Random = props => {
         <td className='random-details'>{props.randomData.details}</td>
         <td className = 'random-box'>Box {props.randomData.box_number}</td>
         <td className='random-buttons'>
-        <div onClick={handleShow}>
-        Edit
-        </div>
+
+        <div onClick={() => handleShow()} id = 'edit-random'>Edit</div>
+        <div onClick={() => handleShow()} id = 'edit-random-small'><span className="lnr lnr-pencil"></span></div>
         <>
 
 
@@ -39,7 +40,11 @@ const Random = props => {
         </Modal>
         </>
 
-    <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}}>Delete</div></td>
+
+
+    <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}} id = "delete-random">Delete</div>
+    <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}} id = "delete-random-small"><span className="lnr lnr-trash"></span></div>
+    </td>
         </tr>
     )
 }

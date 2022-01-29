@@ -34,12 +34,6 @@
 }
 
 
-#add-random-small {
-    padding: 0 5px;
-    line-height: 75%;
-    margin: 4px 0px;
-}
-
 .random-page  {
     text-align: center;
     margin-top: 30px;
@@ -50,9 +44,13 @@
 }
 
 #add-random-small {
+    padding: 0 5px;
+    line-height: 75%;
+    margin: 4px 0px;
     font-size:30px;
     display: none;
 }
+
 
 .boxpicture {
     margin: 5px;
@@ -104,6 +102,21 @@ table.table {
     font-size: 14px;
 }
 
+#edit-random, #delete-random  {
+    font-size: 20px;
+}
+
+#edit-random-small, #delete-random-small {
+    padding: 5px;
+    line-height: 75%;
+    margin: 4px;
+    font-size: 15px;
+    display: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
 
 @media (max-width: 970px) {
 
@@ -182,11 +195,11 @@ table.table {
         font-size: 14px;
     }
 
-    #add-random {
+    #add-random, #edit-random, #delete-random {
         display: none;
     }
 
-    #add-random-small {
+    #add-random-small, #edit-random-small, #delete-random-small {
         display: inline;
     }
 
