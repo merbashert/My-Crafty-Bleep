@@ -31,12 +31,17 @@
 
 #clear-random, #add-random {
     margin: 4px 0px;
+    border: 1px solid black;
 }
 
 
 .random-page  {
     text-align: center;
     margin-top: 30px;
+}
+
+#add-box {
+    margin-right: 5px;
 }
 
 #add-random {
@@ -46,9 +51,10 @@
 #add-random-small {
     padding: 0 5px;
     line-height: 75%;
-    margin: 4px 0px;
+    margin: 4px 5px;
     font-size:30px;
     display: none;
+    border: 1px solid black;
 }
 
 
