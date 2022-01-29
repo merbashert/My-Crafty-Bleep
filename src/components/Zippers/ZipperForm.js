@@ -23,7 +23,7 @@ const ZipperForm = props =>  {
         <form onSubmit={handleSubmit} className='zipper-modal'>
         <label>
             Zipper Color:
-    <input type="text" id="color" value={color} placeholder='new zipper' onChange={e => setColor(e.target.value)} required className = 'new-zipper'/>
+    <input type="text" id="color" value={color} onChange={e => setColor(e.target.value)} required className = 'new-zipper'/>
         </label>
         <br/>
         <label>

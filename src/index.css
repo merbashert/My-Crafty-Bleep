@@ -67,8 +67,23 @@
 .sitename-container {
     text-align: center;
     margin-top: 30px;
+    display: flex;
+    justify-content: center;
 }
 
+@media (max-width: 925px) {
+
+    .sitename-container img {
+        width: 130%;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .sitename-container {
+        margin-top: 30%;
+    }
+}
 /********************MODALS********************/
 span {
     font-family: serif;
