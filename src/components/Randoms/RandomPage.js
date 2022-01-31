@@ -38,27 +38,6 @@ const RandomPage = props => {
         }).catch(err=>console.log(err))
     }
 
-
-    const handleDeleteRandom = (id) => {
-        fetch(`${props.baseUrl}/randoms/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(json => {
-            setRandoms(randoms.filter(random => random.id !== id))
-        }).catch(err=>console.log(err))
-    }
-
-    const handleClose = (e) => {
-        props.setShow(false)
-    }
-
-    const handleShow = (e) => {
-        props.setShow(true)
-    }
-
     useEffect(() => {
         fetchRandom()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -69,13 +48,13 @@ const RandomPage = props => {
         <React.Fragment>
 
             <>
-            <Modal show={props.show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+            <Modal show={props.show} onHide={props.handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
                 <Modal.Header closeButton>
                     <Modal.Title>Add Random Item</Modal.Title>
                 </Modal.Header>
                 <Modal.Body>
                     <div className='add-form'>
-                        <RandomForm setRandoms={setRandoms} handleClose={handleClose} baseUrl={props.baseUrl}/>
+                        <RandomForm setRandoms={setRandoms} handleClose={props.handleClose} baseUrl={props.baseUrl}/>
                     </div>
                 </Modal.Body>
             </Modal>
@@ -112,8 +91,8 @@ const RandomPage = props => {
                     <button onClick={() => clear()} id='clear-random'>Clear</button>
                 </div>
                 <div id='add-box'>
-                    <button onClick={() => handleShow()} id = 'add-random'>Add New</button>
-                    <button onClick={() => handleShow()} id = 'add-random-small'>+</button>
+                    <button onClick={() => props.handleShow()} id = 'add-random'>Add New</button>
+                    <button onClick={() => props.handleShow()} id = 'add-random-small'>+</button>
                 </div>
             </div>
 
@@ -131,7 +110,10 @@ const RandomPage = props => {
                                 randomData={randomData}
                                 fetchRandom={fetchRandom}
                                 baseUrl={props.baseUrl}
-                                handleDeleteRandom={handleDeleteRandom}
+                                setRandoms={setRandoms}
+                                randoms={randoms}
+                                handleShow={props.handleShow}
+                                handleClose={props.handleClose}
                                 />
 
                         ))
@@ -148,7 +130,10 @@ const RandomPage = props => {
                             randomData={randomData}
                             fetchRandom={fetchRandom}
                             baseUrl={props.baseUrl}
-                            handleDeleteRandom={handleDeleteRandom}
+                            setRandoms={setRandoms}
+                            randoms={randoms}
+                            handleShow={props.handleShow}
+                            handleClose={props.handleClose}
                             />
                     ))}
 
