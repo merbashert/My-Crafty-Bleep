@@ -38,22 +38,7 @@ const RandomPage = props => {
         }).catch(err=>console.log(err))
     }
 
-    const handleCreateRandom = (createData) => {
-        fetch(`${props.baseUrl}/randoms`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdRandom => {
-            return createdRandom.json()
-        })
-        .then(json => {
-            setRandoms(json)
-        })
-        .catch(err=>console.log(err))
-    }
+
 
     const handleUpdateRandom = (updateData) => {
         fetch(`${props.baseUrl}/randoms/${updateData.id}`, {
@@ -104,7 +89,7 @@ const RandomPage = props => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='add-form'>
-                        <RandomForm handleCreateRandom={handleCreateRandom} handleClose={handleClose}/>
+                        <RandomForm setRandoms={setRandoms} handleClose={handleClose} baseUrl={props.baseUrl}/>
                     </div>
                 </Modal.Body>
             </Modal>

@@ -16,12 +16,29 @@ const RandomForm = props =>  {
             box_number:box_number
         }
 
-        props.handleCreateRandom(boxinfo);
+        handleCreateRandom(boxinfo);
         props.handleClose()
         // alert(name + ' added to Box ' + box_number)
         setName('')
         setDetails('')
         setBox_Number('')
+    }
+
+    const handleCreateRandom = (createData) => {
+        fetch(`${props.baseUrl}/randoms`, {
+            body: JSON.stringify(createData),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(createdRandom => {
+            return createdRandom.json()
+        })
+        .then(json => {
+            props.setRandoms(json)
+        })
+        .catch(err=>console.log(err))
     }
 
     return (
