@@ -39,20 +39,6 @@ const RandomPage = props => {
     }
 
 
-
-    const handleUpdateRandom = (updateData) => {
-        fetch(`${props.baseUrl}/randoms/${updateData.id}`, {
-            body: JSON.stringify(updateData),
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(updatedRandom => {
-            fetchRandom()
-        }).catch(err=>console.log(err))
-    }
-
     const handleDeleteRandom = (id) => {
         fetch(`${props.baseUrl}/randoms/${id}`, {
             method: 'DELETE',
@@ -143,7 +129,8 @@ const RandomPage = props => {
                             <Random
                                 key={randomData.id}
                                 randomData={randomData}
-                                handleUpdateRandom={handleUpdateRandom}
+                                fetchRandom={fetchRandom}
+                                baseUrl={props.baseUrl}
                                 handleDeleteRandom={handleDeleteRandom}
                                 />
 
@@ -159,7 +146,8 @@ const RandomPage = props => {
                         <Random
                             key={randomData.id}
                             randomData={randomData}
-                            handleUpdateRandom={handleUpdateRandom}
+                            fetchRandom={fetchRandom}
+                            baseUrl={props.baseUrl}
                             handleDeleteRandom={handleDeleteRandom}
                             />
                     ))}

@@ -17,6 +17,19 @@ const Random = props => {
         setShow(true)
     }
 
+    const handleUpdateRandom = (updateData) => {
+        fetch(`${props.baseUrl}/randoms/${updateData.id}`, {
+            body: JSON.stringify(updateData),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(updatedRandom => {
+            props.fetchRandom()
+        }).catch(err=>console.log(err))
+    }
+
     return (
 
         <tr className='random-row'>
@@ -35,7 +48,7 @@ const Random = props => {
         <Modal.Title>Edit Random Item</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-        <RandomEdit randomData={props.randomData} handleUpdateRandom={props.handleUpdateRandom} handleClose={handleClose}/>
+        <RandomEdit randomData={props.randomData} handleUpdateRandom={handleUpdateRandom} handleClose={handleClose}/>
         </Modal.Body>
         </Modal>
         </>
