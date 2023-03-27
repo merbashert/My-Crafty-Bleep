@@ -38,6 +38,22 @@ const RandomPage = props => {
         }).catch(err=>console.log(err))
     }
 
+
+
+    const handleDeleteRandom = (id) => {
+        fetch(`${props.baseUrl}/randoms/${id}`, {
+            method: 'DELETE',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(json => {
+            setRandoms(props.randoms.filter(random => random.id !== id))
+        }).catch(err=>console.log(err))
+    }
+
+
+
     useEffect(() => {
         fetchRandom()
         // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -45,7 +61,7 @@ const RandomPage = props => {
 
 
     return (
-        <React.Fragment>
+        <div>
 
             <>
             <Modal show={props.show} onHide={props.handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
@@ -54,7 +70,7 @@ const RandomPage = props => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='add-form'>
-                        <RandomForm setRandoms={setRandoms} handleClose={props.handleClose} baseUrl={props.baseUrl}/>
+                        <RandomForm handleClose={props.handleClose} setRandoms={setRandoms}/>
                     </div>
                 </Modal.Body>
             </Modal>
@@ -98,56 +114,49 @@ const RandomPage = props => {
 
             {randoms.length > 1 ?
                 <Table className="random-table" size='sm'>
-                {
-                    (boxNumberFilter === '') ?
+                    {
+                        (boxNumberFilter === '') ?
+                        <tbody>
+                            {randoms.filter(random => {
+                                return random.name
+                            }).filter(random => random.name.includes(randomFilter.toLowerCase()))
+                            .map((randomData) => (
+                                <Random
+                                    key={randomData.id}
+                                    randomData={randomData}
+                                    fetchRandom={fetchRandom}
+                                    setRandoms={setRandoms}
+                                    handleDeleteRandom={handleDeleteRandom}
+                                    />
+
+                            ))
+                        }
+
+                    </tbody>
+                    :
                     <tbody>
                         {randoms.filter(random => {
-                            return random.name
-                        }).filter(random => random.name.includes(randomFilter.toLowerCase()))
-                        .map((randomData) => (
+                            return random.box_number === boxNumberFilter
+                        }).map((randomData) => (
                             <Random
                                 key={randomData.id}
                                 randomData={randomData}
                                 fetchRandom={fetchRandom}
-                                baseUrl={props.baseUrl}
                                 setRandoms={setRandoms}
-                                randoms={randoms}
-                                handleShow={props.handleShow}
-                                handleClose={props.handleClose}
                                 />
+                        ))}
 
-                        ))
-                    }
+                    </tbody>
+                }
 
-                </tbody>
-                :
-                <tbody>
-                    {randoms.filter(random => {
-                        return random.box_number === boxNumberFilter
-                    }).map((randomData) => (
-                        <Random
-                            key={randomData.id}
-                            randomData={randomData}
-                            fetchRandom={fetchRandom}
-                            baseUrl={props.baseUrl}
-                            setRandoms={setRandoms}
-                            randoms={randoms}
-                            handleShow={props.handleShow}
-                            handleClose={props.handleClose}
-                            />
-                    ))}
+            </Table>
+            :
+            <h1 className='loading'>Loading...</h1>
 
-                </tbody>
-            }
-
-        </Table>
-        :
-        <h1 className='loading'>Loading...</h1>
-
-    }
+        }
 
     </div>
-</React.Fragment>
+</div>
 )
 }
 

@@ -17,6 +17,19 @@ const Random = props => {
         setShow(true)
     }
 
+    const handleUpdateRandom = (updateData) => {
+        fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms/${updateData.id}`, {
+            body: JSON.stringify(updateData),
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(updatedRandom => {
+            props.fetchRandom()
+        }).catch(err=>console.log(err))
+    }
+
 
     return (
 
@@ -26,25 +39,27 @@ const Random = props => {
             <td className = 'random-box'>Box {props.randomData.box_number}</td>
             <td className='random-buttons'>
 
+                <div onClick={() => props.handleShow()} id = 'edit-random'>Edit</div>
+                <div onClick={() => props.handleShow()} id = 'edit-random-small'><span className="lnr lnr-pencil"></span></div>
                 <>
+
+
                 <Modal show={show} onHide={handleClose} style={{backgroundColor:'rgb(255, 255, 255, .4)'}}>
                     <Modal.Header closeButton>
                         <Modal.Title>Edit Random Item</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <RandomEdit randomData={props.randomData} fetchRandom={props.fetchRandom} handleClose={handleClose}/>
+                        <RandomEdit randomData={props.randomData} handleUpdateRandom={handleUpdateRandom} handleClose={handleClose}/>
                     </Modal.Body>
                 </Modal>
                 </>
 
-            <div onClick={() => handleShow()} id = 'edit-random'>Edit</div>
-            <div onClick={() => handleShow()} id = 'edit-random-small'><span className="lnr lnr-pencil"></span></div>
+
 
             <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}} id = "delete-random">Delete</div>
             <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}} id = "delete-random-small"><span className="lnr lnr-trash"></span></div>
-
         </td>
-        </tr>
+    </tr>
 )
 }
 
