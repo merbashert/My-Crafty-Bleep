@@ -13,10 +13,27 @@ const ZipperForm = props =>  {
             size:size,
             color:color
         }
-        props.handleCreateZipper(zipperInfo);
+        handleCreateZipper(zipperInfo);
         setColor('')
         setSize('')
 
+    }
+
+    const handleCreateZipper = (createData) => {
+        fetch(`https://mycraftybleep-backend.meredithbashert.com/zippers`, {
+            body: JSON.stringify(createData),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(createdZipper => {
+            return createdZipper.json()
+        })
+        .then(json => {
+            props.setZippers(json)
+        })
+        .catch(err=>console.log(err))
     }
 
     return (

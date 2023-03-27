@@ -11,7 +11,7 @@ const ZipperPage = props => {
     const sizeList = [7,9,12,14,18,20,22]
 
     const fetchZippers = () => {
-        fetch(`${props.baseUrl}/zippers`)
+        fetch(`https://mycraftybleep-backend.meredithbashert.com/zippers`)
         .then(data => data.json())
         .then(jData => {
             setZippers(jData)
@@ -19,22 +19,7 @@ const ZipperPage = props => {
     }
 
 
-    const handleCreateZipper = (createData) => {
-        fetch(`${props.baseUrl}/zippers`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdZipper => {
-            return createdZipper.json()
-        })
-        .then(json => {
-            setZippers(json)
-        })
-        .catch(err=>console.log(err))
-    }
+
 
     const handleClose = (e) => {
         props.setShow(false)
@@ -60,7 +45,7 @@ const ZipperPage = props => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='add-form'>
-                        <ZipperForm handleCreateZipper={handleCreateZipper} handleClose={handleClose}/>
+                        <ZipperForm setZippers={setZippers} handleClose={handleClose}/>
                     </div>
                 </Modal.Body>
             </Modal>
