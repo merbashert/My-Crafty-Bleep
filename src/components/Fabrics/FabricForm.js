@@ -15,12 +15,29 @@ const FabricForm = props => {
             tags:tags,
             picture: picture
         }
-        props.handleCreateFabric(fabricinfo);
+        handleCreateFabric(fabricinfo);
         props.handleClose()
         setLength('')
         setMain_Color('')
         setTags('')
         setPicture('')
+    }
+
+    const handleCreateFabric = (createData) => {
+        fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics`, {
+            body: JSON.stringify(createData),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(createdFabric => {
+            return createdFabric.json()
+        })
+        .then(json => {
+            props.setFabrics(json)
+        })
+        .catch(err=>console.log(err))
     }
 
     return (

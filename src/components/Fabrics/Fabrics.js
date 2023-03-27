@@ -24,7 +24,7 @@ const Fabrics = props => {
     }
 
     const handleUpdateFabric = (updateData) => {
-        fetch(`${props.baseUrl}/fabrics/${updateData.id}`, {
+        fetch(`https://meredithbashert.com/mycraftybleep-backend/fabrics/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -44,47 +44,47 @@ const Fabrics = props => {
 
     return (
         <React.Fragment>
-        <div className="fabric-box">
-        <img src={props.fabricData.picture} className="fabric-pic" alt="fabric" onClick={handleShowFabric}/>
+            <div className="fabric-box">
+                <img src={props.fabricData.picture} className="fabric-pic" alt="fabric" onClick={handleShowFabric}/>
 
-        <>
-        <Modal show={fabricShow} onHide={handleCloseFabric} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
-        <Modal.Body>
-        <img src={props.fabricData.picture} className='show-fabric' alt='fabric'/>
-        </Modal.Body>
-        </Modal>
-        </>
+                <>
+                <Modal show={fabricShow} onHide={handleCloseFabric} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+                    <Modal.Body>
+                        <img src={props.fabricData.picture} className='show-fabric' alt='fabric'/>
+                    </Modal.Body>
+                </Modal>
+                </>
 
-        <div className='fabric-length'>{props.fabricData.length} yards</div>
-        <div className='fabric-data'>
-        {props.fabricData.tags?<div className='fabric-tags' onClick={() => {
-            props.setFabricTagFilter(props.fabricData.tags)
-        }}>{props.fabricData.tags}</div>:<div></div>}
+            <div className='fabric-length'>{props.fabricData.length} yards</div>
+            <div className='fabric-data'>
+                {props.fabricData.tags?<div className='fabric-tags' onClick={() => {
+                    props.setFabricTagFilter(props.fabricData.tags)
+                }}>{props.fabricData.tags}</div>:<div></div>}
 
-        <>
-        <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
-        <Modal.Header closeButton>
-        <Modal.Title>Edit Fabric</Modal.Title>
-        </Modal.Header>
-        <Modal.Body  style={useStyle}>
+                <>
+                <Modal show={show} onHide={handleClose} style={ {backgroundColor: 'rgb(255, 255, 255, .5)'}}>
+                    <Modal.Header closeButton>
+                        <Modal.Title>Edit Fabric</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body  style={useStyle}>
 
-        <FabricEdit fabricData={props.fabricData} handleUpdateFabric={handleUpdateFabric} handleClose={handleClose}/>
-        </Modal.Body>
-        </Modal>
-        </>
+                        <FabricEdit fabricData={props.fabricData} handleUpdateFabric={handleUpdateFabric} handleClose={handleClose}/>
+                    </Modal.Body>
+                </Modal>
+                </>
 
-        <div className='fabric-buttons'>
-        <p onClick={handleShow}>
-        <span className="lnr lnr-pencil"></span>
-        </p>
-        <p onClick={() => {
-            if (window.confirm('Definitely delete?')) props.handleDeleteFabric(props.fabricData.id)
-        }}><span className="lnr lnr-trash"></span></p>
+            <div className='fabric-buttons'>
+                <p onClick={handleShow}>
+                    <span className="lnr lnr-pencil"></span>
+                </p>
+                <p onClick={() => {
+                        if (window.confirm('Definitely delete?')) props.handleDeleteFabric(props.fabricData.id)
+                    }}><span className="lnr lnr-trash"></span></p>
+                </div>
+            </div>
         </div>
-        </div>
-        </div>
-        </React.Fragment>
-    )
+    </React.Fragment>
+)
 }
 
 export default Fabrics

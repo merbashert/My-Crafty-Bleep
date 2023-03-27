@@ -20,35 +20,23 @@ const FabricPage = props => {
         setMainColorFilter(e.target.value)
     }
 
+    const reset = () => {
+        setFabricTagFilter('')
+        setMainColorFilter('')
+    }
+
     const fetchFabric = () => {
-        fetch(`${props.baseUrl}/fabrics`)
+        fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics`)
         .then(data => data.json())
         .then(jData => {
             setFabrics(jData)
         }).catch(err=>console.log(err))
     }
 
-    const handleCreateFabric = (createData) => {
-        fetch(`${props.baseUrl}/fabrics`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdFabric => {
-            return createdFabric.json()
-        })
-        .then(json => {
-            setFabrics(json)
-        })
-        .catch(err=>console.log(err))
-    }
-
 
 
     const handleDeleteFabric = (id) => {
-        fetch(`${props.baseUrl}/fabrics/${id}`, {
+        fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -59,10 +47,7 @@ const FabricPage = props => {
         }).catch(err=>console.log(err))
     }
 
-    const reset = () => {
-        setFabricTagFilter('')
-        setMainColorFilter('')
-    }
+
 
     useEffect(() => {
         fetchFabric()
@@ -85,8 +70,8 @@ const FabricPage = props => {
 
                     <div className = 'add-form'>
                         <FabricForm
-                            handleCreateFabric={handleCreateFabric}
                             handleClose={props.handleClose}
+                            setFabrics={setFabrics}
                             />
                     </div>
 
@@ -132,6 +117,7 @@ const FabricPage = props => {
                             fabricData={fabricData}
                             handleDeleteFabric={handleDeleteFabric}
                             setFabricTagFilter={setFabricTagFilter}
+                            fetchFabric={fetchFabric}
                             />
                     ))}</div>
                     :
@@ -146,6 +132,7 @@ const FabricPage = props => {
                                 fabricData={fabricData}
                                 handleDeleteFabric={handleDeleteFabric}
                                 setFabricTagFilter={setFabricTagFilter}
+                                fetchFabric={fetchFabric}
                                 />
                         ))}
                     </div>
