@@ -29,6 +29,7 @@ const ZipperForm = props =>  {
             }
         }).then(createdZipper => {
             return createdZipper.json()
+
         })
         .then(json => {
             props.setZippers(json)

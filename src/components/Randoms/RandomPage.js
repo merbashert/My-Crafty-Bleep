@@ -39,6 +39,17 @@ const RandomPage = props => {
     }
 
 
+    const handleCreateRandom = (createData) => {
+        fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms`, {
+            body: JSON.stringify(createData),
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' }
+        }).then(createdRandom => {
+            return createdRandom.json()
+        }).then(json => {
+            setRandoms(json)
+        }).catch(err=>console.log(err))
+    }
 
     const handleDeleteRandom = (id) => {
         fetch(`${props.baseUrl}/randoms/${id}`, {
@@ -48,7 +59,7 @@ const RandomPage = props => {
                 'Content-Type': 'application/json'
             }
         }).then(json => {
-            setRandoms(props.randoms.filter(random => random.id !== id))
+            setRandoms(randoms.filter(random => random.id !== id))
         }).catch(err=>console.log(err))
     }
 
@@ -70,7 +81,7 @@ const RandomPage = props => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='add-form'>
-                        <RandomForm handleClose={props.handleClose} setRandoms={setRandoms}/>
+                        <RandomForm handleClose={props.handleClose} setRandoms={setRandoms} handleCreateRandom={handleCreateRandom}/>
                     </div>
                 </Modal.Body>
             </Modal>

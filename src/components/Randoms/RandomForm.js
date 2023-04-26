@@ -16,7 +16,7 @@ const RandomForm = props =>  {
             box_number:box_number
         }
 
-        handleCreateRandom(boxinfo);
+        props.handleCreateRandom(boxinfo);
         props.handleClose()
         // alert(name + ' added to Box ' + box_number)
         setName('')
@@ -24,22 +24,7 @@ const RandomForm = props =>  {
         setBox_Number('')
     }
 
-    const handleCreateRandom = (createData) => {
-        fetch(`https://mycraftybleep-backend.meredithbashert.com/randoms`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdRandom => {
-            return createdRandom.json()
-        })
-        .then(json => {
-            props.setRandoms(json)
-        })
-        .catch(err=>console.log(err))
-    }
+
 
     return (
         <form onSubmit={handleSubmit}>

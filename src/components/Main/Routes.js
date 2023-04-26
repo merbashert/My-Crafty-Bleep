@@ -9,13 +9,15 @@ import ZipperPage from '../../components/Zippers/ZipperPage.js'
 import Home from '../../components/Main/Home.js'
 import NotFound from '../../components/Main/NotFound.js'
 
+
 const Routes = props => {
 
     let baseUrl = '';
     if (process.env.NODE_ENV === 'development') {
-        baseUrl = 'http://localhost:8888'
+        baseUrl = 'https://meredithbashert.com/mycraftybleep-backend'
+        // baseUrl="https://meredithbashert.com/mycraftybleep-backend"
     } else {
-        baseUrl = 'https://mycraftybleep-back.herokuapp.com'
+        baseUrl = 'https://meredithbashert.com/mycraftybleep-backend'
     }
 
     const [show, setShow] = useState(false);

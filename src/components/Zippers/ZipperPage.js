@@ -19,6 +19,23 @@ const ZipperPage = props => {
     }
 
 
+    const handleCreateZipper = (createData) => {
+        fetch(`https://mycraftybleep-backend.meredithbashert.com/zippers`, {
+            body: JSON.stringify(createData),
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            }
+        }).then(createdZipper => {
+            return createdZipper.json()
+        })
+        .then(json => {
+            props.setZippers(json)
+        })
+        .catch(err=>console.log(err))
+    }
+
 
 
     const handleClose = (e) => {
