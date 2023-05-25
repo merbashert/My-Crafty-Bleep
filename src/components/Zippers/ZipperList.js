@@ -1,6 +1,5 @@
 import React from 'react';
 import Zipper from './Zipper'
-import ZipperForm from './ZipperForm'
 
 const zipperList = (props) => {
 

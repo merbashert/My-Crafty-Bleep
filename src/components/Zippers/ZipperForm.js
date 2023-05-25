@@ -46,7 +46,7 @@ const ZipperForm = props =>  {
         <br/>
         <label>
         Zipper Size:
-        <select id="size" value={size} id='new-zipper-size' onChange={e => setSize(e.target.value)} required>
+        <select value={size} id='new-zipper-size' onChange={e => setSize(e.target.value)} required>
             <option value=""></option>
             <option value="7">7 inches</option>
             <option value="9">9 inches</option>
