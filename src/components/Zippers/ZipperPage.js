@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import ZipperList from '../Zippers/ZipperList'
 import ZipperForm from './ZipperForm'
 import Modal from 'react-bootstrap/Modal';
@@ -10,15 +10,21 @@ const ZipperPage = props => {
     const[zippers, setZippers] = useState([])
     const sizeList = [7,9,12,14,18,20,22]
 
-    const fetchZippers = () => {
-        fetch(`https://mycraftybleep-backend.meredithbashert.com/zippers`)
-        .then(data => data.json())
-        .then(jData => {
-            setZippers(jData)
-        }).catch(err=>console.log(err))
-    }
+    // const fetchZippers = () => {
+    //     fetch(`https://mycraftybleep-backend.meredithbashert.com/zippers`)
+    //     .then(data => data.json())
+    //     .then(jData => {
+    //         setZippers(jData)
+    //     }).catch(err=>console.log(err))
+    // }
 
-
+    const fetchZippers = useCallback(async () => {
+      await fetch(`https://meredithbashert.com/mycraftybleep-backend/zippers`)
+      .then(data => data.json())
+      .then(jData => {
+          setZippers(jData)
+      }).catch(err=>console.log(err))
+    }, [])
 
     const handleClose = (e) => {
         props.setShow(false)
