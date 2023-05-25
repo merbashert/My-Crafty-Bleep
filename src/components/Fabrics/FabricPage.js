@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Modal from 'react-bootstrap/Modal';
 
 import FabricForm from './FabricForm'
@@ -25,13 +25,21 @@ const FabricPage = props => {
         setMainColorFilter('')
     }
 
-    const fetchFabric = () => {
-        fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics`)
-        .then(data => data.json())
-        .then(jData => {
-            setFabrics(jData)
-        }).catch(err=>console.log(err))
-    }
+    // const fetchFabric = () => {
+    //     fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics`)
+    //     .then(data => data.json())
+    //     .then(jData => {
+    //         setFabrics(jData)
+    //     }).catch(err=>console.log(err))
+    // }
+
+    const fetchFabric = useCallback(async () => {
+      await fetch(`https://meredithbashert.com/mycraftybleep-backend/fabrics`)
+      .then(data => data.json())
+      .then(jData => {
+          setFabrics(jData)
+      }).catch(err=>console.log(err))
+    }, [])
 
 
 
