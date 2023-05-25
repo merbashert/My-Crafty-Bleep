@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 
@@ -30,14 +30,22 @@ const RandomPage = props => {
         setBoxNumberFilter('')
     }
 
-    const fetchRandom = () => {
-        fetch(`${props.baseUrl}/randoms`)
-        .then(data => data.json())
-        .then(jData => {
-            setRandoms(jData)
-        }).catch(err=>console.log(err))
-    }
+    //
+    // const fetchRandom = () => {
+    //     fetch(`${props.baseUrl}/randoms`)
+    //     .then(data => data.json())
+    //     .then(jData => {
+    //         setRandoms(jData)
+    //     }).catch(err=>console.log(err))
+    // }
 
+    const fetchRandom = useCallback(async () => {
+      await fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms`)
+      .then(data => data.json())
+      .then(jData => {
+          setRandoms(jData)
+      }).catch(err=>console.log(err))
+    }, [])
 
     const handleCreateRandom = (createData) => {
         fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms`, {
