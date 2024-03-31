@@ -59,12 +59,13 @@ const FabricPage = props => {
 
     useEffect(() => {
         fetchFabric()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
-
-    useEffect(() => {
         setFabricTags([...new Set(fabrics.map(fabrics=>fabrics.tags))]);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [fabrics])
+
+    // useEffect(() => {
+    //     setFabricTags([...new Set(fabrics.map(fabrics=>fabrics.tags))]);
+    // }, [fabrics])
 
     return (
         <div>

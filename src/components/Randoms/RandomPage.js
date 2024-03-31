@@ -40,11 +40,11 @@ const RandomPage = props => {
     // }
 
     const fetchRandom = useCallback(async () => {
-      await fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms`)
-      .then(data => data.json())
-      .then(jData => {
-          setRandoms(jData)
-      }).catch(err=>console.log(err))
+        await fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms`)
+        .then(data => data.json())
+        .then(jData => {
+            setRandoms(jData)
+        }).catch(err=>console.log(err))
     }, [])
 
     const handleCreateRandom = (createData) => {
@@ -119,6 +119,7 @@ const RandomPage = props => {
                             <option value="2">Box 2</option>
                             <option value="3">Box 3</option>
                             <option value="4">Box 4</option>
+                            <option value="5">Box 5</option>
                         </select>
                     </div>
 

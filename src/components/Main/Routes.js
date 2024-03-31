@@ -72,7 +72,9 @@ const Routes = props => {
                     show={show}
                     />
             </Route>
-            <Route component={NotFound} />
+            <Route path="*">
+                <NotFound/>
+                </Route>
 
         </Switch>
     )
