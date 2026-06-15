@@ -35,6 +35,7 @@ const RandomEdit = props => {
                 throw new Error('Unable to update random item')
             }
             props.fetchRandom()
+            props.handleClose()
         }).catch(err=>console.log(err))
     }
 
@@ -67,7 +68,7 @@ const RandomEdit = props => {
                     </select>
                 </label>
                 <br/>
-                <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
+                <Button type="submit">Apply Changes</Button>
                 <Button onClick={props.handleClose}>Cancel</Button>
             </form>
         </div>
