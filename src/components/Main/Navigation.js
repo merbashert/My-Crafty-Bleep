@@ -8,27 +8,30 @@ import { Link } from "react-router-dom";
 const Navigation = props => {
 
     const [expanded, setExpanded] = useState(false);
+    const closeMenu = () => {
+        setTimeout(() => {setExpanded(false)}, 150)
+    }
 
     return (
         <Navbar className='nav-bar' sticky="top" expand="lg" expanded={expanded}>
-            <Navbar.Brand><div className='logo'><img src={logo} alt='logo'/></div></Navbar.Brand>
+            <Navbar.Brand as={Link} to="/" onClick={closeMenu}><div className='logo'><img src={logo} alt='logo'/></div></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" onClick={() => setExpanded(expanded ? false : "expanded")}/>
             <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
                     <div className='navlink'>
-                        <Link to="/">Home</Link>
+                        <Link to="/" onClick={closeMenu}>Home</Link>
                     </div>
                     <div className='navlink'>
-                        <Link to="/fabric" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Fabric</Link>
+                        <Link to="/fabric" onClick={closeMenu}>Fabric</Link>
                     </div>
                     <div className='navlink'>
-                        <Link to="/random" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Random</Link>
+                        <Link to="/random" onClick={closeMenu}>Random</Link>
                     </div>
                     <div className='navlink'>
-                        <Link to="/needles" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Needles</Link>
+                        <Link to="/needles" onClick={closeMenu}>Needles</Link>
                     </div>
                     <div className='navlink'>
-                        <Link to="/zippers" onClick={() => setTimeout(() => {setExpanded(false)}, 150)}>Zippers</Link>
+                        <Link to="/zippers" onClick={closeMenu}>Zippers</Link>
                     </div>
 
                 </Nav>

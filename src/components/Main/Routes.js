@@ -12,13 +12,7 @@ import NotFound from '../../components/Main/NotFound.js'
 
 const Routes = props => {
 
-    let baseUrl = '';
-    if (process.env.NODE_ENV === 'development') {
-        baseUrl = 'https://meredithbashert.com/mycraftybleep-backend'
-        // baseUrl="https://meredithbashert.com/mycraftybleep-backend"
-    } else {
-        baseUrl = 'https://meredithbashert.com/mycraftybleep-backend'
-    }
+    const baseUrl = 'https://meredithbashert.com/mycraftybleep-backend'
 
     const [show, setShow] = useState(false);
 

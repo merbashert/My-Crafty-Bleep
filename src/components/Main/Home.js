@@ -3,7 +3,7 @@ import banner from '../../assets/mycraftybleep.jpg'
 import Image from 'react-bootstrap/Image';
 
 
-const Home = props => {
+const Home = () => {
 
     return (
         <div className="sitename-container">
