@@ -40,15 +40,15 @@ const RandomPage = props => {
     // }
 
     const fetchRandom = useCallback(async () => {
-        await fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms`)
+        await fetch(`${props.baseUrl}/randoms`)
         .then(data => data.json())
         .then(jData => {
             setRandoms(jData)
         }).catch(err=>console.log(err))
-    }, [])
+    }, [props.baseUrl])
 
     const handleCreateRandom = (createData) => {
-        fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms`, {
+        fetch(`${props.baseUrl}/randoms`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
@@ -66,8 +66,11 @@ const RandomPage = props => {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             }
-        }).then(json => {
-            setRandoms(randoms.filter(random => random.id !== id))
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Unable to delete random item')
+            }
+            setRandoms(currentRandoms => currentRandoms.filter(random => random.id !== id))
         }).catch(err=>console.log(err))
     }
 
@@ -75,10 +78,17 @@ const RandomPage = props => {
 
     useEffect(() => {
         fetchRandom()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [fetchRandom])
 
-
+    const visibleRandoms = randoms
+    .filter(random => {
+        return random.name
+    })
+    .filter(random => random.name.includes(randomFilter.toLowerCase()))
+    .filter(random => {
+        return boxNumberFilter === '' || random.box_number === boxNumberFilter
+    })
+    
     return (
         <div>
 
@@ -120,6 +130,7 @@ const RandomPage = props => {
                             <option value="3">Box 3</option>
                             <option value="4">Box 4</option>
                             <option value="5">Box 5</option>
+                            <option value="6">Box 6</option>
                         </select>
                     </div>
 
@@ -134,42 +145,19 @@ const RandomPage = props => {
 
             {randoms.length > 1 ?
                 <Table className="random-table" size='sm'>
-                    {
-                        (boxNumberFilter === '') ?
-                        <tbody>
-                            {randoms.filter(random => {
-                                return random.name
-                            }).filter(random => random.name.includes(randomFilter.toLowerCase()))
-                            .map((randomData) => (
-                                <Random
-                                    key={randomData.id}
-                                    randomData={randomData}
-                                    fetchRandom={fetchRandom}
-                                    setRandoms={setRandoms}
-                                    handleDeleteRandom={handleDeleteRandom}
-                                    />
-
-                            ))
-                        }
-
-                    </tbody>
-                    :
-                    <tbody>
-                        {randoms.filter(random => {
-                            return random.box_number === boxNumberFilter
-                        }).map((randomData) => (
-                            <Random
-                                key={randomData.id}
-                                randomData={randomData}
-                                fetchRandom={fetchRandom}
-                                setRandoms={setRandoms}
-                                />
-                        ))}
-
-                    </tbody>
-                }
-
-            </Table>
+    <tbody>
+        {visibleRandoms.map((randomData) => (
+            <Random
+                key={randomData.id}
+                randomData={randomData}
+                fetchRandom={fetchRandom}
+                baseUrl={props.baseUrl}
+                setRandoms={setRandoms}
+                handleDeleteRandom={handleDeleteRandom}
+                />
+        ))}
+    </tbody>
+</Table>
             :
             <h1 className='loading'>Loading...</h1>
 

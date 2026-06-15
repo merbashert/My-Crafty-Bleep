@@ -23,14 +23,17 @@ const RandomEdit = props => {
     }
 
     const handleUpdateRandom = (updateData) => {
-        fetch(`https://meredithbashert.com/mycraftybleep-backend/randoms/${updateData.id}`, {
+        fetch(`${props.baseUrl}/randoms/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
                 'Content-Type': 'application/json'
             }
-        }).then(updatedRandom => {
+        }).then(response => {
+            if (!response.ok) {
+                throw new Error('Unable to update random item')
+            }
             props.fetchRandom()
         }).catch(err=>console.log(err))
     }
@@ -54,12 +57,13 @@ const RandomEdit = props => {
                 <label id="random-form">
                     Box #:
                     <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="box_number" className='dropdown' required>
-                        <option box_number=""></option>
-                        <option box_number="1">1</option>
-                        <option box_number="2">2</option>
-                        <option box_number="3">3</option>
-                        <option box_number="4">4</option>
-                        <option box_number="5">5</option>
+                        <option value=""></option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
                     </select>
                 </label>
                 <br/>

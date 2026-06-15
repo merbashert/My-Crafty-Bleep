@@ -32,7 +32,7 @@ const Random = props => {
                         <Modal.Title>Edit Random Item</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                        <RandomEdit randomData={props.randomData} fetchRandom={props.fetchRandom} handleClose={handleClose}/>
+                        <RandomEdit randomData={props.randomData} fetchRandom={props.fetchRandom} baseUrl={props.baseUrl} handleClose={handleClose}/>
                     </Modal.Body>
                 </Modal>
                 </>
