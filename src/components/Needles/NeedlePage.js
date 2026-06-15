@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useCallback } from 'react'
 
 
 import Needle from './Needles';
@@ -8,13 +8,13 @@ import './Needles.css'
 const NeedlePage= props => {
     const [needles, setNeedles] = useState([])
 
-    const fetchNeedle = () => {
+    const fetchNeedle = useCallback(() => {
         fetch(`${props.baseUrl}/needles`)
         .then(data => data.json())
         .then(jData => {
             setNeedles(jData)
         }).catch(err=>console.log(err))
-    }
+    }, [props.baseUrl])
 
     const handleUpdateNeedle = (updateData) => {
         fetch(`${props.baseUrl}/needles/${updateData.id}`, {
@@ -31,8 +31,7 @@ const NeedlePage= props => {
 
     useEffect(() => {
         fetchNeedle()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [fetchNeedle])
 
     return (
 

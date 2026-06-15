@@ -36,8 +36,7 @@ const ZipperPage = props => {
 
     useEffect(() => {
         fetchZippers()
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+    }, [fetchZippers])
 
 
     return (
