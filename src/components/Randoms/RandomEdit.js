@@ -5,7 +5,6 @@ const RandomEdit = props => {
     const [name, setName] = useState(props.randomData.name)
     const [details, setDetails] = useState(props.randomData.details)
     const [box_number, setBox_Number] = useState(props.randomData.box_number)
-    const [id, setId] = useState(props.randomData.id)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -13,7 +12,7 @@ const RandomEdit = props => {
             name:name,
             details:details,
             box_number:box_number,
-            id:id
+            id: props.randomData.id
         }
         handleUpdateRandom(boxinfo)
     }

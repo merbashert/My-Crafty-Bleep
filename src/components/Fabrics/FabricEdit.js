@@ -5,8 +5,6 @@ const FabricEdit = props => {
     const [length, setLength] = useState(props.fabricData.length)
     const [main_color, setMain_Color] = useState(props.fabricData.main_color)
     const [tags, setTags] = useState(props.fabricData.tags?props.fabricData.tags:'')
-    const [picture, setPicture] = useState(props.fabricData.picture)
-    const [id, setId] = useState(props.fabricData.id)
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -14,8 +12,8 @@ const FabricEdit = props => {
             length:length,
             main_color:main_color,
             tags:tags,
-            picture: picture,
-            id:id
+            picture: props.fabricData.picture,
+            id: props.fabricData.id
         }
         props.handleUpdateFabric(fabricinfo)
     }
@@ -45,9 +43,6 @@ const FabricEdit = props => {
                 <label>
                     Tags:
                     <input type="text" placeholder="Tags" id="tags" value={tags} onChange={e => setTags(e.target.value)}/>
-                </label><br/>
-                <label id="picture">
-                    <input type="hidden" id="picture" value={picture} onChange={e => setPicture(e.target.value)} className='fabric-picture'/>
                 </label><br/>
                 <Button type="submit">Apply Changes</Button>
                 <Button onClick={props.handleClose}>Cancel</Button>
