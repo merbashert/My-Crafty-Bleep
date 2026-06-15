@@ -23,6 +23,12 @@ const Fabrics = props => {
         setFabricShow(false)
     }
 
+    const confirmDelete = () => {
+        if (window.confirm('Definitely delete?')) {
+            props.handleDeleteFabric(props.fabricData.id)
+        }
+    }
+
     const handleUpdateFabric = (updateData) => {
         return fetch(`${props.baseUrl}/fabrics/${updateData.id}`, {
             body: JSON.stringify(updateData),
@@ -78,12 +84,10 @@ const Fabrics = props => {
                 </>
 
             <div className='fabric-buttons'>
-                <p onClick={handleShow}>
+                <button type="button" onClick={handleShow}>
                     <span className="lnr lnr-pencil"></span>
-                </p>
-                <p onClick={() => {
-                        if (window.confirm('Definitely delete?')) props.handleDeleteFabric(props.fabricData.id)
-                    }}><span className="lnr lnr-trash"></span></p>
+                </button>
+                <button type="button" onClick={confirmDelete}><span className="lnr lnr-trash"></span></button>
                 </div>
             </div>
         </div>

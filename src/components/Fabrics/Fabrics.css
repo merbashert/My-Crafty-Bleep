@@ -133,8 +133,10 @@
     cursor:pointer;
 }
 
-.fabric-buttons p{
+.fabric-buttons button{
     margin: 3px;
+    border: 0;
+    background: transparent;
 }
 
 @media (max-width: 576px) {

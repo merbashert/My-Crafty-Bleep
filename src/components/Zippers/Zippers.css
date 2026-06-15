@@ -43,7 +43,9 @@
 
 .delete {
     margin-right: 2px;
-    cursor: default;
+    border: 0;
+    background: transparent;
+    cursor: pointer;
 }
 
 .loading {

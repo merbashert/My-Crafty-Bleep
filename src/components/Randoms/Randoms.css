@@ -101,11 +101,12 @@ table.table {
 
 }
 
-.random-buttons div {
+.random-buttons button {
     margin: 0px 4px;
     border: 1px solid black;
     padding: 2px;
     font-size: 14px;
+    background: transparent;
 }
 
 #edit-random, #delete-random  {
@@ -126,7 +127,7 @@ table.table {
 
 @media (max-width: 970px) {
 
-    .random-buttons div {
+    .random-buttons button {
         font-size: 12px;
     }
 

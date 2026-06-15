@@ -8,6 +8,11 @@ import './Randoms.css';
 const Random = props => {
 
     const [show, setShow] = useState(false);
+    const confirmDelete = () => {
+        if (window.confirm(`Definitely delete ${props.randomData.name}?`)) {
+            props.handleDeleteRandom(props.randomData.id)
+        }
+    }
 
     const handleClose = (e) => {
         setShow(false)
@@ -37,11 +42,11 @@ const Random = props => {
                 </Modal>
                 </>
 
-            <div onClick={() => handleShow()} id = 'edit-random'>Edit</div>
-            <div onClick={() => handleShow()} id = 'edit-random-small'><span className="lnr lnr-pencil"></span></div>
+            <button type="button" onClick={() => handleShow()} id = 'edit-random'>Edit</button>
+            <button type="button" onClick={() => handleShow()} id = 'edit-random-small'><span className="lnr lnr-pencil"></span></button>
 
-            <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}} id = "delete-random">Delete</div>
-            <div onClick={(e) => {if (window.confirm(`Definitely delete ${props.randomData.name}?`)) props.handleDeleteRandom(props.randomData.id)}} id = "delete-random-small"><span className="lnr lnr-trash"></span></div>
+            <button type="button" onClick={confirmDelete} id = "delete-random">Delete</button>
+            <button type="button" onClick={confirmDelete} id = "delete-random-small"><span className="lnr lnr-trash"></span></button>
 
         </td>
         </tr>
