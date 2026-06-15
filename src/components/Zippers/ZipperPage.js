@@ -8,14 +8,19 @@ import './Zippers.css';
 
 const ZipperPage = props => {
     const[zippers, setZippers] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
     const sizeList = [7,9,12,14,18,20,22]
 
     const fetchZippers = useCallback(async () => {
+      setIsLoading(true)
       await fetch(`${props.baseUrl}/zippers`)
       .then(data => data.json())
       .then(jData => {
           setZippers(jData)
       }).catch(err=>console.log(err))
+      .finally(() => {
+          setIsLoading(false)
+      })
     }, [props.baseUrl])
 
     const handleClose = (e) => {
@@ -52,7 +57,10 @@ const ZipperPage = props => {
                 <button onClick={() => handleShow()} id = 'add-zipper-small'>+</button>
             </div>
 
-            {zippers.length > 0 ?
+            {isLoading ?
+                <h1 className='loading'>Loading...</h1>
+                :
+                zippers.length > 0 ?
                 <div className = "zipper-container">
                     {sizeList.map((size, i) => {
                         return (
@@ -66,7 +74,7 @@ const ZipperPage = props => {
                             })}
                         </div>
                         :
-                        <h1 className='loading'>Loading...</h1>
+                        <h1 className='loading'>No zippers found.</h1>
 
 
                     }

@@ -12,6 +12,7 @@ const RandomPage = props => {
     const[randoms, setRandoms] = useState([])
     const[randomFilter, setRandomFilter] = useState('')
     const[boxNumberFilter, setBoxNumberFilter] = useState('')
+    const [isLoading, setIsLoading] = useState(true)
 
 
 
@@ -30,21 +31,16 @@ const RandomPage = props => {
         setBoxNumberFilter('')
     }
 
-    //
-    // const fetchRandom = () => {
-    //     fetch(`${props.baseUrl}/randoms`)
-    //     .then(data => data.json())
-    //     .then(jData => {
-    //         setRandoms(jData)
-    //     }).catch(err=>console.log(err))
-    // }
-
     const fetchRandom = useCallback(async () => {
+        setIsLoading(true)
         await fetch(`${props.baseUrl}/randoms`)
         .then(data => data.json())
         .then(jData => {
             setRandoms(jData)
         }).catch(err=>console.log(err))
+        .finally(() => {
+            setIsLoading(false)
+        })
     }, [props.baseUrl])
 
     const handleCreateRandom = (createData) => {
@@ -146,7 +142,10 @@ const RandomPage = props => {
                 </div>
             </div>
 
-            {randoms.length > 1 ?
+            {isLoading ?
+                <h1 className='loading'>Loading...</h1>
+                :
+                visibleRandoms.length > 0 ?
                 <Table className="random-table" size='sm'>
     <tbody>
         {visibleRandoms.map((randomData) => (
@@ -162,7 +161,7 @@ const RandomPage = props => {
     </tbody>
 </Table>
             :
-            <h1 className='loading'>Loading...</h1>
+            <h1 className='loading'>No random items found.</h1>
 
         }
 

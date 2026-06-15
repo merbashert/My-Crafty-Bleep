@@ -7,13 +7,18 @@ import './Needles.css'
 
 const NeedlePage= props => {
     const [needles, setNeedles] = useState([])
+    const [isLoading, setIsLoading] = useState(true)
 
     const fetchNeedle = useCallback(() => {
+        setIsLoading(true)
         fetch(`${props.baseUrl}/needles`)
         .then(data => data.json())
         .then(jData => {
             setNeedles(jData)
         }).catch(err=>console.log(err))
+        .finally(() => {
+            setIsLoading(false)
+        })
     }, [props.baseUrl])
 
     const handleUpdateNeedle = (updateData) => {
@@ -40,7 +45,10 @@ const NeedlePage= props => {
 
 
         <div className = 'needle-page'>
-            {needles.length > 0 ?
+            {isLoading ?
+                <h1 className='loading'>Loading...</h1>
+                :
+                needles.length > 0 ?
                 <div className = "needles">
                     {needles.map((needleData) => (
                         <Needle
@@ -51,7 +59,7 @@ const NeedlePage= props => {
                     ))}
                 </div>
                 :
-                <h1 className='loading'>Loading...</h1>
+                <h1 className='loading'>No needles found.</h1>
 
             }
 

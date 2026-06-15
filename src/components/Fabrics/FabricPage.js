@@ -12,6 +12,7 @@ const FabricPage = props => {
     const[fabricTags, setFabricTags] = useState([])
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
+    const [isLoading, setIsLoading] = useState(true)
     const colors = ['','red','orange','yellow','green', 'blue', 'purple', 'pink', 'brown', 'black', 'white']
 
 
@@ -26,11 +27,15 @@ const FabricPage = props => {
     }
 
     const fetchFabric = useCallback(async () => {
+      setIsLoading(true)
       await fetch(`${props.baseUrl}/fabrics`)
       .then(data => data.json())
       .then(jData => {
           setFabrics(jData)
       }).catch(err=>console.log(err))
+      .finally(() => {
+          setIsLoading(false)
+      })
     }, [props.baseUrl])
 
 
@@ -56,6 +61,12 @@ const FabricPage = props => {
     useEffect(() => {
         setFabricTags([...new Set(fabrics.map(fabric=>fabric.tags))]);
     }, [fabrics])
+
+    const visibleFabrics = fabrics.filter(fabric=>{
+        return fabricTagFilter === '' && mainColorFilter === ''
+            ? true
+            : fabric.tags === fabricTagFilter || fabric.main_color === mainColorFilter
+    })
 
     return (
         <div>
@@ -108,10 +119,14 @@ const FabricPage = props => {
             </div>
 
             {
-                (fabricTagFilter==='' && mainColorFilter==='' && fabrics.length > 0)
+                isLoading
+                ?
+                <h1 className='fabric-loading'>Loading...</h1>
+                :
+                visibleFabrics.length > 0
                 ?
                 <div className='fabric-container'>
-                    {fabrics.map((fabricData) => (
+                    {visibleFabrics.map((fabricData) => (
                         <Fabric
                             key={fabricData.id}
                             fabricData={fabricData}
@@ -122,24 +137,7 @@ const FabricPage = props => {
                             />
                     ))}</div>
                     :
-                    (fabrics.length > 0)
-                    ?
-                    <div className='fabric-container'>
-                        {fabrics.filter(fabric=>{
-                            return fabric.tags === fabricTagFilter || fabric.main_color === mainColorFilter
-                        }).map((fabricData) => (
-                            <Fabric
-                                key={fabricData.id}
-                                fabricData={fabricData}
-                                handleDeleteFabric={handleDeleteFabric}
-                                setFabricTagFilter={setFabricTagFilter}
-                                fetchFabric={fetchFabric}
-                                baseUrl={props.baseUrl}
-                                />
-                        ))}
-                    </div>
-                    :
-                    <h1 className='fabric-loading'>Loading...</h1>
+                    <h1 className='fabric-loading'>No fabrics found.</h1>
 
                 }
             </div>
