@@ -21,11 +21,10 @@ const [id, setId] = useState(props.needleData.id)
             id:id
         }
         props.handleUpdateNeedle(needleinfo)
-        setSize('')
-        setStraight('')
-        setCircular('')
-        setDoublepoint('')
-        setId('')
+        .then(() => {
+            props.handleClose()
+        })
+        .catch(err=>console.log(err))
     }
 
 
@@ -62,7 +61,7 @@ const [id, setId] = useState(props.needleData.id)
              <span className="checkmark"></span>
             </label><br/>
             <div className='needle-buttons'>
-            <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
+            <Button type="submit">Apply Changes</Button>
             <Button onClick={props.handleClose}>Cancel</Button>
             </div>
             </form>

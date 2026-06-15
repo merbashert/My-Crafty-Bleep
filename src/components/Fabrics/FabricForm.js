@@ -15,16 +15,19 @@ const FabricForm = props => {
             tags:tags,
             picture: picture
         }
-        handleCreateFabric(fabricinfo);
-        props.handleClose()
-        setLength('')
-        setMain_Color('')
-        setTags('')
-        setPicture('')
+        handleCreateFabric(fabricinfo)
+        .then(() => {
+            props.handleClose()
+            setLength('')
+            setMain_Color('')
+            setTags('')
+            setPicture('')
+        })
+        .catch(err=>console.log(err))
     }
 
     const handleCreateFabric = (createData) => {
-        fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics`, {
+        return fetch(`${props.baseUrl}/fabrics`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -32,12 +35,14 @@ const FabricForm = props => {
                 'Content-Type': 'application/json'
             }
         }).then(createdFabric => {
+            if (!createdFabric.ok) {
+                throw new Error('Unable to create fabric')
+            }
             return createdFabric.json()
         })
         .then(json => {
             props.setFabrics(json)
         })
-        .catch(err=>console.log(err))
     }
 
     return (
@@ -71,7 +76,7 @@ const FabricForm = props => {
         Picture:
         <input type="text" placeholder='Picture URL' id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
         </label>
-        <Button type="submit" onClick={props.handleClose}>Add to Fabric Stash</Button>
+        <Button type="submit">Add to Fabric Stash</Button>
         <Button onClick={props.handleClose}>Cancel</Button>
         </form>
     )

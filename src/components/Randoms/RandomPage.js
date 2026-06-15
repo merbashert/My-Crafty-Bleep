@@ -48,15 +48,18 @@ const RandomPage = props => {
     }, [props.baseUrl])
 
     const handleCreateRandom = (createData) => {
-        fetch(`${props.baseUrl}/randoms`, {
+        return fetch(`${props.baseUrl}/randoms`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: { 'Content-Type': 'application/json' }
         }).then(createdRandom => {
+            if (!createdRandom.ok) {
+                throw new Error('Unable to create random item')
+            }
             return createdRandom.json()
         }).then(json => {
             setRandoms(json)
-        }).catch(err=>console.log(err))
+        })
     }
 
     const handleDeleteRandom = (id) => {

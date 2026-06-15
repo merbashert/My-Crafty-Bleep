@@ -10,21 +10,13 @@ const ZipperPage = props => {
     const[zippers, setZippers] = useState([])
     const sizeList = [7,9,12,14,18,20,22]
 
-    // const fetchZippers = () => {
-    //     fetch(`https://mycraftybleep-backend.meredithbashert.com/zippers`)
-    //     .then(data => data.json())
-    //     .then(jData => {
-    //         setZippers(jData)
-    //     }).catch(err=>console.log(err))
-    // }
-
     const fetchZippers = useCallback(async () => {
-      await fetch(`https://meredithbashert.com/mycraftybleep-backend/zippers`)
+      await fetch(`${props.baseUrl}/zippers`)
       .then(data => data.json())
       .then(jData => {
           setZippers(jData)
       }).catch(err=>console.log(err))
-    }, [])
+    }, [props.baseUrl])
 
     const handleClose = (e) => {
         props.setShow(false)
@@ -49,7 +41,7 @@ const ZipperPage = props => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='add-form'>
-                        <ZipperForm setZippers={setZippers} handleClose={handleClose}/>
+                        <ZipperForm setZippers={setZippers} handleClose={handleClose} baseUrl={props.baseUrl}/>
                     </div>
                 </Modal.Body>
             </Modal>

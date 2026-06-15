@@ -17,7 +17,7 @@ const NeedlePage= props => {
     }, [props.baseUrl])
 
     const handleUpdateNeedle = (updateData) => {
-        fetch(`${props.baseUrl}/needles/${updateData.id}`, {
+        return fetch(`${props.baseUrl}/needles/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -25,8 +25,11 @@ const NeedlePage= props => {
                 'Content-Type': 'application/json'
             }
         }).then(updatedNeedle => {
+            if (!updatedNeedle.ok) {
+                throw new Error('Unable to update needle')
+            }
             fetchNeedle()
-        }).catch(err=>console.log(err))
+        })
     }
 
     useEffect(() => {

@@ -25,26 +25,18 @@ const FabricPage = props => {
         setMainColorFilter('')
     }
 
-    // const fetchFabric = () => {
-    //     fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics`)
-    //     .then(data => data.json())
-    //     .then(jData => {
-    //         setFabrics(jData)
-    //     }).catch(err=>console.log(err))
-    // }
-
     const fetchFabric = useCallback(async () => {
-      await fetch(`https://meredithbashert.com/mycraftybleep-backend/fabrics`)
+      await fetch(`${props.baseUrl}/fabrics`)
       .then(data => data.json())
       .then(jData => {
           setFabrics(jData)
       }).catch(err=>console.log(err))
-    }, [])
+    }, [props.baseUrl])
 
 
 
     const handleDeleteFabric = (id) => {
-        fetch(`https://mycraftybleep-backend.meredithbashert.com/fabrics/${id}`, {
+        fetch(`${props.baseUrl}/fabrics/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json, text/plain, */*',
@@ -79,6 +71,7 @@ const FabricPage = props => {
                         <FabricForm
                             handleClose={props.handleClose}
                             setFabrics={setFabrics}
+                            baseUrl={props.baseUrl}
                             />
                     </div>
 
@@ -125,6 +118,7 @@ const FabricPage = props => {
                             handleDeleteFabric={handleDeleteFabric}
                             setFabricTagFilter={setFabricTagFilter}
                             fetchFabric={fetchFabric}
+                            baseUrl={props.baseUrl}
                             />
                     ))}</div>
                     :
@@ -140,6 +134,7 @@ const FabricPage = props => {
                                 handleDeleteFabric={handleDeleteFabric}
                                 setFabricTagFilter={setFabricTagFilter}
                                 fetchFabric={fetchFabric}
+                                baseUrl={props.baseUrl}
                                 />
                         ))}
                     </div>

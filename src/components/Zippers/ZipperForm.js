@@ -13,14 +13,18 @@ const ZipperForm = props =>  {
             size:size,
             color:color
         }
-        handleCreateZipper(zipperInfo);
-        setColor('')
-        setSize('')
+        handleCreateZipper(zipperInfo)
+        .then(() => {
+            props.handleClose()
+            setColor('')
+            setSize('')
+        })
+        .catch(err=>console.log(err))
 
     }
 
     const handleCreateZipper = (createData) => {
-        fetch(`https://mycraftybleep-backend.meredithbashert.com/zippers`, {
+        return fetch(`${props.baseUrl}/zippers`, {
             body: JSON.stringify(createData),
             method: 'POST',
             headers: {
@@ -28,13 +32,15 @@ const ZipperForm = props =>  {
                 'Content-Type': 'application/json'
             }
         }).then(createdZipper => {
+            if (!createdZipper.ok) {
+                throw new Error('Unable to create zipper')
+            }
             return createdZipper.json()
 
         })
         .then(json => {
             props.setZippers(json)
         })
-        .catch(err=>console.log(err))
     }
 
     return (
@@ -58,7 +64,7 @@ const ZipperForm = props =>  {
         </select>
         </label>
         <br/>
-        <Button type="submit" className='add-zipper-button' onClick={props.handleClose}>Add Zipper</Button>
+        <Button type="submit" className='add-zipper-button'>Add Zipper</Button>
         <Button id='zipper-cancel' onClick={props.handleClose}>Cancel</Button>
         </form>
     )

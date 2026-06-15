@@ -16,10 +16,6 @@ const RandomEdit = props => {
             id:id
         }
         handleUpdateRandom(boxinfo)
-        setName('')
-        setDetails('')
-        setBox_Number('')
-        setId('')
     }
 
     const handleUpdateRandom = (updateData) => {

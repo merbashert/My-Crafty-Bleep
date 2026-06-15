@@ -16,12 +16,14 @@ const RandomForm = props =>  {
             box_number:box_number
         }
 
-        props.handleCreateRandom(boxinfo);
-        props.handleClose()
-        // alert(name + ' added to Box ' + box_number)
-        setName('')
-        setDetails('')
-        setBox_Number('')
+        props.handleCreateRandom(boxinfo)
+        .then(() => {
+            props.handleClose()
+            setName('')
+            setDetails('')
+            setBox_Number('')
+        })
+        .catch(err=>console.log(err))
     }
 
 
@@ -49,7 +51,7 @@ const RandomForm = props =>  {
                     <option value="6">6</option>
                 </select>
             </label><br/>
-            <Button type="submit" onClick={props.handleClose}>Put in the Box</Button>
+            <Button type="submit">Put in the Box</Button>
             <Button onClick={props.handleClose}>Cancel</Button>
         </form>
     )

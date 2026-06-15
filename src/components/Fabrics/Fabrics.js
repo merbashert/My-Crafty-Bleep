@@ -24,7 +24,7 @@ const Fabrics = props => {
     }
 
     const handleUpdateFabric = (updateData) => {
-        fetch(`https://meredithbashert.com/mycraftybleep-backend/fabrics/${updateData.id}`, {
+        return fetch(`${props.baseUrl}/fabrics/${updateData.id}`, {
             body: JSON.stringify(updateData),
             method: 'PUT',
             headers: {
@@ -32,7 +32,11 @@ const Fabrics = props => {
                 'Content-Type': 'application/json'
             }
         }).then(updatedFabric => {
+            if (!updatedFabric.ok) {
+                throw new Error('Unable to update fabric')
+            }
             props.fetchFabric()
+            handleClose()
         }).catch(err=>console.log(err))
     }
 

@@ -18,11 +18,6 @@ const FabricEdit = props => {
             id:id
         }
         props.handleUpdateFabric(fabricinfo)
-        setLength('')
-        setMain_Color('')
-        setTags('')
-        setPicture('')
-        setId('')
     }
 
     return (
@@ -54,7 +49,7 @@ const FabricEdit = props => {
                 <label id="picture">
                     <input type="hidden" id="picture" value={picture} onChange={e => setPicture(e.target.value)} className='fabric-picture'/>
                 </label><br/>
-                <Button type="submit" onClick={props.handleClose}>Apply Changes</Button>
+                <Button type="submit">Apply Changes</Button>
                 <Button onClick={props.handleClose}>Cancel</Button>
             </form>
         </div>
