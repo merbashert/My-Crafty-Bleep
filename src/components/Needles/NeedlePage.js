@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 
 
 import Needle from './Needles';
+import { apiGet, apiPut } from '../../api'
 
 import './Needles.css'
 
@@ -11,8 +12,7 @@ const NeedlePage= props => {
 
     const fetchNeedle = useCallback(() => {
         setIsLoading(true)
-        fetch(`${props.baseUrl}/needles`)
-        .then(data => data.json())
+        apiGet(`${props.baseUrl}/needles`, 'Unable to load needles')
         .then(jData => {
             setNeedles(jData)
         }).catch(err=>console.log(err))
@@ -22,17 +22,8 @@ const NeedlePage= props => {
     }, [props.baseUrl])
 
     const handleUpdateNeedle = (updateData) => {
-        return fetch(`${props.baseUrl}/needles/${updateData.id}`, {
-            body: JSON.stringify(updateData),
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(updatedNeedle => {
-            if (!updatedNeedle.ok) {
-                throw new Error('Unable to update needle')
-            }
+        return apiPut(`${props.baseUrl}/needles/${updateData.id}`, updateData, 'Unable to update needle')
+        .then(updatedNeedle => {
             fetchNeedle()
         })
     }

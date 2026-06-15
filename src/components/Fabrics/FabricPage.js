@@ -3,6 +3,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import FabricForm from './FabricForm'
 import Fabric from './Fabrics'
+import { apiDelete, apiGet } from '../../api'
 
 import './Fabrics.css';
 
@@ -28,8 +29,7 @@ const FabricPage = props => {
 
     const fetchFabric = useCallback(async () => {
       setIsLoading(true)
-      await fetch(`${props.baseUrl}/fabrics`)
-      .then(data => data.json())
+      await apiGet(`${props.baseUrl}/fabrics`, 'Unable to load fabrics')
       .then(jData => {
           setFabrics(jData)
       }).catch(err=>console.log(err))
@@ -41,13 +41,8 @@ const FabricPage = props => {
 
 
     const handleDeleteFabric = (id) => {
-        fetch(`${props.baseUrl}/fabrics/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(json => {
+        apiDelete(`${props.baseUrl}/fabrics/${id}`, 'Unable to delete fabric')
+        .then(json => {
             setFabrics(fabrics.filter(fabric => fabric.id !== id))
         }).catch(err=>console.log(err))
     }

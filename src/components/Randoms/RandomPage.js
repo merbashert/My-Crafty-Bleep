@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import RandomForm from './RandomForm'
 import Random from './Random'
+import { apiDelete, apiGet, apiPost } from '../../api'
 
 import './Randoms.css';
 
@@ -33,8 +34,7 @@ const RandomPage = props => {
 
     const fetchRandom = useCallback(async () => {
         setIsLoading(true)
-        await fetch(`${props.baseUrl}/randoms`)
-        .then(data => data.json())
+        await apiGet(`${props.baseUrl}/randoms`, 'Unable to load random items')
         .then(jData => {
             setRandoms(jData)
         }).catch(err=>console.log(err))
@@ -44,31 +44,15 @@ const RandomPage = props => {
     }, [props.baseUrl])
 
     const handleCreateRandom = (createData) => {
-        return fetch(`${props.baseUrl}/randoms`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' }
-        }).then(createdRandom => {
-            if (!createdRandom.ok) {
-                throw new Error('Unable to create random item')
-            }
-            return createdRandom.json()
-        }).then(json => {
+        return apiPost(`${props.baseUrl}/randoms`, createData, 'Unable to create random item')
+        .then(json => {
             setRandoms(json)
         })
     }
 
     const handleDeleteRandom = (id) => {
-        fetch(`${props.baseUrl}/randoms/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(response => {
-            if (!response.ok) {
-                throw new Error('Unable to delete random item')
-            }
+        apiDelete(`${props.baseUrl}/randoms/${id}`, 'Unable to delete random item')
+        .then(response => {
             setRandoms(currentRandoms => currentRandoms.filter(random => random.id !== id))
         }).catch(err=>console.log(err))
     }

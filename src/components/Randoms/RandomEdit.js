@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
+import { apiPut } from '../../api'
 
 const RandomEdit = props => {
     const [name, setName] = useState(props.randomData.name)
@@ -18,17 +19,8 @@ const RandomEdit = props => {
     }
 
     const handleUpdateRandom = (updateData) => {
-        fetch(`${props.baseUrl}/randoms/${updateData.id}`, {
-            body: JSON.stringify(updateData),
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(response => {
-            if (!response.ok) {
-                throw new Error('Unable to update random item')
-            }
+        apiPut(`${props.baseUrl}/randoms/${updateData.id}`, updateData, 'Unable to update random item')
+        .then(response => {
             props.fetchRandom()
             props.handleClose()
         }).catch(err=>console.log(err))

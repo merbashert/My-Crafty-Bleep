@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import Modal from 'react-bootstrap/Modal';
 import FabricEdit from './FabricEdit'
+import { apiPut } from '../../api'
 
 const Fabrics = props => {
 
@@ -30,17 +31,8 @@ const Fabrics = props => {
     }
 
     const handleUpdateFabric = (updateData) => {
-        return fetch(`${props.baseUrl}/fabrics/${updateData.id}`, {
-            body: JSON.stringify(updateData),
-            method: 'PUT',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(updatedFabric => {
-            if (!updatedFabric.ok) {
-                throw new Error('Unable to update fabric')
-            }
+        return apiPut(`${props.baseUrl}/fabrics/${updateData.id}`, updateData, 'Unable to update fabric')
+        .then(updatedFabric => {
             props.fetchFabric()
             handleClose()
         }).catch(err=>console.log(err))

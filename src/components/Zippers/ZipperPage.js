@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react'
 import ZipperList from '../Zippers/ZipperList'
 import ZipperForm from './ZipperForm'
 import Modal from 'react-bootstrap/Modal';
+import { apiGet } from '../../api'
 
 
 import './Zippers.css';
@@ -13,8 +14,7 @@ const ZipperPage = props => {
 
     const fetchZippers = useCallback(async () => {
       setIsLoading(true)
-      await fetch(`${props.baseUrl}/zippers`)
-      .then(data => data.json())
+      await apiGet(`${props.baseUrl}/zippers`, 'Unable to load zippers')
       .then(jData => {
           setZippers(jData)
       }).catch(err=>console.log(err))

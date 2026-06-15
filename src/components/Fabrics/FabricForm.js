@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
+import { apiPost } from '../../api'
 
 const FabricForm = props => {
     const [length, setLength] = useState('')
@@ -27,19 +28,7 @@ const FabricForm = props => {
     }
 
     const handleCreateFabric = (createData) => {
-        return fetch(`${props.baseUrl}/fabrics`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdFabric => {
-            if (!createdFabric.ok) {
-                throw new Error('Unable to create fabric')
-            }
-            return createdFabric.json()
-        })
+        return apiPost(`${props.baseUrl}/fabrics`, createData, 'Unable to create fabric')
         .then(json => {
             props.setFabrics(json)
         })

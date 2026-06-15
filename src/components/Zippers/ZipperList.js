@@ -1,17 +1,13 @@
 import React from 'react';
 import Zipper from './Zipper'
+import { apiDelete } from '../../api'
 
 const zipperList = (props) => {
 
 
     const handleDeleteZipper = (id) => {
-        fetch(`${props.baseUrl}/zippers/${id}`, {
-            method: 'DELETE',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(json => {
+        apiDelete(`${props.baseUrl}/zippers/${id}`, 'Unable to delete zipper')
+        .then(json => {
             props.setZippers(props.zippers.filter(zipper => zipper.id !== id))
         }).catch(err=>console.log(err))
     }

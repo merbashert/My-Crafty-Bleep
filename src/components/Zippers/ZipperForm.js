@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
+import { apiPost } from '../../api'
 
 
 const ZipperForm = props =>  {
@@ -24,20 +25,7 @@ const ZipperForm = props =>  {
     }
 
     const handleCreateZipper = (createData) => {
-        return fetch(`${props.baseUrl}/zippers`, {
-            body: JSON.stringify(createData),
-            method: 'POST',
-            headers: {
-                'Accept': 'application/json, text/plain, */*',
-                'Content-Type': 'application/json'
-            }
-        }).then(createdZipper => {
-            if (!createdZipper.ok) {
-                throw new Error('Unable to create zipper')
-            }
-            return createdZipper.json()
-
-        })
+        return apiPost(`${props.baseUrl}/zippers`, createData, 'Unable to create zipper')
         .then(json => {
             props.setZippers(json)
         })
