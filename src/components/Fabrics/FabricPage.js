@@ -43,7 +43,7 @@ const FabricPage = props => {
     const handleDeleteFabric = (id) => {
         apiDelete(`${props.baseUrl}/fabrics/${id}`, 'Unable to delete fabric')
         .then(json => {
-            setFabrics(fabrics.filter(fabric => fabric.id !== id))
+            setFabrics(currentFabrics => currentFabrics.filter(fabric => fabric.id !== id))
         }).catch(err=>console.log(err))
     }
 

@@ -8,7 +8,7 @@ const zipperList = (props) => {
     const handleDeleteZipper = (id) => {
         apiDelete(`${props.baseUrl}/zippers/${id}`, 'Unable to delete zipper')
         .then(json => {
-            props.setZippers(props.zippers.filter(zipper => zipper.id !== id))
+            props.setZippers(currentZippers => currentZippers.filter(zipper => zipper.id !== id))
         }).catch(err=>console.log(err))
     }
 
