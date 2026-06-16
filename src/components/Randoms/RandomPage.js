@@ -63,14 +63,18 @@ const RandomPage = props => {
         fetchRandom()
     }, [fetchRandom])
 
-    const visibleRandoms = useMemo(() => randoms
-    .filter(random => {
-        return random.name
-    })
-    .filter(random => random.name.includes(randomFilter.toLowerCase()))
-    .filter(random => {
-        return boxNumberFilter === '' || random.box_number === boxNumberFilter
-    }), [randoms, randomFilter, boxNumberFilter])
+    const visibleRandoms = useMemo(() => {
+        const normalizedRandomFilter = randomFilter.toLowerCase()
+
+        return randoms
+        .filter(random => {
+            return random.name
+        })
+        .filter(random => String(random.name).toLowerCase().includes(normalizedRandomFilter))
+        .filter(random => {
+            return boxNumberFilter === '' || random.box_number === boxNumberFilter
+        })
+    }, [randoms, randomFilter, boxNumberFilter])
     
     return (
         <div>
