@@ -33,12 +33,12 @@ const ZipperForm = props =>  {
 
     return (
         <form onSubmit={handleSubmit} className='zipper-modal'>
-        <label>
+        <label htmlFor="new-zipper-color">
             Zipper Color:
-    <input type="text" id="color" value={color} onChange={e => setColor(e.target.value)} required className = 'new-zipper'/>
+    <input type="text" id="new-zipper-color" value={color} onChange={e => setColor(e.target.value)} required className = 'new-zipper'/>
         </label>
         <br/>
-        <label>
+        <label htmlFor="new-zipper-size">
         Zipper Size:
         <select value={size} id='new-zipper-size' onChange={e => setSize(e.target.value)} required>
             <option value=""></option>
