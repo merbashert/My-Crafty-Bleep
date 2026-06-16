@@ -2,7 +2,7 @@ import React, { useMemo } from 'react';
 import Zipper from './Zipper'
 import { apiDelete } from '../../api'
 
-const zipperList = (props) => {
+const ZipperList = (props) => {
     const visibleZippers = useMemo(() => {
         return props.zippers.filter(zipper=>{
             return zipper.size === props.zipperSize
@@ -33,4 +33,4 @@ const zipperList = (props) => {
     )
 }
 
-export default zipperList;
+export default ZipperList;
