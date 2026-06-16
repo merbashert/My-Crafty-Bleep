@@ -8,7 +8,7 @@ import { apiGet } from '../../api'
 import './Zippers.css';
 
 const ZipperPage = props => {
-    const[zippers, setZippers] = useState([])
+    const [zippers, setZippers] = useState([])
     const [isLoading, setIsLoading] = useState(true)
     const sizeList = [7,9,12,14,18,20,22]
 

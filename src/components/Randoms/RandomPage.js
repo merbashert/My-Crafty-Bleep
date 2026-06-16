@@ -10,9 +10,9 @@ import './Randoms.css';
 
 
 const RandomPage = props => {
-    const[randoms, setRandoms] = useState([])
-    const[randomFilter, setRandomFilter] = useState('')
-    const[boxNumberFilter, setBoxNumberFilter] = useState('')
+    const [randoms, setRandoms] = useState([])
+    const [randomFilter, setRandomFilter] = useState('')
+    const [boxNumberFilter, setBoxNumberFilter] = useState('')
     const [isLoading, setIsLoading] = useState(true)
 
 

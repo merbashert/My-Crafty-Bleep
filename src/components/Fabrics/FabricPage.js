@@ -10,7 +10,7 @@ import './Fabrics.css';
 
 const FabricPage = props => {
 
-    const[fabrics, setFabrics] = useState([])
+    const [fabrics, setFabrics] = useState([])
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
     const [isLoading, setIsLoading] = useState(true)
