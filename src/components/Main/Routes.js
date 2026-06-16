@@ -10,17 +10,17 @@ import Home from '../../components/Main/Home.js'
 import NotFound from '../../components/Main/NotFound.js'
 
 
-const Routes = props => {
+const Routes = () => {
 
     const baseUrl = 'https://meredithbashert.com/mycraftybleep-backend'
 
     const [show, setShow] = useState(false);
 
-    const handleClose = (e) => {
+    const handleClose = () => {
         setShow(false)
     }
 
-    const handleShow = (e) => {
+    const handleShow = () => {
         setShow(true)
     }
 

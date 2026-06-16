@@ -23,11 +23,11 @@ const ZipperPage = props => {
       })
     }, [props.baseUrl])
 
-    const handleClose = (e) => {
+    const handleClose = () => {
         props.setShow(false)
     }
 
-    const handleShow = (e) => {
+    const handleShow = () => {
         props.setShow(true)
     }
 
@@ -53,8 +53,8 @@ const ZipperPage = props => {
             </>
 
             <div id='add-box'>
-                <button onClick={() => handleShow()} id = 'add-zipper'>Add New Zipper</button>
-                <button onClick={() => handleShow()} id = 'add-zipper-small'>+</button>
+                <button onClick={handleShow} id = 'add-zipper'>Add New Zipper</button>
+                <button onClick={handleShow} id = 'add-zipper-small'>+</button>
             </div>
 
             {isLoading ?

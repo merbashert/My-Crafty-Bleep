@@ -9,11 +9,11 @@ const Needles = props => {
 
     const [show, setShow] = useState(false);
 
-    const handleClose = (e) => {
+    const handleClose = () => {
         setShow(false)
     }
 
-    const handleShow = (e) => {
+    const handleShow = () => {
         setShow(true)
     }
 

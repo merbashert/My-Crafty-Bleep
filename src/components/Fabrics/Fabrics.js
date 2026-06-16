@@ -8,19 +8,19 @@ const Fabrics = props => {
     const [show, setShow] = useState(false);
     const [fabricShow, setFabricShow] = useState(false)
 
-    const handleClose = (e) => {
+    const handleClose = () => {
         setShow(false)
     }
 
-    const handleShow = (e) => {
+    const handleShow = () => {
         setShow(true)
     }
 
-    const handleShowFabric = (e) => {
+    const handleShowFabric = () => {
         setFabricShow(true)
     }
 
-    const handleCloseFabric = (e) => {
+    const handleCloseFabric = () => {
         setFabricShow(false)
     }
 

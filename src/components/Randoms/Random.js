@@ -14,11 +14,11 @@ const Random = props => {
         }
     }
 
-    const handleClose = (e) => {
+    const handleClose = () => {
         setShow(false)
     }
 
-    const handleShow = (e) => {
+    const handleShow = () => {
         setShow(true)
     }
 
@@ -42,8 +42,8 @@ const Random = props => {
                 </Modal>
                 </>
 
-            <button type="button" onClick={() => handleShow()} id = 'edit-random'>Edit</button>
-            <button type="button" onClick={() => handleShow()} id = 'edit-random-small'><span className="lnr lnr-pencil"></span></button>
+            <button type="button" onClick={handleShow} id = 'edit-random'>Edit</button>
+            <button type="button" onClick={handleShow} id = 'edit-random-small'><span className="lnr lnr-pencil"></span></button>
 
             <button type="button" onClick={confirmDelete} id = "delete-random">Delete</button>
             <button type="button" onClick={confirmDelete} id = "delete-random-small"><span className="lnr lnr-trash"></span></button>
