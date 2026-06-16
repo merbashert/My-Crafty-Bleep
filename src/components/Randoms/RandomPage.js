@@ -4,7 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 
 import RandomForm from './RandomForm'
 import Random from './Random'
-import { apiDelete, apiGet, apiPost } from '../../api'
+import { apiDelete, apiGet, apiPost, apiPut } from '../../api'
 
 import './Randoms.css';
 
@@ -60,6 +60,13 @@ const RandomPage = props => {
         .then(response => {
             setRandoms(currentRandoms => currentRandoms.filter(random => random.id !== id))
         }).catch(err=>console.log(err))
+    }
+
+    const handleUpdateRandom = (updateData) => {
+        return apiPut(`${props.baseUrl}/randoms/${updateData.id}`, updateData, 'Unable to update random item')
+        .then(json => {
+            setRandoms(json)
+        })
     }
 
 
@@ -151,6 +158,7 @@ const RandomPage = props => {
                 fetchRandom={fetchRandom}
                 baseUrl={props.baseUrl}
                 handleDeleteRandom={handleDeleteRandom}
+                handleUpdateRandom={handleUpdateRandom}
                 />
         ))}
     </tbody>
