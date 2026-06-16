@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import FabricForm from './FabricForm'
 import Fabric from './Fabrics'
 import { apiDelete, apiGet } from '../../api'
+import { fabricColors } from '../../constants'
 
 import './Fabrics.css';
 
@@ -13,7 +14,7 @@ const FabricPage = props => {
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
     const [isLoading, setIsLoading] = useState(true)
-    const colors = ['','red','orange','yellow','green', 'blue', 'purple', 'pink', 'brown', 'black', 'white']
+    const colors = ['', ...fabricColors]
 
 
     const handleTagFilterChange = (e) => {

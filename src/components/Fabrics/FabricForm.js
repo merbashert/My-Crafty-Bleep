@@ -1,13 +1,14 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
 import { apiPost } from '../../api'
+import { fabricColors } from '../../constants'
 
 const FabricForm = props => {
     const [length, setLength] = useState('')
     const [main_color, setMain_Color] = useState('')
     const [tags, setTags] = useState('')
     const [picture, setPicture] = useState('')
-    const colors = ['','red','orange','yellow','green', 'blue', 'purple', 'pink', 'brown', 'black', 'white']
+    const colors = ['', ...fabricColors]
 
     const handleSubmit = (e) => {
         e.preventDefault()

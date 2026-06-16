@@ -1,11 +1,11 @@
 import React, { useState } from 'react'
 import Button from 'react-bootstrap/Button';
+import { fabricColors } from '../../constants'
 
 const FabricEdit = props => {
     const [length, setLength] = useState(props.fabricData.length)
     const [main_color, setMain_Color] = useState(props.fabricData.main_color)
     const [tags, setTags] = useState(props.fabricData.tags?props.fabricData.tags:'')
-    const colors = ['red','orange','yellow','green', 'blue', 'purple', 'pink', 'brown', 'black', 'white']
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -29,7 +29,7 @@ const FabricEdit = props => {
                 <label id="main_color">
                     Main Color:
                     <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color">
-                        {colors.map((color, i) => {
+                        {fabricColors.map((color, i) => {
                             return <option key = {i} value={color}>{color}</option>
                         })}
                     </select>
