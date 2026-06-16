@@ -16,9 +16,14 @@ const FabricPage = props => {
     const colors = ['','red','orange','yellow','green', 'blue', 'purple', 'pink', 'brown', 'black', 'white']
 
 
-    const handleChange = (e) => {
+    const handleTagFilterChange = (e) => {
         setFabricTagFilter(e.target.value)
+        setMainColorFilter('')
+    }
+
+    const handleMainColorFilterChange = (e) => {
         setMainColorFilter(e.target.value)
+        setFabricTagFilter('')
     }
 
     const reset = () => {
@@ -91,7 +96,7 @@ const FabricPage = props => {
                 Filter By:
                 <label id = "tag_filter">
                     Tag:
-                    <select value = {fabricTagFilter} onChange={handleChange} className='dropdown'>
+                    <select value = {fabricTagFilter} onChange={handleTagFilterChange} className='dropdown'>
                         <option></option>
                         {fabricTags.filter(fabricTags => {return fabricTags != null}).map((fabricData, i) => {
                             return <option key = {i}>{fabricData}</option>
@@ -102,7 +107,7 @@ const FabricPage = props => {
 
                 <label id="main_color">
                     Main Color
-                    <select value = {mainColorFilter} onChange={handleChange} className='dropdown'>
+                    <select value = {mainColorFilter} onChange={handleMainColorFilterChange} className='dropdown'>
                         {colors.map((color, i) => {
                             return <option key = {i}>{color}</option>
                         })}
