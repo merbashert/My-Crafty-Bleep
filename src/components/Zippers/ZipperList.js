@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Zipper from './Zipper'
 import { apiDelete } from '../../api'
 
 const zipperList = (props) => {
+    const visibleZippers = useMemo(() => {
+        return props.zippers.filter(zipper=>{
+            return zipper.size === props.zipperSize
+        })
+    }, [props.zippers, props.zipperSize])
 
 
     const handleDeleteZipper = (id) => {
@@ -16,9 +21,7 @@ const zipperList = (props) => {
         <div className = "zipper-size">
             <div>
             <h3>{props.zipperSize} Inches</h3>
-            {props.zippers.filter(zipper=>{
-                return zipper.size === props.zipperSize
-            }).map((zipperData) => (
+            {visibleZippers.map((zipperData) => (
                 <Zipper
                     key={zipperData.id}
                     zipperData={zipperData}

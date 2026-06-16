@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import Table from 'react-bootstrap/Table';
 import Modal from 'react-bootstrap/Modal';
 
@@ -63,14 +63,14 @@ const RandomPage = props => {
         fetchRandom()
     }, [fetchRandom])
 
-    const visibleRandoms = randoms
+    const visibleRandoms = useMemo(() => randoms
     .filter(random => {
         return random.name
     })
     .filter(random => random.name.includes(randomFilter.toLowerCase()))
     .filter(random => {
         return boxNumberFilter === '' || random.box_number === boxNumberFilter
-    })
+    }), [randoms, randomFilter, boxNumberFilter])
     
     return (
         <div>

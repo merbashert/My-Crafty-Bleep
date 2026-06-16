@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import React, { useState, useEffect, useCallback, useMemo } from 'react'
 import Modal from 'react-bootstrap/Modal';
 
 import FabricForm from './FabricForm'
@@ -10,7 +10,6 @@ import './Fabrics.css';
 const FabricPage = props => {
 
     const[fabrics, setFabrics] = useState([])
-    const[fabricTags, setFabricTags] = useState([])
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
     const [isLoading, setIsLoading] = useState(true)
@@ -53,15 +52,15 @@ const FabricPage = props => {
         fetchFabric()
     }, [fetchFabric])
 
-    useEffect(() => {
-        setFabricTags([...new Set(fabrics.map(fabric=>fabric.tags))]);
+    const fabricTags = useMemo(() => {
+        return [...new Set(fabrics.map(fabric=>fabric.tags))]
     }, [fabrics])
 
-    const visibleFabrics = fabrics.filter(fabric=>{
+    const visibleFabrics = useMemo(() => fabrics.filter(fabric=>{
         return fabricTagFilter === '' && mainColorFilter === ''
             ? true
             : fabric.tags === fabricTagFilter || fabric.main_color === mainColorFilter
-    })
+    }), [fabrics, fabricTagFilter, mainColorFilter])
 
     return (
         <div>
