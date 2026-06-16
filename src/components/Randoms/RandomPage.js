@@ -104,7 +104,7 @@ const RandomPage = props => {
                             id="random-search-box"
                             value={randomFilter}
                             onChange={handleChange}
-                            autoFocus={(window.screen.width <= 480) ? false : true }
+                            autoFocus
                             />
                     </div>
 
