@@ -51,10 +51,6 @@ const Routes = props => {
             <Route path="/needles">
                 <NeedlePage
                     baseUrl={baseUrl}
-                    handleClose={handleClose}
-                    handleShow={handleShow}
-                    setShow={setShow}
-                    show={show}
                     />
             </Route>
             <Route path="/zippers">

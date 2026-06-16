@@ -82,7 +82,7 @@ const RandomPage = props => {
                 </Modal.Header>
                 <Modal.Body>
                     <div className='add-form'>
-                        <RandomForm handleClose={props.handleClose} setRandoms={setRandoms} handleCreateRandom={handleCreateRandom}/>
+                        <RandomForm handleClose={props.handleClose} handleCreateRandom={handleCreateRandom}/>
                     </div>
                 </Modal.Body>
             </Modal>
@@ -138,7 +138,6 @@ const RandomPage = props => {
                 randomData={randomData}
                 fetchRandom={fetchRandom}
                 baseUrl={props.baseUrl}
-                setRandoms={setRandoms}
                 handleDeleteRandom={handleDeleteRandom}
                 />
         ))}
