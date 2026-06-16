@@ -14,6 +14,7 @@ const FabricPage = props => {
     const [fabricTagFilter, setFabricTagFilter] = useState('')
     const [mainColorFilter, setMainColorFilter] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const [loadError, setLoadError] = useState('')
     const colors = ['', ...fabricColors]
 
 
@@ -34,10 +35,14 @@ const FabricPage = props => {
 
     const fetchFabric = useCallback(async () => {
       setIsLoading(true)
+      setLoadError('')
       await apiGet(`${props.baseUrl}/fabrics`, 'Unable to load fabrics')
       .then(jData => {
           setFabrics(jData)
-      }).catch(err=>console.log(err))
+      }).catch(err=>{
+          console.log(err)
+          setLoadError(err.message)
+      })
       .finally(() => {
           setIsLoading(false)
       })
@@ -122,6 +127,10 @@ const FabricPage = props => {
                 isLoading
                 ?
                 <h1 className='fabric-loading'>Loading...</h1>
+                :
+                loadError
+                ?
+                <h1 className='fabric-loading'>{loadError}</h1>
                 :
                 visibleFabrics.length > 0
                 ?

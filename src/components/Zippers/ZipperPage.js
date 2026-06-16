@@ -10,14 +10,19 @@ import './Zippers.css';
 const ZipperPage = props => {
     const [zippers, setZippers] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [loadError, setLoadError] = useState('')
     const sizeList = [7,9,12,14,18,20,22]
 
     const fetchZippers = useCallback(async () => {
       setIsLoading(true)
+      setLoadError('')
       await apiGet(`${props.baseUrl}/zippers`, 'Unable to load zippers')
       .then(jData => {
           setZippers(jData)
-      }).catch(err=>console.log(err))
+      }).catch(err=>{
+          console.log(err)
+          setLoadError(err.message)
+      })
       .finally(() => {
           setIsLoading(false)
       })
@@ -59,6 +64,9 @@ const ZipperPage = props => {
 
             {isLoading ?
                 <h1 className='loading'>Loading...</h1>
+                :
+                loadError ?
+                <h1 className='loading'>{loadError}</h1>
                 :
                 zippers.length > 0 ?
                 <div className = "zipper-container">

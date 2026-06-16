@@ -9,13 +9,18 @@ import './Needles.css'
 const NeedlePage= props => {
     const [needles, setNeedles] = useState([])
     const [isLoading, setIsLoading] = useState(true)
+    const [loadError, setLoadError] = useState('')
 
     const fetchNeedle = useCallback(() => {
         setIsLoading(true)
+        setLoadError('')
         apiGet(`${props.baseUrl}/needles`, 'Unable to load needles')
         .then(jData => {
             setNeedles(jData)
-        }).catch(err=>console.log(err))
+        }).catch(err=>{
+            console.log(err)
+            setLoadError(err.message)
+        })
         .finally(() => {
             setIsLoading(false)
         })
@@ -38,6 +43,9 @@ const NeedlePage= props => {
         <div className = 'needle-page'>
             {isLoading ?
                 <h1 className='loading'>Loading...</h1>
+                :
+                loadError ?
+                <h1 className='loading'>{loadError}</h1>
                 :
                 needles.length > 0 ?
                 <div className = "needles">

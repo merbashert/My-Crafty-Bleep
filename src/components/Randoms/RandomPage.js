@@ -14,6 +14,7 @@ const RandomPage = props => {
     const [randomFilter, setRandomFilter] = useState('')
     const [boxNumberFilter, setBoxNumberFilter] = useState('')
     const [isLoading, setIsLoading] = useState(true)
+    const [loadError, setLoadError] = useState('')
 
 
 
@@ -34,10 +35,14 @@ const RandomPage = props => {
 
     const fetchRandom = useCallback(async () => {
         setIsLoading(true)
+        setLoadError('')
         await apiGet(`${props.baseUrl}/randoms`, 'Unable to load random items')
         .then(jData => {
             setRandoms(jData)
-        }).catch(err=>console.log(err))
+        }).catch(err=>{
+            console.log(err)
+            setLoadError(err.message)
+        })
         .finally(() => {
             setIsLoading(false)
         })
@@ -132,6 +137,9 @@ const RandomPage = props => {
 
             {isLoading ?
                 <h1 className='loading'>Loading...</h1>
+                :
+                loadError ?
+                <h1 className='loading'>{loadError}</h1>
                 :
                 visibleRandoms.length > 0 ?
                 <Table className="random-table" size='sm'>
