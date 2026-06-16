@@ -106,9 +106,9 @@ const FabricPage = props => {
                 </label>
 
 
-                <label id="main_color">
+                <label htmlFor="fabric-main-color-filter">
                     Main Color
-                    <select value = {mainColorFilter} onChange={handleMainColorFilterChange} className='dropdown'>
+                    <select id="fabric-main-color-filter" value = {mainColorFilter} onChange={handleMainColorFilterChange} className='dropdown'>
                         {colors.map((color, i) => {
                             return <option key = {i}>{color}</option>
                         })}
