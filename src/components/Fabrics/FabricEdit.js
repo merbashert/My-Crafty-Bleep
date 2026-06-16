@@ -5,6 +5,7 @@ const FabricEdit = props => {
     const [length, setLength] = useState(props.fabricData.length)
     const [main_color, setMain_Color] = useState(props.fabricData.main_color)
     const [tags, setTags] = useState(props.fabricData.tags?props.fabricData.tags:'')
+    const colors = ['red','orange','yellow','green', 'blue', 'purple', 'pink', 'brown', 'black', 'white']
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -28,16 +29,9 @@ const FabricEdit = props => {
                 <label id="main_color">
                     Main Color:
                     <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color">
-                        <option main_color="red">red</option>
-                        <option main_color="orange">orange</option>
-                        <option main_color="yellow">yellow</option>
-                        <option main_color="green">green</option>
-                        <option main_color="blue">blue</option>
-                        <option main_color="purple">purple</option>
-                        <option main_color="pink">pink</option>
-                        <option main_color="brown">brown</option>
-                        <option main_color="black">black</option>
-                        <option main_color="white">white</option>
+                        {colors.map((color, i) => {
+                            return <option key = {i} value={color}>{color}</option>
+                        })}
                     </select>
                 </label><br/>
                 <label>
