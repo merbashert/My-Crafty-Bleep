@@ -94,10 +94,10 @@ const RandomPage = props => {
             <div className='function-box'>
                 <div id='options'>
                     <div id='search'>
-                        <label htmlFor="search_box">Search</label>
+                        <label htmlFor="random-search-box">Search</label>
                         <input
                             type="text"
-                            id="search_box"
+                            id="random-search-box"
                             value={randomFilter}
                             onChange={handleChange}
                             autoFocus={(window.screen.width <= 480) ? false : true }
@@ -105,8 +105,8 @@ const RandomPage = props => {
                     </div>
 
                     <div id='filter_box'>
-                        <label htmlFor="box_number">Filter By Box:</label>
-                        <select value={boxNumberFilter} id = 'box_number' onChange={handleDropdown}>
+                        <label htmlFor="random-box-number-filter">Filter By Box:</label>
+                        <select value={boxNumberFilter} id = 'random-box-number-filter' onChange={handleDropdown}>
                             <option value="">All</option>
                             <option value="1">Box 1</option>
                             <option value="2">Box 2</option>
