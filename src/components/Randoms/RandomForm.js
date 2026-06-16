@@ -30,18 +30,18 @@ const RandomForm = props =>  {
 
     return (
         <form onSubmit={handleSubmit}>
-            <label>
+            <label htmlFor="new-random-name">
                 Item:
-                <input type="text" id="name" value={name} onChange={e => setName(e.target.value.toLowerCase())} required/>
+                <input type="text" id="new-random-name" value={name} onChange={e => setName(e.target.value.toLowerCase())} required/>
             </label>
-            <label>
+            <label htmlFor="new-random-details">
                 Details(if any):
-                <input type="text" id="details" value={details} onChange={e => setDetails(e.target.value.toLowerCase())}/>
+                <input type="text" id="new-random-details" value={details} onChange={e => setDetails(e.target.value.toLowerCase())}/>
             </label>
             <br/>
-            <label id="random-form">
+            <label htmlFor="new-random-box-number">
                 Box #:
-                <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="box_number" className='dropdown' required>
+                <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="new-random-box-number" className='dropdown' required>
                     <option value=""></option>
                     <option value="1">1</option>
                     <option value="2">2</option>

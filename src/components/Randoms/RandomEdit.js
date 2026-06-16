@@ -29,22 +29,22 @@ const RandomEdit = props => {
     return (
         <div>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label htmlFor="edit-random-name">
                     Item:
-                    <input type="text" placeholder="Item" id="name" value={name} onChange={e => setName(e.target.value)}/>
+                    <input type="text" placeholder="Item" id="edit-random-name" value={name} onChange={e => setName(e.target.value)}/>
                 </label><br/>
-                <label>
+                <label htmlFor="edit-random-details">
                     Details(if any):
                     <input
                         type="text"
                         placeholder="Details(if any)"
-                        id="details"
+                        id="edit-random-details"
                         value={details}
                         onChange={e => setDetails(e.target.value)}/>
                 </label><br/>
-                <label id="random-form">
+                <label htmlFor="edit-random-box-number">
                     Box #:
-                    <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="box_number" className='dropdown' required>
+                    <select value={box_number} onChange={e => setBox_Number(e.target.value)} id="edit-random-box-number" className='dropdown' required>
                         <option value=""></option>
                         <option value="1">1</option>
                         <option value="2">2</option>
