@@ -22,21 +22,21 @@ const FabricEdit = props => {
     return (
         <div className='fabric-edit'>
             <form onSubmit={handleSubmit}>
-                <label>
+                <label htmlFor="edit-fabric-length">
                     Length:
-                    <input type="text" placeholder="Length" id="length" value={length} onChange={e => setLength(e.target.value)}/>
+                    <input type="text" placeholder="Length" id="edit-fabric-length" value={length} onChange={e => setLength(e.target.value)}/>
                 </label><br/>
-                <label id="main_color">
+                <label htmlFor="edit-fabric-main-color">
                     Main Color:
-                    <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color">
+                    <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="edit-fabric-main-color">
                         {fabricColors.map((color, i) => {
                             return <option key = {i} value={color}>{color}</option>
                         })}
                     </select>
                 </label><br/>
-                <label>
+                <label htmlFor="edit-fabric-tags">
                     Tags:
-                    <input type="text" placeholder="Tags" id="tags" value={tags} onChange={e => setTags(e.target.value)}/>
+                    <input type="text" placeholder="Tags" id="edit-fabric-tags" value={tags} onChange={e => setTags(e.target.value)}/>
                 </label><br/>
                 <Button type="submit">Apply Changes</Button>
                 <Button onClick={props.handleClose}>Cancel</Button>

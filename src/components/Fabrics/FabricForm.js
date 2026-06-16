@@ -38,26 +38,26 @@ const FabricForm = props => {
 
     return (
         <form onSubmit={handleSubmit}>
-        <label>
+        <label htmlFor="new-fabric-length">
         Length:
-        <input type="text" placeholder="Length" id="length" value={length} onChange={e => setLength(e.target.value)} required/>
+        <input type="text" placeholder="Length" id="new-fabric-length" value={length} onChange={e => setLength(e.target.value)} required/>
         </label>
 
-        <label id="main_color">
+        <label htmlFor="new-fabric-main-color">
         Main Color:
-        <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="main_color" className='dropdown' required>
+        <select value={main_color} onChange={e => setMain_Color(e.target.value)} id="new-fabric-main-color" className='dropdown' required>
         {colors.map((color, i) => {
             return <option key = {i} value={color}>{color}</option>
         })}
         </select>
         </label>
-        <label>
+        <label htmlFor="new-fabric-tags">
         Tags:
-        <input type="text" placeholder="Tags" id="tags" value={tags} onChange={e => setTags(e.target.value)}/>
+        <input type="text" placeholder="Tags" id="new-fabric-tags" value={tags} onChange={e => setTags(e.target.value)}/>
         </label>
-        <label id="picture">
+        <label htmlFor="new-fabric-picture">
         Picture:
-        <input type="text" placeholder='Picture URL' id="picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
+        <input type="text" placeholder='Picture URL' id="new-fabric-picture" value={picture} onChange={e => setPicture(e.target.value)} required/>
         </label>
         <Button type="submit">Add to Fabric Stash</Button>
         <Button onClick={props.handleClose}>Cancel</Button>
