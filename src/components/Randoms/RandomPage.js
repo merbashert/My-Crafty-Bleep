@@ -72,7 +72,7 @@ const RandomPage = props => {
         })
         .filter(random => String(random.name).toLowerCase().includes(normalizedRandomFilter))
         .filter(random => {
-            return boxNumberFilter === '' || random.box_number === boxNumberFilter
+            return boxNumberFilter === '' || String(random.box_number) === String(boxNumberFilter)
         })
     }, [randoms, randomFilter, boxNumberFilter])
     
