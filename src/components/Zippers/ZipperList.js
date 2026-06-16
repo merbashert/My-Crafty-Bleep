@@ -5,7 +5,7 @@ import { apiDelete } from '../../api'
 const ZipperList = (props) => {
     const visibleZippers = useMemo(() => {
         return props.zippers.filter(zipper=>{
-            return zipper.size === props.zipperSize
+            return String(zipper.size) === String(props.zipperSize)
         })
     }, [props.zippers, props.zipperSize])
 
